@@ -1,0 +1,6 @@
+*.pyc
+tool.py
+#environment variables
+.env
+.idea/*
+wos2vivo.egg-info/*
