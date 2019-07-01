@@ -1,2 +1,4 @@
+import tablesetupscript
+import authorinitialization
 import UTDallas.webcrawlerutdallas
-
+import GoogleScholar.storeprofessorsandpublicationsfromfiles

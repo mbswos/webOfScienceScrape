@@ -4,8 +4,8 @@ import dbstorer
 from nameparser import HumanName
 
 def get_name_and_affiliation(author_td):
-	author_td.split(' - <b>')
-	return author_td[0], author_td[:-4]
+	author = author_td.split(' - <b>')
+	return author[0], author[1][:-4]
 
 storer = dbstorer.DBStorer()
 storer.connect()
@@ -56,25 +56,22 @@ for row in rows:
 	authors = tds[2].split('<br/>')[:-1]
 	year = tds[3]
 	volume = tds[4]
-	print()
-	print('Journal: ' + str(journal))
-	print('Title: ' + str(title))
-	print('Authors: ' + str(authors))
-	print('Year: ' + str(year))
-	print('Volume: ' + str(volume))
+
 	publication_db_id = storer.get_publication_db_id(title, journal, year)
-	if publication_db_id:
+	if not publication_db_id == None:
 		for author in authors:
 			author_name_raw, affiliation = get_name_and_affiliation(author)
 			author_name = HumanName(author_name_raw)
-			storer.update_other_author_db_id_by_name(author_name, publication_db_id, affiliation)
+
+			storer.update_other_author_db_id_by_name(str(author_name), publication_db_id, affiliation)
 	else:
-		publication_db_id = storer.storer_publication(journal, title, year, volume)
+		publication_db_id = storer.store_publication(journal, title, year, volume)
 		for author in authors:
 			author_name_raw, affiliation = get_name_and_affiliation(author)
 			author_name = HumanName(author_name_raw)
+
 			storer.store_other_author(author_name, publication_db_id, affiliation=affiliation)
-			professor_db_id = storer.get_professor_db_id_by_name(author_name)
+			professor_db_id = storer.get_professor_db_id_by_name(str(author_name))
 			if professor_db_id:
 				storer.store_author_and_publication(professor_db_id, publication_db_id)
 	storer.store_utdallas_publication(publication_db_id)

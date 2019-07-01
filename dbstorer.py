@@ -24,22 +24,26 @@ class DBStorer:
 		self.dbconnection.disconnect()
 
 	def store_prof_google_scholar(self, professor):
-		name = HumanName(professor.name)
+		name = HumanName(professor['name'])
 		columns = {}
 		
-		columns['affiliation'] = professor.affiliation
-		columns['citedby'] = professor.citedby
-		columns['citedby5y'] = professor.citedby5y
-		columns['email'] = professor.email
-		columns['hindex'] = professor.hindex
-		columns['hindex5y'] = professor.hindex5y
-		columns['i10index'] = professor.i10index
-		columns['i10index5y'] = professor.i10index5y
-		columns['google_id'] = professor.id
-		columns['url_picture'] = professor.url_picture
+		columns['affiliation'] = professor['affiliation']
+		columns['citedby'] = professor['citedby']
+		columns['citedby5y'] = professor['citedby5y']
+		columns['email'] = professor['email']
+		columns['hindex'] = professor['hindex']
+		columns['hindex5y'] = professor['hindex5y']
+		columns['i10index'] = professor['i10index']
+		columns['i10index5y'] = professor['i10index5y']
+		columns['google_id'] = professor['id']
+		columns['url_picture'] = professor['url_picture']
 
-		professor_db_id = self.store_author(name)
-		self.store_cites_per_year_google_scholar(professor.cites_per_year, professor_db_id)
+		professor_db_id = self.get_professor_db_id_by_name(professor['name'])
+		if professor_db_id == None:
+			print(professor)
+		columns['author_id'] = professor_db_id
+
+		self.store_cites_per_year_google_scholar(professor['cites_per_year'], professor_db_id)
 		google_author_db_id = self.__store_into_db('GOOGLE_SCHOLAR_AUTHOR_INFO', columns)
 		return professor_db_id, google_author_db_id
 
@@ -52,34 +56,37 @@ class DBStorer:
 			columns['citations'] = cite_per_year[1]
 			store_cites_per_year_db_id = self.__store_into_db('GOOGLE_SCHOLAR_CITES_PER_YEAR', columns)
 
+	#currently only stores the google scholar if a publication already exists
 	def store_publication_google_scholar(self, publication, professor_id):
 		author_id = professor_id
 		columns = {}
-		title = publication.bib['title'] if 'title' in publication.bib else ''
-		year = publication.bib['year'] if 'year' in publication.bib else 0
-		journal = publication.bib['journal'] if 'journal' in publication.bib else ''
-		volume = publication.bib['volume'] if 'volume' in publication.bib else ''
+		title = publication['bib']['title'] if 'title' in publication['bib'] else ''
+		year = publication['bib']['year'] if 'year' in publication['bib'] else 0
+		journal = publication['bib']['journal'] if 'journal' in publication['bib'] else ''
+		volume = publication['bib']['volume'] if 'volume' in publication['bib'] else ''
 		
-		columns['abstract'] = str(publication.bib['abstract']) if 'abstract' in publication.bib else ''
-		columns['eprint'] = publication.bib['eprint'] if 'eprint' in publication.bib else ''
-		columns['pages'] = publication.bib['pages'] if 'pages' in publication.bib else ''
-		columns['publisher'] = publication.bib['publisher'] if 'publisher' in publication.bib else ''
-		columns['url'] = publication.bib['url'] if 'url' in publication.bib else ''
+		columns['abstract'] = str(publication['bib']['abstract']) if 'abstract' in publication['bib'] else ''
+		columns['eprint'] = publication['bib']['eprint'] if 'eprint' in publication['bib'] else ''
+		columns['pages'] = publication['bib']['pages'] if 'pages' in publication['bib'] else ''
+		columns['publisher'] = publication['bib']['publisher'] if 'publisher' in publication['bib'] else ''
+		columns['url'] = publication['bib']['url'] if 'url' in publication['bib'] else ''
 		columns['id_scholarcitedby'] = publication.id_scholarcitedby if hasattr(publication, 'id_scholarcitedby') else ''
 		columns['citedby'] = publication.citedby if hasattr(publication, 'citedby') else 0
 		columns['id_citations'] = publication.id_citations if hasattr(publication, 'id_citations') else ''
 
-		publication_db_id = self.store_publication('PUBLICATIONS', journal, title, year, volume)
+		publication_db_id = self.get_publication_db_id(title, journal, year)
+		if publication_db_id:
+			columns['publication_id'] = publication_db_id
 
-		if 'author' in publication.bib:
-			other_authors = publication.bib['author'].split(' and ')
-			for oa in other_authors:
-				name = HumanName(oa)
-				self.store_other_author(name, publication_db_id)			
+			if 'author' in publication['bib']:
+				other_authors = publication['bib']['author'].split(' and ')
+				for oa in other_authors:
+					name = HumanName(oa)
+					self.store_other_author(name, publication_db_id)			
 
-		self.store_author_and_publication(author_id, publication_db_id)
-		google_publication_db_id = self.__store_into_db('GOOGLE_SCHOLAR_PUBLICATION_INFO', columns)
-		return publication_db_id, google_publication_db_id
+			self.store_author_and_publication(author_id, publication_db_id)
+			google_publication_db_id = self.__store_into_db('GOOGLE_SCHOLAR_PUBLICATION_INFO', columns)
+			return publication_db_id, google_publication_db_id
 
 	def store_author_and_publication(self, author_id, publication_id):
 		columns = {}
@@ -101,7 +108,7 @@ class DBStorer:
 
 	def store_other_author(self, professor_name_object, publication_db_id, affiliation = ''):
 		columns = {}
-		columns['title'] = professor_name_object.title
+		columns['title'] = professor_name_object.title 
 		columns['first_name'] = professor_name_object.first
 		columns['middle_name'] = professor_name_object.middle
 		columns['last_name'] = professor_name_object.last
@@ -131,7 +138,7 @@ class DBStorer:
 	# Returns the db_id of what was last inserted
 	# Stores a dictionary of columns and values into a table (stores entry)
 	def __store_into_db(self, table_name, dictionary):
-		if not re.match('^[a-z,A-Z,_]+$', table_name) is None:
+		if not re.match('^[a-z,A-Z,_,1-9,0]+$', table_name) is None:
 			sql_insert = """INSERT INTO """ + table_name
 			sql_values = """ VALUES """
 			sql_names = """("""
@@ -140,7 +147,7 @@ class DBStorer:
 			values_list = []
 			values = []
 			for key, value in dictionary.items():
-				if not re.match('^[a-z,A-Z,_]+$', key) is None:
+				if not re.match('^[a-z,A-Z,_,1-9,0]+$', key) is None:
 					sql_names += key + ""","""
 					sql_params += """%s,"""
 					values.append(value)
@@ -159,7 +166,9 @@ class DBStorer:
 				return db_id
 			except Exception as e:
 				if e.args[0] == 1062:
-					print('Duplicate entry')
+					trap = 1
+					# print(e)
+					# print('Duplicate entry: ' + table_name + ' - ' + str(dictionary))
 				else:
 					file.write(table_name + ': ' + str(dictionary) + '\n')
 					traceback.print_exc()
@@ -170,38 +179,35 @@ class DBStorer:
 	def get_professor_db_id(self, professor_id):
 		# Read the professor's id
 		sql = "SELECT `AUTHOR_ID` FROM `AUTHORS` WHERE `GOOGLE_ID`=%s"
-		try:
-			self.cursor.execute(sql, (professor_id))
-			professor_db_id = self.cursor.fetchone()
-			return professor_db_id[0]
-		except Exception as e:
-			print('Got error {!r}, errno is {}'.format(e, e.args[0]))
+		self.cursor.execute(sql, (professor_id))
+		professor_db_id = self.cursor.fetchone()
+		if professor_db_id == None:
+			return professor_db_id
+		return professor_db_id[0]
 
 	def get_professor_db_id_by_name(self, professor_name):
-		name = HumanName(professor.name)
+		name = HumanName(professor_name)
 		sql = """SELECT `AUTHOR_ID` FROM `AUTHORS` 
 				 WHERE `FIRST_NAME`=%s AND `LAST_NAME`=%s"""
-		try:
-			self.cursor.execute(sql, (name.first, name.last))
-			publication_db_id = self.cursor.fetchone()
-			return publication_db_id[0]
-		except Exception as e:
-			print('Got error {!r}, errno is {}'.format(e, e.args[0]))
+		self.cursor.execute(sql, (name.first, name.last))
+		professor_db_id = self.cursor.fetchone()
+		if professor_db_id == None:
+			return professor_db_id
+		return professor_db_id[0]
 
 	# This gets the publication db id by the article's title, journal, and year
 	def get_publication_db_id(self, publication_title, publication_journal, publication_year):
 		# Read the publication's id
 		sql = """SELECT `PUBLICATION_ID` FROM `PUBLICATIONS` 
 				 WHERE `TITLE`=%s AND `JOURNAL`=%s AND `YEAR`=%s"""
-		try:
-			self.cursor.execute(sql, (publication_title, publication_journal, publication_year))
-			publication_db_id = self.cursor.fetchone()
-			return publication_db_id[0]
-		except Exception as e:
-			print('Got error {!r}, errno is {}'.format(e, e.args[0]))
+		self.cursor.execute(sql, (publication_title, publication_journal, publication_year))
+		publication_db_id = self.cursor.fetchone()
+		if publication_db_id == None:
+			return publication_db_id
+		return publication_db_id[0]
 
 	def update_other_author_db_id_by_name(self, professor_name, publication_db_id, affiliation):
-		name = HumanName(professor.name)
+		name = HumanName(professor_name)
 		sql = """UPDATE `OTHER_AUTHORS` SET `AFFILIATION`=%s
 				 WHERE `FIRST_NAME`=%s AND `LAST_NAME`=%s"""
 		try:
