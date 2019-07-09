@@ -21,17 +21,20 @@ def store_publications_list(publications_list, prof_db_id, storer):
 		pub_title = publication['bib']['title']
 		pub_journal = publication['bib']['journal'] if 'journal' in publication['bib'] else ''
 		pub_year = publication['bib']['year'] if 'year' in publication['bib'] else ''
+		pub_year = publication['bib']['volume'] if 'volume' in publication['volume'] else ''
+		pub_db_id = get_publication_db_id(pub_title, pub_journal, pub_year)
+		if not pub_db_id:
+			pub_db_id = storer.store_publication(pub_title, pub_journal, pub_year, pub_volume)
+			storer.store_author_and_publication(prof_db_id, pub_db_id)
 		db_ids = storer.store_publication_google_scholar(publication, prof_db_id)
 		if db_ids:
 			pub_db_id, google_pub_db_id = db_ids
 
-#test_dict = ast.literal_eval(f.read())
-#print(test_dict)
 professors_list = ast.literal_eval(f.read())
 files = []
-# r=root, d=directories, f = files
-for filepath, d, fg in os.walk(path):
-    for file_name in fg:
+
+for filepath, d, file_names in os.walk(path):
+    for file_name in file_names:
         if '.txt' in file_name and not file_name == 'Professors.txt' and not file_name == 'NotReadProfessors.txt':
             files.append((filepath,file_name))
 

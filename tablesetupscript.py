@@ -17,6 +17,18 @@ authors_table_sql = """CREATE TABLE AUTHORS (
 	PRIMARY KEY (AUTHOR_ID),
 	UNIQUE KEY(FIRST_NAME, LAST_NAME))"""
 
+# Not yet implemented
+authors_orcid_table_sql = """CREATE TABLE AUTHOR_ORCIDS (
+	AUTHOR_ID INT NOT NULL,
+	ORCID VARCHAR(20),
+	ORCID_INFO_DUMP MEDIUMTEXT,
+	PRIMARY KEY (ORCID),
+	UNIQUE KEY(AUTHOR_ID),
+	FOREIGN KEY (AUTHOR_ID)
+	REFERENCES AUTHORS(AUTHOR_ID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE)"""
+
 other_authors_table_sql = """CREATE TABLE OTHER_AUTHORS (
 	OTHER_AUTHOR_ID INT NOT NULL AUTO_INCREMENT,
 	PUBLICATION_ID INT NOT NULL,
@@ -42,6 +54,15 @@ publications_table_sql = """CREATE TABLE PUBLICATIONS (
 	VOLUME VARCHAR(10),
 	PRIMARY KEY (PUBLICATION_ID),
 	UNIQUE KEY(TITLE, JOURNAL, YEAR))"""
+
+# Not yet implemented
+publications_validated_by_cv_table_sql = """CREATE TABLE PUBLICATIONS_VALIDATED_BY_CV (
+	PUBLICATION_ID INT NOT NULL,
+	PRIMARY KEY (PUBLICATION_ID),
+	FOREIGN KEY (PUBLICATION_ID)
+	REFERENCES PUBLICATIONS(PUBLICATION_ID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE)""" 
 
 authors_and_publications_table_sql = """CREATE TABLE AUTHORS_AND_PUBLICATIONS (
 	AUTHOR_ID INT NOT NULL,
@@ -112,6 +133,7 @@ utdallas_publications_table_sql = """CREATE TABLE UTDALLAS_PUBLICATIONS (
 cursor.execute(authors_table_sql)
 cursor.execute(publications_table_sql)
 cursor.execute(other_authors_table_sql)
+cursor.execute(authors_orcid_table_sql)
 cursor.execute(authors_and_publications_table_sql)
 cursor.execute(google_scholar_author_info_table_sql)
 cursor.execute(google_scholar_cites_per_year_table_sql)

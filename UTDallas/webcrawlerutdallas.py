@@ -65,7 +65,7 @@ for row in rows:
 
 			storer.update_other_author_db_id_by_name(str(author_name), publication_db_id, affiliation)
 	else:
-		publication_db_id = storer.store_publication(journal, title, year, volume)
+		publication_db_id = storer.store_publication(title, journal, year, volume)
 		for author in authors:
 			author_name_raw, affiliation = get_name_and_affiliation(author)
 			author_name = HumanName(author_name_raw)

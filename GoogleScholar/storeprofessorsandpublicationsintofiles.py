@@ -1,15 +1,26 @@
 import scholarly
 import codecs
 import csv
-import storeprofessor
 import traceback
 import ast
+from nameparser import HumanName
+from os import path
+
+def filealreadycreated(professor_name):
+	profstripped = "-".join(professor_name.split())
+	file_name = profstripped.replace(',','')
+	file_name = file_name.replace('.','')
+	file_path = 'textfiles/professors/' + file_name + '.txt'
+	return path.exists(file_path)
 
 def getprofessorlist():
 	unread_professors = open('textfiles/professors/NotReadProfessors.txt', 'r')
 	professors_to_read = []
 	for line in unread_professors:
-		professors_to_read.append(line.strip())
+		raw_name = line.strip()
+		humanized_name = HumanName(raw_name[1:len(raw_name)-1])
+		query_name = '"' + humanized_name.last + ', ' + humanized_name.first + '"'
+		professors_to_read.append(query_name)
 	unread_professors.close()
 	return professors_to_read
 
@@ -47,7 +58,6 @@ def storeprofessor(professor):
 		coauthors.append(co.name)
 	professor.coauthors = coauthors
 	professor.publications = []
-	fileprof.write(str(professor) + ',\n')
 
 	prof_file.write(str(all_publications))
 	prof_file.close()
@@ -81,7 +91,10 @@ try:
 			search_query = scholarly.search_author(search_string)
 			for prof in search_query:
 				professor = prof.fill()
-				storeprofessor(professor)
+				fileprof.write(str(professor) + ',\n')
+
+				if not filealreadycreated(prof.name):
+					storeprofessor(professor)
 
 		# If we fail, store that list of 11 professors in a file
 		except:

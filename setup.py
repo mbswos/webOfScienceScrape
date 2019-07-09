@@ -2,3 +2,5 @@ import tablesetupscript
 import authorinitialization
 import UTDallas.webcrawlerutdallas
 import GoogleScholar.storeprofessorsandpublicationsfromfiles
+import checkgooglewithhtml
+import ORCID.readorcidcsv

@@ -56,7 +56,8 @@ class DBStorer:
 			columns['citations'] = cite_per_year[1]
 			store_cites_per_year_db_id = self.__store_into_db('GOOGLE_SCHOLAR_CITES_PER_YEAR', columns)
 
-	#currently only stores the google scholar if a publication already exists
+	# Should only store publications that exist in the db
+	# Handles storing the author and publication link
 	def store_publication_google_scholar(self, publication, professor_id):
 		author_id = professor_id
 		columns = {}
@@ -119,10 +120,10 @@ class DBStorer:
 		other_professor_db_id = self.__store_into_db('OTHER_AUTHORS', columns)
 		return other_professor_db_id
 
-	def store_publication(self, journal, title, year, volume):
+	def store_publication(self, title, journal, year, volume):
 		columns = {}
-		columns['journal'] = journal
 		columns['title'] = title
+		columns['journal'] = journal
 		columns['year'] = year
 		columns['volume'] = volume
 		publication_db_id = self.__store_into_db('PUBLICATIONS', columns)
@@ -133,6 +134,14 @@ class DBStorer:
 		columns['publication_id'] = publication_db_id
 
 		self.__store_into_db('UTDALLAS_PUBLICATIONS', columns)
+
+	def store_author_orcid(self, professor_db_id, orcid, orcid_info):
+		columns = {}
+		columns['author_id'] = professor_db_id
+		columns['orcid'] = orcid
+		columns['orcid_info_dump'] = orcid_info
+
+		self.__store_into_db('AUTHOR_ORCIDS', columns)
 
 	# The dictionary needs to be in the format {column_name : value} to insert the value properly into the db
 	# Returns the db_id of what was last inserted
