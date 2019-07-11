@@ -2,12 +2,13 @@ import ast
 import codecs
 import os
 from nameparser import HumanName
-import dbstorer
+import dbconnection
 
 path = 'GoogleScholar/textfiles/professors'
-f = codecs.open('GoogleScholar/textfiles/professors/Professors.txt', 'r')
-storer = dbstorer.DBStorer()
-storer.connect()
+f = codecs.open('GoogleScholar/textfiles/Professors.txt', 'r')
+connection = dbconnection.DBConnection()
+storer = connection.storer
+querier = connection.querier
 
 #assumes .txt is at the end
 def parse_name_from_file_name(file_name):
@@ -22,7 +23,7 @@ def store_publications_list(publications_list, prof_db_id, storer):
 		pub_journal = publication['bib']['journal'] if 'journal' in publication['bib'] else ''
 		pub_year = publication['bib']['year'] if 'year' in publication['bib'] else ''
 		pub_year = publication['bib']['volume'] if 'volume' in publication['volume'] else ''
-		pub_db_id = get_publication_db_id(pub_title, pub_journal, pub_year)
+		pub_db_id = querier.get_publication_db_id(pub_title, pub_journal, pub_year)
 		if not pub_db_id:
 			pub_db_id = storer.store_publication(pub_title, pub_journal, pub_year, pub_volume)
 			storer.store_author_and_publication(prof_db_id, pub_db_id)
@@ -51,7 +52,7 @@ for filepath, file_name in files:
 	publications_list = ast.literal_eval(professor_file.read())
 	store_publications_list(publications_list, professor_db_id, storer)
 
-storer.commit()
-storer.disconnect()
+connection.commit()
+connection.disconnect()
 f.close()
 

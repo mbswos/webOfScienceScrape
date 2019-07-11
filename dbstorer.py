@@ -9,19 +9,9 @@ from nameparser import HumanName
 file = codecs.open('UnstoredEntries.txt', 'w+', 'utf-8')
 
 class DBStorer:
-	def __init__(self):
-		self.dbconnection = dbconnection.DBConnection()
+	def __init__(self, dbconnection):
+		self.dbconnection = dbconnection
 		print('dbstorer created')
-
-	# Save function - has to be executed to actually save what was "stored"
-	def commit(self):
-		self.dbconnection.commit()
-
-	def connect(self):
-		self.cursor = self.dbconnection.connect()
-
-	def disconnect(self):
-		self.dbconnection.disconnect()
 
 	def store_prof_google_scholar(self, professor):
 		name = HumanName(professor['name'])
@@ -38,7 +28,7 @@ class DBStorer:
 		columns['google_id'] = professor['id']
 		columns['url_picture'] = professor['url_picture']
 
-		professor_db_id = self.get_professor_db_id_by_name(professor['name'])
+		professor_db_id = self.dbconnection.querier.get_professor_db_id_by_name(professor['name'])
 		if professor_db_id == None:
 			print(professor)
 		columns['author_id'] = professor_db_id
@@ -75,7 +65,7 @@ class DBStorer:
 		columns['citedby'] = publication.citedby if hasattr(publication, 'citedby') else 0
 		columns['id_citations'] = publication.id_citations if hasattr(publication, 'id_citations') else ''
 
-		publication_db_id = self.get_publication_db_id(title, journal, year)
+		publication_db_id = self.connection.querier.get_publication_db_id(title, journal, year)
 		if publication_db_id:
 			columns['publication_id'] = publication_db_id
 
@@ -143,6 +133,33 @@ class DBStorer:
 
 		self.__store_into_db('AUTHOR_ORCIDS', columns)
 
+	def store_author_html_cv(self, professor_db_id, html):
+		columns = {}
+		columns['author_id'] = professor_db_id
+		columns['html_cv_text'] = html
+
+		self.__store_into_db('AUTHOR_HTML_CVS', columns)
+
+	def store_journal(self, journal_name):
+		columns = {}
+		columns['journal_name'] = journal_name
+		journal_db_id = self.__store_into_db('JOURNALS', columns)
+		return journal_db_id
+
+	def store_journal_utdallas(self, journal_db_id, data_collection_start_year, journal_url):
+		columns = {}
+		columns['journal_id'] = journal_db_id
+		columns['data_collection_start_year'] = data_collection_start_year
+		columns['journal_url'] = journal_url
+		self.__store_into_db('UTDALLAS_JOURNALS', columns)
+
+	def store_journal_financial_times_top_50(self, journal_db_id, journal_rank):
+		columns = {}
+		columns['journal_id'] = journal_db_id
+		columns['journal_rank'] = journal_rank
+		self.__store_into_db('FINANCIAL_TIMES_TOP_50_JOURNALS', columns)
+
+
 	# The dictionary needs to be in the format {column_name : value} to insert the value properly into the db
 	# Returns the db_id of what was last inserted
 	# Stores a dictionary of columns and values into a table (stores entry)
@@ -183,37 +200,6 @@ class DBStorer:
 					traceback.print_exc()
 		else:
 			print('Table name is wrong: ' + table_name)
-
-	# This gets the professor db id by Google ID
-	def get_professor_db_id(self, professor_id):
-		# Read the professor's id
-		sql = "SELECT `AUTHOR_ID` FROM `AUTHORS` WHERE `GOOGLE_ID`=%s"
-		self.cursor.execute(sql, (professor_id))
-		professor_db_id = self.cursor.fetchone()
-		if professor_db_id == None:
-			return professor_db_id
-		return professor_db_id[0]
-
-	def get_professor_db_id_by_name(self, professor_name):
-		name = HumanName(professor_name)
-		sql = """SELECT `AUTHOR_ID` FROM `AUTHORS` 
-				 WHERE `FIRST_NAME`=%s AND `LAST_NAME`=%s"""
-		self.cursor.execute(sql, (name.first, name.last))
-		professor_db_id = self.cursor.fetchone()
-		if professor_db_id == None:
-			return professor_db_id
-		return professor_db_id[0]
-
-	# This gets the publication db id by the article's title, journal, and year
-	def get_publication_db_id(self, publication_title, publication_journal, publication_year):
-		# Read the publication's id
-		sql = """SELECT `PUBLICATION_ID` FROM `PUBLICATIONS` 
-				 WHERE `TITLE`=%s AND `JOURNAL`=%s AND `YEAR`=%s"""
-		self.cursor.execute(sql, (publication_title, publication_journal, publication_year))
-		publication_db_id = self.cursor.fetchone()
-		if publication_db_id == None:
-			return publication_db_id
-		return publication_db_id[0]
 
 	def update_other_author_db_id_by_name(self, professor_name, publication_db_id, affiliation):
 		name = HumanName(professor_name)

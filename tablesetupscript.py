@@ -17,13 +17,22 @@ authors_table_sql = """CREATE TABLE AUTHORS (
 	PRIMARY KEY (AUTHOR_ID),
 	UNIQUE KEY(FIRST_NAME, LAST_NAME))"""
 
-# Not yet implemented
 authors_orcid_table_sql = """CREATE TABLE AUTHOR_ORCIDS (
 	AUTHOR_ID INT NOT NULL,
 	ORCID VARCHAR(20),
 	ORCID_INFO_DUMP MEDIUMTEXT,
 	PRIMARY KEY (ORCID),
 	UNIQUE KEY(AUTHOR_ID),
+	FOREIGN KEY (AUTHOR_ID)
+	REFERENCES AUTHORS(AUTHOR_ID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE)"""
+
+authors_html_cvs_table_sql = """CREATE TABLE AUTHOR_HTML_CVS (
+	HTML_CV_ID INT NOT NULL AUTO_INCREMENT,
+	AUTHOR_ID INT NOT NULL,
+	HTML_CV_TEXT MEDIUMTEXT,
+	PRIMARY KEY (HTML_CV_ID),
 	FOREIGN KEY (AUTHOR_ID)
 	REFERENCES AUTHORS(AUTHOR_ID)
 	ON DELETE CASCADE
@@ -55,7 +64,13 @@ publications_table_sql = """CREATE TABLE PUBLICATIONS (
 	PRIMARY KEY (PUBLICATION_ID),
 	UNIQUE KEY(TITLE, JOURNAL, YEAR))"""
 
-# Not yet implemented
+journals_table_sql = """CREATE TABLE JOURNALS (
+	JOURNAL_ID INT NOT NULL AUTO_INCREMENT,
+	JOURNAL_NAME VARCHAR(200) NOT NULL,
+	PRIMARY KEY (JOURNAL_ID),
+	UNIQUE KEY(JOURNAL_NAME))"""
+
+# Not yet implemented might not need to be implemented
 publications_validated_by_cv_table_sql = """CREATE TABLE PUBLICATIONS_VALIDATED_BY_CV (
 	PUBLICATION_ID INT NOT NULL,
 	PRIMARY KEY (PUBLICATION_ID),
@@ -129,15 +144,38 @@ utdallas_publications_table_sql = """CREATE TABLE UTDALLAS_PUBLICATIONS (
 	ON DELETE CASCADE
 	ON UPDATE CASCADE)""" 
 
+utdallas_journals_table_sql = """CREATE TABLE UTDALLAS_JOURNALS (
+	JOURNAL_ID INT NOT NULL,
+	DATA_COLLECTION_START_YEAR INT,
+	JOURNAL_URL VARCHAR(2047),
+	PRIMARY KEY (JOURNAL_ID),
+	FOREIGN KEY (JOURNAL_ID)
+	REFERENCES JOURNALS(JOURNAL_ID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE)"""
+
+financial_times_top_50_journals_table_sql = """CREATE TABLE FINANCIAL_TIMES_TOP_50_JOURNALS (
+	JOURNAL_ID INT NOT NULL,
+	JOURNAL_RANK INT,
+	PRIMARY KEY (JOURNAL_ID),
+	FOREIGN KEY (JOURNAL_ID)
+	REFERENCES JOURNALS(JOURNAL_ID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE)"""
+
 # Order is important
 cursor.execute(authors_table_sql)
 cursor.execute(publications_table_sql)
+cursor.execute(journals_table_sql)
 cursor.execute(other_authors_table_sql)
 cursor.execute(authors_orcid_table_sql)
+cursor.execute(authors_html_cvs_table_sql)
 cursor.execute(authors_and_publications_table_sql)
 cursor.execute(google_scholar_author_info_table_sql)
 cursor.execute(google_scholar_cites_per_year_table_sql)
 cursor.execute(google_scholar_publication_info_table_sql)
 cursor.execute(utdallas_publications_table_sql)
+cursor.execute(utdallas_journals_table_sql)
+cursor.execute(financial_times_top_50_journals_table_sql)
 # disconnect from server
 connection.disconnect()

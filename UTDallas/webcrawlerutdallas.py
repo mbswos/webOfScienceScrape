@@ -1,14 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
-import dbstorer
+import dbconnection
 from nameparser import HumanName
 
 def get_name_and_affiliation(author_td):
 	author = author_td.split(' - <b>')
 	return author[0], author[1][:-4]
 
-storer = dbstorer.DBStorer()
-storer.connect()
+connection = dbconnection.DBConnection()
+storer = connection.storer
+querier = connection.querier
 
 post_url = 'https://jindal.utdallas.edu/the-utd-top-100-business-school-research-rankings/application/functions.php'
 
@@ -57,8 +58,8 @@ for row in rows:
 	year = tds[3]
 	volume = tds[4]
 
-	publication_db_id = storer.get_publication_db_id(title, journal, year)
-	if not publication_db_id == None:
+	publication_db_id = querier.get_publication_db_id(title, journal, year)
+	if publication_db_id:
 		for author in authors:
 			author_name_raw, affiliation = get_name_and_affiliation(author)
 			author_name = HumanName(author_name_raw)
@@ -71,12 +72,13 @@ for row in rows:
 			author_name = HumanName(author_name_raw)
 
 			storer.store_other_author(author_name, publication_db_id, affiliation=affiliation)
-			professor_db_id = storer.get_professor_db_id_by_name(str(author_name))
+			professor_db_id = querier.get_professor_db_id_by_name(str(author_name))
 			if professor_db_id:
 				storer.store_author_and_publication(professor_db_id, publication_db_id)
 	storer.store_utdallas_publication(publication_db_id)
-storer.commit()
-storer.disconnect()
+
+connection.commit()
+connection.disconnect()
 # Find the publication 
 # If found update authors?
 # If not make a new one

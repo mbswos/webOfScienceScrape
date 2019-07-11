@@ -1,11 +1,11 @@
 import csv
 import ORCID.getorcidworks as gow
-import dbstorer
+import dbconnection
 
 #run from webOfScienceScrape
-
-storer = dbstorer.DBStorer()
-storer.connect()
+connection = dbconnection.DBConnection()
+storer = connection.storer
+querier = connection.querier
 
 csv_file = open('ORCID/ORCID.csv', mode='r')
 csv_reader = csv.DictReader(csv_file)
@@ -15,7 +15,7 @@ for row in csv_reader:
 		orcid = row['ORCID']
 		professor_name = row['First Name'] + ' ' + row['Last Name']
 		orcid_data = gow.getorcidinfo(orcid)
-		professor_db_id = storer.get_professor_db_id_by_name(professor_name)
+		professor_db_id = querier.get_professor_db_id_by_name(professor_name)
 		
 		if professor_db_id:
 			print(professor_db_id)
@@ -24,6 +24,6 @@ for row in csv_reader:
 			print(professor_name)
 		count+=1
 
-# storer.commit()
-storer.disconnect()
+connection.commit()
+connection.disconnect()
 print(count)

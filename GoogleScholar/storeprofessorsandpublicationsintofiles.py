@@ -14,7 +14,7 @@ def filealreadycreated(professor_name):
 	return path.exists(file_path)
 
 def getprofessorlist():
-	unread_professors = open('textfiles/professors/NotReadProfessors.txt', 'r')
+	unread_professors = open('textfiles/NotReadProfessors.txt', 'r')
 	professors_to_read = []
 	for line in unread_professors:
 		raw_name = line.strip()
@@ -39,19 +39,22 @@ def storeprofessor(professor):
 	profstripped = "-".join(professor.name.split())
 	file_name = profstripped.replace(',','')
 	file_name = file_name.replace('.','')
-	prof_file = codecs.open('textfiles/professors/' + file_name + '.txt', 'w+', 'utf-8')
-	all_publications = []
-	for publication in professor.publications:
-		try:
-			print(publication.bib['title'])
-			pub = publication.fill()
-			if 'abstract' in pub.bib:
-				pub.bib['abstract'] = str(pub.bib['abstract'])
-			all_publications.append(ast.literal_eval(str(pub)))
-		except:
-			if 'abstract' in pub.bib:
-				pub.bib['abstract'] = str(pub.bib['abstract'])
-			all_publications.append(ast.literal_eval(str(publication)))
+
+	if not filealreadycreated(professor.name):
+		prof_file = codecs.open('textfiles/professors/' + file_name + '.txt', 'w+', 'utf-8')
+
+		all_publications = []
+		for publication in professor.publications:
+			try:
+				print(publication.bib['title'])
+				pub = publication.fill()
+				if 'abstract' in pub.bib:
+					pub.bib['abstract'] = str(pub.bib['abstract'])
+				all_publications.append(ast.literal_eval(str(pub)))
+			except:
+				if 'abstract' in pub.bib:
+					pub.bib['abstract'] = str(pub.bib['abstract'])
+				all_publications.append(ast.literal_eval(str(publication)))
 
 	coauthors = []
 	for co in professor.coauthors:
@@ -59,16 +62,18 @@ def storeprofessor(professor):
 	professor.coauthors = coauthors
 	professor.publications = []
 
-	prof_file.write(str(all_publications))
-	prof_file.close()
+	fileprof.write(str(professor) + ',\n')
+	if not filealreadycreated(professor.name):
+		prof_file.write(str(all_publications))
+		prof_file.close()
 
 # Get a list of unread professors and prep the file to read
 # Must be done in this order because we first read from the
 # 	same file before writing to it
 professors_to_store = getprofessorlist()
-file = codecs.open('textfiles/professors/NotReadProfessors.txt', 'w+', 'utf-8')
+file = codecs.open('textfiles/NotReadProfessors.txt', 'w+', 'utf-8')
 filenotreadpubs = codecs.open('textfiles/NotReadPublications.txt', 'w+', 'utf-8')
-fileprof = codecs.open('textfiles/professors/Professors.txt', 'w+', 'utf-8')
+fileprof = codecs.open('textfiles/Professors.txt', 'w+', 'utf-8')
 fileprof.write('[')
 
 # Store all the professors in the files
@@ -91,10 +96,7 @@ try:
 			search_query = scholarly.search_author(search_string)
 			for prof in search_query:
 				professor = prof.fill()
-				fileprof.write(str(professor) + ',\n')
-
-				if not filealreadycreated(prof.name):
-					storeprofessor(professor)
+				storeprofessor(professor)
 
 		# If we fail, store that list of 11 professors in a file
 		except:
