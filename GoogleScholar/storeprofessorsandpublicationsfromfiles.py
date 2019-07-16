@@ -21,13 +21,21 @@ def store_publications_list(publications_list, prof_db_id, storer):
 	for publication in publications_list:
 		pub_title = publication['bib']['title']
 		pub_journal = publication['bib']['journal'] if 'journal' in publication['bib'] else ''
-		pub_year = publication['bib']['year'] if 'year' in publication['bib'] else ''
-		pub_year = publication['bib']['volume'] if 'volume' in publication['volume'] else ''
+		pub_year = publication['bib']['year'] if 'year' in publication['bib'] else 0
+		pub_volume = publication['bib']['volume'] if 'volume' in publication['bib'] else ''
 		pub_db_id = querier.get_publication_db_id(pub_title, pub_journal, pub_year)
+
+		raw_id = storer.store_raw_publication_google_scholar(prof_db_id, str(publication))
 		if not pub_db_id:
 			pub_db_id = storer.store_publication(pub_title, pub_journal, pub_year, pub_volume)
-			storer.store_author_and_publication(prof_db_id, pub_db_id)
+			if pub_db_id:
+				storer.store_author_and_publication(prof_db_id, pub_db_id)
+		
+		if raw_id and pub_db_id:
+			storer.store_raw_and_publication_google_scholar(pub_db_id, raw_id)
+			
 		db_ids = storer.store_publication_google_scholar(publication, prof_db_id)
+
 		if db_ids:
 			pub_db_id, google_pub_db_id = db_ids
 
@@ -43,7 +51,9 @@ for filepath, file_name in files:
 	professor_file_name = str(filepath) + '/' + str(file_name)
 	name_object = parse_name_from_file_name(file_name)
 	for professor in professors_list:
-		if professor['name'] == str(name_object):
+		professor['name'] = professor['name'].replace('.','')
+		prof_name_object = HumanName(professor['name'])
+		if prof_name_object.first == name_object.first and prof_name_object.last == name_object.last:
 			professor_object = professor
 			break
 	professor_db_id, google_professor_db_id = storer.store_prof_google_scholar(professor_object)

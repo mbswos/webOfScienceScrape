@@ -65,7 +65,7 @@ class DBStorer:
 		columns['citedby'] = publication.citedby if hasattr(publication, 'citedby') else 0
 		columns['id_citations'] = publication.id_citations if hasattr(publication, 'id_citations') else ''
 
-		publication_db_id = self.connection.querier.get_publication_db_id(title, journal, year)
+		publication_db_id = self.dbconnection.querier.get_publication_db_id(title, journal, year)
 		if publication_db_id:
 			columns['publication_id'] = publication_db_id
 
@@ -78,6 +78,19 @@ class DBStorer:
 			self.store_author_and_publication(author_id, publication_db_id)
 			google_publication_db_id = self.__store_into_db('GOOGLE_SCHOLAR_PUBLICATION_INFO', columns)
 			return publication_db_id, google_publication_db_id
+
+	def store_raw_publication_google_scholar(self, professor_db_id, raw):
+		columns = {}
+		columns['author_id'] = professor_db_id
+		columns['info_raw'] = raw
+		raw_google_db_id = self.__store_into_db('GOOGLE_SCHOLAR_RAW_PUBLICATION_INFO', columns)
+		return raw_google_db_id
+
+	def store_raw_and_publication_google_scholar(self, publication_db_id, raw_google_db_id):
+		columns = {}
+		columns['publication_id'] = publication_db_id
+		columns['raw_google_scholar_id'] = raw_google_db_id
+		self.__store_into_db('GOOGLE_SCHOLAR_RAWS_AND_PUBLICATIONS', columns)
 
 	def store_author_and_publication(self, author_id, publication_id):
 		columns = {}
@@ -159,6 +172,25 @@ class DBStorer:
 		columns['journal_rank'] = journal_rank
 		self.__store_into_db('FINANCIAL_TIMES_TOP_50_JOURNALS', columns)
 
+	def store_rate_my_professors_professor(self, professor):
+		columns = professor
+		rate_my_professors_professor_db_id = self.__store_into_db('RATE_MY_PROFESSORS_PROFESSORS', columns)
+		return rate_my_professors_professor_db_id
+
+	def store_rate_my_professors_student_rating(self, rating, rate_my_professors_professor_db_id):
+		columns = rating
+		columns['rate_my_professors_professor_id'] = rate_my_professors_professor_db_id
+		teacher_rating_tags = columns.pop('teacherRatingTags', None)
+		rate_my_professors_student_rating_db_id = self.__store_into_db('RATE_MY_PROFESSORS_STUDENT_RATINGS', columns)
+		for tag in teacher_rating_tags:
+			self.store_rate_my_professors_student_rating_tag(tag, rate_my_professors_student_rating_db_id)
+		return rate_my_professors_student_rating_db_id
+
+	def store_rate_my_professors_student_rating_tag(self, tag, student_rating_db_id):
+		columns = {}
+		columns['rate_my_professors_student_rating_id'] = student_rating_db_id
+		columns['tag'] = tag
+		self.__store_into_db('RATE_MY_PROFESSORS_STUDENT_RATING_TAGS', columns)
 
 	# The dictionary needs to be in the format {column_name : value} to insert the value properly into the db
 	# Returns the db_id of what was last inserted
@@ -195,6 +227,9 @@ class DBStorer:
 					trap = 1
 					# print(e)
 					# print('Duplicate entry: ' + table_name + ' - ' + str(dictionary))
+				elif e.args[0] == 1406:
+					print('Column too long: ' + str(e))
+					print(dictionary)
 				else:
 					file.write(table_name + ': ' + str(dictionary) + '\n')
 					traceback.print_exc()
