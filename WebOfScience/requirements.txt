@@ -1,4 +1,0 @@
-rdflib
-nameparser
-requests
-click

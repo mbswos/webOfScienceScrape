@@ -14,26 +14,26 @@ class DBStorer:
 		print('dbstorer created')
 
 	def store_prof_google_scholar(self, professor):
-		name = HumanName(professor['name'])
+		name = HumanName(professor.name)
 		columns = {}
 		
-		columns['affiliation'] = professor['affiliation']
-		columns['citedby'] = professor['citedby']
-		columns['citedby5y'] = professor['citedby5y']
-		columns['email'] = professor['email']
-		columns['hindex'] = professor['hindex']
-		columns['hindex5y'] = professor['hindex5y']
-		columns['i10index'] = professor['i10index']
-		columns['i10index5y'] = professor['i10index5y']
-		columns['google_id'] = professor['id']
-		columns['url_picture'] = professor['url_picture']
+		columns['affiliation'] = professor.affiliation
+		columns['citedby'] = professor.citedby if hasattr(professor, 'citedby') else 0
+		columns['citedby5y'] = professor.citedby5y if hasattr(professor, 'citedby5y') else 0
+		columns['email'] = professor.email if hasattr(professor, 'email') else ''
+		columns['hindex'] = professor.hindex if hasattr(professor, 'hindex') else 0
+		columns['hindex5y'] = professor.hindex5y if hasattr(professor, 'hindex5y') else 0
+		columns['i10index'] = professor.i10index if hasattr(professor, 'i10index') else 0
+		columns['i10index5y'] = professor.i10index5y if hasattr(professor, 'i10index5y') else 0
+		columns['google_id'] = professor.id 
+		columns['url_picture'] = professor.url_picture if hasattr(professor, 'url_picture') else ''
 
-		professor_db_id = self.dbconnection.querier.get_professor_db_id_by_name(professor['name'])
+		professor_db_id = self.dbconnection.querier.get_professor_db_id_by_name(professor.name)
 		if professor_db_id == None:
 			print(professor)
 		columns['author_id'] = professor_db_id
 
-		self.store_cites_per_year_google_scholar(professor['cites_per_year'], professor_db_id)
+		self.store_cites_per_year_google_scholar(professor.cites_per_year, professor_db_id)
 		google_author_db_id = self.__store_into_db('GOOGLE_SCHOLAR_AUTHOR_INFO', columns)
 		return professor_db_id, google_author_db_id
 
@@ -191,6 +191,24 @@ class DBStorer:
 		columns['rate_my_professors_student_rating_id'] = student_rating_db_id
 		columns['tag'] = tag
 		self.__store_into_db('RATE_MY_PROFESSORS_STUDENT_RATING_TAGS', columns)
+
+	def store_web_of_science_raw_publication(self, publication):
+		columns = {}
+		columns['wos_accession_number'] = publication['UT']
+		columns['title'] = publication['Title']['Title'][0]
+		columns['pages'] = publication['Source']['Pages'][0]
+		columns['journal'] = publication['Source']['SourceTitle'][0]
+		columns['issue'] = publication['Source']['Issue'][0] if 'Issue' in publication['Source'] else ''
+		columns['year'] = publication['Source']['Volume'][0] if 'Volume' in publication['Source'] else 0
+		columns['volume'] = int(publication['Source']['Published.BiblioYear'][0])
+		wos_raw_pub_db_id = self.__store_into_db('WEB_OF_SCIENCE_RAW_PUBLICATIONS', columns)
+		return wos_raw_pub_db_id
+
+	def store_web_of_science_raw_author(self, raw_publication_db_id, author_name):
+		columns = {}
+		columns['wos_raw_publication_id'] = raw_publication_db_id
+		columns['full_author_name'] = author_name
+		self.__store_into_db('WEB_OF_SCIENCE_RAW_AUTHORS', columns)
 
 	# The dictionary needs to be in the format {column_name : value} to insert the value properly into the db
 	# Returns the db_id of what was last inserted

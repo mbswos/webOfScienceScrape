@@ -63,3 +63,9 @@ class DBQuerier:
 		if journal_db_id == None:
 			return journal_db_id
 		return journal_db_id[0]
+
+	def get_professor_list(self):
+		sql = """SELECT * FROM `AUTHORS`"""
+		self.cursor.execute(sql,())
+		professors = self.cursor.fetchall()
+		return professors
