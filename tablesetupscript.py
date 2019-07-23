@@ -295,5 +295,6 @@ cursor.execute(rate_my_professors_professors_table_sql)
 cursor.execute(rate_my_professors_student_ratings_table_sql)
 cursor.execute(rate_my_professors_student_rating_tags_table_sql)
 
-# disconnect from server
+# save and disconnect from server
+connection.commit()
 connection.disconnect()

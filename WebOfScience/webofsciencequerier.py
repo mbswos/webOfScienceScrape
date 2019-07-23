@@ -57,4 +57,5 @@ for prof in professors:
 
 print(total_data)
 print(authors)
+connection.commit()
 connection.disconnect()
