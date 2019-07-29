@@ -199,8 +199,8 @@ class DBStorer:
 		columns['pages'] = publication['Source']['Pages'][0]
 		columns['journal'] = publication['Source']['SourceTitle'][0]
 		columns['issue'] = publication['Source']['Issue'][0] if 'Issue' in publication['Source'] else ''
-		columns['year'] = publication['Source']['Volume'][0] if 'Volume' in publication['Source'] else 0
-		columns['volume'] = int(publication['Source']['Published.BiblioYear'][0])
+		columns['volume'] = publication['Source']['Volume'][0] if 'Volume' in publication['Source'] else 0
+		columns['year'] = int(publication['Source']['Published.BiblioYear'][0])
 		wos_raw_pub_db_id = self.__store_into_db('WEB_OF_SCIENCE_RAW_PUBLICATIONS', columns)
 		return wos_raw_pub_db_id
 

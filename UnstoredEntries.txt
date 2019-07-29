@@ -1,2 +1,0 @@
-WEB_OF_SCIENCE_RAW_PUBLICATIONS: {'wos_accession_number': 'WOS:000310938501308', 'title': 'Maintaining Manufacturing Viability in Difficult Times with the Balanced Scorecard', 'pages': '3296-+', 'journal': 'ADVANCED MANUFACTURING TECHNOLOGY, PTS 1-4', 'issue': '', 'year': '472-475', 'volume': 2012}
-WEB_OF_SCIENCE_RAW_PUBLICATIONS: {'wos_accession_number': 'WOS:000310938501155', 'title': 'Improving Manufacturing Management With Activity Based Costing', 'pages': '2494-+', 'journal': 'ADVANCED MANUFACTURING TECHNOLOGY, PTS 1-4', 'issue': '', 'year': '472-475', 'volume': 2012}

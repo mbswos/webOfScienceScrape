@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+xmlns:html="http://www.w3.org/TR/REC-html40">
+<Worksheet ss:Name="Table1">
+	<Table>
+		<Column ss:Index="1" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Column ss:Index="3" ss:AutoFitWidth="0" ss:Width="110"/>
+		<Row>
+			<Cell><Data ss:Type="String">TITLE</Data></Cell>
+			<Cell><Data ss:Type="String">group_concat(a.FULL_AUTHOR_NAME separator ', ')</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL</Data></Cell>
+		</Row>
+
+		<Row>
+			<Cell><Data ss:Type="String">A bounty of riches, a threat to objectivity? Maintaining the double-blind peer-review process amid rising submission levels</Data></Cell>
+			<Cell><Data ss:Type="String">Dasborough, Marie T.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF ORGANIZATIONAL BEHAVIOR</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A Case of a Second Intermetatarsal Space Gouty Tophus with a Presentation Similar to a Morton's Neuroma</Data></Cell>
+			<Cell><Data ss:Type="String">Shah, Ashish, Johnson, John L., Hsu, Alan, Shah, Ashish</Data></Cell>
+			<Cell><Data ss:Type="String">CUREUS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A Combination of SAHA and Quinacrine Is Effective in Inducing Cancer Cell Death in Upper Gastrointestinal Cancers</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, Lihong, Chen, Zheng</Data></Cell>
+			<Cell><Data ss:Type="String">CLINICAL CANCER RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A designer bow-tie combination therapeutic platform: An approach to resistant cancer treatment by simultaneous delivery of cytotoxic and anti-inflammatory agents and radiation</Data></Cell>
+			<Cell><Data ss:Type="String">Kumar, Anil, Basu, Uttara, Surnar, Bapurao</Data></Cell>
+			<Cell><Data ss:Type="String">BIOMATERIALS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A dominant variant in the PDE1C gene is associated with nonsyndromic hearing loss</Data></Cell>
+			<Cell><Data ss:Type="String">Liu, Xuezhong, Wang, Li, Blanton, Susan H., Sundhari, Abhiraami Kannan, Liao, Shixiu</Data></Cell>
+			<Cell><Data ss:Type="String">HUMAN GENETICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A fast spectral quasi-likelihood approach for spatial point processes</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, M., Guan, Y.</Data></Cell>
+			<Cell><Data ss:Type="String">STATISTICS & PROBABILITY LETTERS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A general theory of springboard MNEs</Data></Cell>
+			<Cell><Data ss:Type="String">Luo, Yadong</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF INTERNATIONAL BUSINESS STUDIES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A Lack of Dynamic Triggering of Slow Slip and Tremor Indicates That the Shallow Cascadia Megathrust Offshore Vancouver Island Is Likely Locked</Data></Cell>
+			<Cell><Data ss:Type="String">Collins, John A.</Data></Cell>
+			<Cell><Data ss:Type="String">GEOPHYSICAL RESEARCH LETTERS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A Laplace stochastic frontier model</Data></Cell>
+			<Cell><Data ss:Type="String">Parmeter, Christopher F.</Data></Cell>
+			<Cell><Data ss:Type="String">ECONOMETRIC REVIEWS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A Mini Review of Clinical and Research Applications of the Retinal Function Imager</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, Jianhua, Wang, Liang, Jayadev, Chaitra</Data></Cell>
+			<Cell><Data ss:Type="String">CURRENT EYE RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A Novel Method for Estimating Knee Angle Using Two Leg-Mounted Gyroscopes for Continuous Monitoring with Mobile Health Devices</Data></Cell>
+			<Cell><Data ss:Type="String">Kim, Kyoung Jae</Data></Cell>
+			<Cell><Data ss:Type="String">SENSORS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A novel role for sox7 in Xenopus early primordial germ cell development: mining the PGC transcriptome</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, Lingyu</Data></Cell>
+			<Cell><Data ss:Type="String">DEVELOPMENT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A parasitism-mutualism-predation model consisting of crows, cuckoos and cats with stage-structure and maturation delays on crows and cuckoos</Data></Cell>
+			<Cell><Data ss:Type="String">DeAngelis, Donald L., Zhang, Long, Zhang, Long, Luo, Yantao</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THEORETICAL BIOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A Phenomenological Paradigm for Midtropospheric Cyclogenesis in the Indian Summer Monsoon</Data></Cell>
+			<Cell><Data ss:Type="String">Choudhury, Ayantika Dey, Krishnan, R.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THE ATMOSPHERIC SCIENCES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A Photoactivatable Far-Red/Near-Infrared BODIPY To Monitor Cellular Dynamics in Vivo</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Yang, Zhang, Yang, Zhang, Yang, Tang, Sicheng, Tang, Sicheng</Data></Cell>
+			<Cell><Data ss:Type="String">ACS SENSORS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A Rapid and Precise Mutation-Activated Fluorescence Reporter for Analyzing Acute Mutagenesis Frequency</Data></Cell>
+			<Cell><Data ss:Type="String">Kumar, Akhilesh, Zhang, Fangliang, Zhang, Fangliang</Data></Cell>
+			<Cell><Data ss:Type="String">CELL CHEMICAL BIOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A STUDY OF BOUNDARY LAYER ROLLS UNDER VARIOUS STORM CONDITIONS</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, J. A., Zhang, Z., Zhang, J. A., Zhang, Z.</Data></Cell>
+			<Cell><Data ss:Type="String">IGARSS 2018 - 2018 IEEE INTERNATIONAL GEOSCIENCE AND REMOTE SENSING SYMPOSIUM</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A Tattoo Won't Hurt Your Job Prospects</Data></Cell>
+			<Cell><Data ss:Type="String">French, Michael T.</Data></Cell>
+			<Cell><Data ss:Type="String">HARVARD BUSINESS REVIEW</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A theory of bargaining deadlock</Data></Cell>
+			<Cell><Data ss:Type="String">Hwang, Ilwoo, Hwang, Ilwoo</Data></Cell>
+			<Cell><Data ss:Type="String">GAMES AND ECONOMIC BEHAVIOR</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">A Top-Down Pathway to Secondary Eyewall Formation in Simulated Tropical Cyclones</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jun A., Zhang, Jun A., Gopalakrishnan, Sundararaman, Gopalakrishnan, Sundararaman</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF GEOPHYSICAL RESEARCH-ATMOSPHERES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Acute intermittent hypoxia enhances corticospinal synaptic plasticity in humans</Data></Cell>
+			<Cell><Data ss:Type="String">Perez, Monica A., Perez, Monica A.</Data></Cell>
+			<Cell><Data ss:Type="String">ELIFE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Afferent input and sensory function after human spinal cord injury</Data></Cell>
+			<Cell><Data ss:Type="String">Perez, Monica A., Perez, Monica A.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF NEUROPHYSIOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Airborne Doppler Wind Lidar Observations of the Tropical Cyclone Boundary Layer</Data></Cell>
+			<Cell><Data ss:Type="String">Ryan, Kelly, Zhang, Jun A., Zhang, Jun A.</Data></Cell>
+			<Cell><Data ss:Type="String">REMOTE SENSING</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Aligning sales and operations management: an agenda for inquiry</Data></Cell>
+			<Cell><Data ss:Type="String">Sharma, Arun</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF PERSONAL SELLING & SALES MANAGEMENT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Alteplase for the treatment of acute ischemic stroke in patients with low National Institutes of Health Stroke Scale and not clearly disabling deficits (Potential of rtPA for Ischemic Strokes with Mild Symptoms PRISMS): Rationale and design</Data></Cell>
+			<Cell><Data ss:Type="String">Broderick, Joseph P., Levine, Steven R., Chatterjee, Anjan</Data></Cell>
+			<Cell><Data ss:Type="String">INTERNATIONAL JOURNAL OF STROKE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Amino acid 118 in the deafness causing (DFNA20/26) ACTG1 gene is a mutational hot spot</Data></Cell>
+			<Cell><Data ss:Type="String">Liu, Xuezhong, Wang, Li, Liao, Shixiu</Data></Cell>
+			<Cell><Data ss:Type="String">GENE REPORTS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">An imperfect storm: Fat-tailed tropical cyclone damages, insurance, and climate policy</Data></Cell>
+			<Cell><Data ss:Type="String">Kelly, David L.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF ENVIRONMENTAL ECONOMICS AND MANAGEMENT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">An integrative study of the emergence of social inequality: Bioarchaeological and biogeochemical analyses of the Coyo Oriental cemetery, northern Chile</Data></Cell>
+			<Cell><Data ss:Type="String">Torres-Rouff, Christina</Data></Cell>
+			<Cell><Data ss:Type="String">AMERICAN JOURNAL OF PHYSICAL ANTHROPOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Association of Anti-Factor Xa-Guided Dosing of Enoxaparin With Venous Thromboembolism After Trauma</Data></Cell>
+			<Cell><Data ss:Type="String">Patel, Jaimin</Data></Cell>
+			<Cell><Data ss:Type="String">JAMA SURGERY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Atrial fibrillation genetic risk differentiates cardioembolic stroke from other stroke subtypes</Data></Cell>
+			<Cell><Data ss:Type="String">Broderick, Joseph, Chern, Joseph, Sharma, Pankaj, Olszanecki, Rafael, Perez, Marco, Schurmann, Claudia, Harris, Tamara B., Kim, Helen, Le, Kim En, Wang, Xingwu, Perez, Marco, Yang, Qiong, Rothwell, Peter, Shaffer, Christian, Lee, Tsong-Hai, Alonso, Alvaro, Soliman, Elsayed Z., Blanton, Susan, Heckbert, Susan R., Mansur, Alfredo J., Seshadri, Sudha, Sudlow, Cathie, Sun, Albert, Tatlisumak, Turgot, Mateusz, Adamski, Tanaka, Toshihiro, Yamada, Yoshiji, Chung, Mina K., Chen, Christopher, Chen, Ida, Chen, Lin Y., Chen, Yii-Der Ida, Weng, Lu-Chen</Data></Cell>
+			<Cell><Data ss:Type="String">NEUROLOGY-GENETICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Automated FES for Upper Limb Rehabilitation Following Stroke and Spinal Cord Injury</Data></Cell>
+			<Cell><Data ss:Type="String">Kumar, Hrishikesh, Perez, Monica A., Choudhury, Supriyo, Perez, Monica A., Choudhury, Supriyo, Kumar, Hrishikesh</Data></Cell>
+			<Cell><Data ss:Type="String">IEEE TRANSACTIONS ON NEURAL SYSTEMS AND REHABILITATION ENGINEERING</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Azimuthal Distribution of Deep Convection, Environmental Factors, and Tropical Cyclone Rapid Intensification: A Perspective from HWRF Ensemble Forecasts of Hurricane Edouard (2014)</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jun A., Zhang, Zhan, Zhang, Jun A., Zhang, Zhan, Gopalakrishnan, Sundararaman, Gopalakrishnan, Sundararaman</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THE ATMOSPHERIC SCIENCES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Being oneself through time: Bases of self-continuity across 55 cultures</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jianxin, Zhang, Xiao, Zhang, Jianxin, Zhang, Xiao, Espinosa, Agustin, Bond, Michael Harris, Torres, Ana</Data></Cell>
+			<Cell><Data ss:Type="String">SELF AND IDENTITY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Beta Matrix and Common Factors in Stock Returns</Data></Cell>
+			<Cell><Data ss:Type="String">Horenstein, Alex R., Wang, Na</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF FINANCIAL AND QUANTITATIVE ANALYSIS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Board diversity, firm risk, and corporate policies</Data></Cell>
+			<Cell><Data ss:Type="String">Bernile, Gennaro</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF FINANCIAL ECONOMICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Business models in global competition</Data></Cell>
+			<Cell><Data ss:Type="String">Luo, Yadong</Data></Cell>
+			<Cell><Data ss:Type="String">GLOBAL STRATEGY JOURNAL</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Buying Beauty for the Long Run: (Mis)predicting Liking of Product Aesthetics</Data></Cell>
+			<Cell><Data ss:Type="String">Townsend, Claudia</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF CONSUMER RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Chemical evidence of inter-hemispheric air mass intrusion into the Northern Hemisphere mid-latitudes</Data></Cell>
+			<Cell><Data ss:Type="String">Kim, K. -R.</Data></Cell>
+			<Cell><Data ss:Type="String">SCIENTIFIC REPORTS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Coherent Turbulence in the Boundary Layer of Hurricane Rita (2005) during an Eyewall Replacement Cycle</Data></Cell>
+			<Cell><Data ss:Type="String">Sapp, Joseph W., Zhang, Jun A., Zhang, Jun A.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THE ATMOSPHERIC SCIENCES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Comparing Amazon's Mechanical Turk Platform to Conventional Data Collection Methods in the Health and Medical Research Literature</Data></Cell>
+			<Cell><Data ss:Type="String">Mortensen, Karoline</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF GENERAL INTERNAL MEDICINE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Comparison of Ultrasound-Guided Thrombin Injection of Iatrogenic Pseudoaneurysms Based on Neck Dimension</Data></Cell>
+			<Cell><Data ss:Type="String">Bornak, Arash, Patel, Jaimin, Yang, Ethan Y.</Data></Cell>
+			<Cell><Data ss:Type="String">ANNALS OF VASCULAR SURGERY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Consensus recommendations for trabecular meshwork cell isolation, characterization and culture</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jie, Chowdhury, Uttio Roy, Zhang, Jie, Gong, Haiyan, Chansangpetch, Sunee</Data></Cell>
+			<Cell><Data ss:Type="String">EXPERIMENTAL EYE RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Consequences of adopting an expanded auditor's report in the United Kingdom</Data></Cell>
+			<Cell><Data ss:Type="String">Tatum, Kay W., Minutti-Meza, Miguel</Data></Cell>
+			<Cell><Data ss:Type="String">REVIEW OF ACCOUNTING STUDIES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Consumer Search and Price Competition</Data></Cell>
+			<Cell><Data ss:Type="String">Kim, Kyungmin</Data></Cell>
+			<Cell><Data ss:Type="String">ECONOMETRICA</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Contextualizing international strategy by emerging market firms: A composition-based approach</Data></Cell>
+			<Cell><Data ss:Type="String">Luo, Yadong</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF WORLD BUSINESS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Convergent Pathways in Idiopathic Autism Revealed by Time Course Transcriptomic Analysis of Patient-Derived Neurons</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, Lily</Data></Cell>
+			<Cell><Data ss:Type="String">SCIENTIFIC REPORTS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Core hydrophobicity tuning of a self-assembled particle results in efficient lipid reduction and favorable organ distribution</Data></Cell>
+			<Cell><Data ss:Type="String">Kumar, Anil</Data></Cell>
+			<Cell><Data ss:Type="String">NANOSCALE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">CROSS-SECTIONAL PREDICTORS OF NEUROCOGNITIVE AND PHYSICAL FUNCTION IN OLDER WOMEN WITH HIV INFECTION USING THE WIHS</Data></Cell>
+			<Cell><Data ss:Type="String">Sharma, Anjali, Wilson, Tracey E., Nahm, Eun-Shim, Zhu, Shijun</Data></Cell>
+			<Cell><Data ss:Type="String">ANNALS OF BEHAVIORAL MEDICINE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Crossed corticospinal facilitation between arm and trunk muscles in humans</Data></Cell>
+			<Cell><Data ss:Type="String">Perez, Monica A., Perez, Monica A., Chiou, Shin-Yi</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF NEUROPHYSIOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">CRTH2 promotes endoplasmic reticulum stress-induced cardiomyocyte apoptosis through m-calpain</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jian, Zhang, Qianqian, Zhang, Jian, Zhang, Qianqian, Wang, Chenyao, Wang, Yuanyang, Wang, Yuanyang, Tang, Juan, Wang, Chenyao</Data></Cell>
+			<Cell><Data ss:Type="String">EMBO MOLECULAR MEDICINE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Cultural stress and psychological symptoms in recent Venezuelan immigrants to the United States and Colombia</Data></Cell>
+			<Cell><Data ss:Type="String">Perez-Gomez, Augusto, Salas-Wright, Christopher P., Perez-Gomez, Augusto</Data></Cell>
+			<Cell><Data ss:Type="String">INTERNATIONAL JOURNAL OF INTERCULTURAL RELATIONS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Data Portal for the Library of Integrated Network-based Cellular Signatures (LINCS) program: integrated access to diverse large-scale cellular perturbation response data</Data></Cell>
+			<Cell><Data ss:Type="String">Cooper, Daniel J., Schurer, Stephan C., Turner, John P., Wang, Lily, Chung, Caty</Data></Cell>
+			<Cell><Data ss:Type="String">NUCLEIC ACIDS RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">De novo ITPR1 variants are a recurrent cause of early-onset ataxia, acting via loss of channel function</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, Ruiwu, Tang, Sha, Sun, Bo, Chen, S. R. Wayne</Data></Cell>
+			<Cell><Data ss:Type="String">EUROPEAN JOURNAL OF HUMAN GENETICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Deferred treatment with sofosbuvir-velpatasvir-voxilaprevir for patients with chronic hepatitis C virus who were previously treated with an NS5A inhibitor: an open-label substudy of POLARIS-1</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jie, Ravendhran, Natarajan, Zhang, Jie, Subramanian, G. Mani</Data></Cell>
+			<Cell><Data ss:Type="String">LANCET GASTROENTEROLOGY & HEPATOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Design, implementation, and performance of the Astro-H SXS calorimeter array and anticoincidence detector</Data></Cell>
+			<Cell><Data ss:Type="String">Adams, Joseph S., Kelly, Daniel, Porter, F. Scott, Adams, Joseph S.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF ASTRONOMICAL TELESCOPES INSTRUMENTS AND SYSTEMS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Determinants and consequences of information processing delay: Evidence from the Thomson Reuters Institutional Brokers' Estimate System</Data></Cell>
+			<Cell><Data ss:Type="String">Weisbrod, Eric, Subasi, Musa</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF FINANCIAL ECONOMICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Development and Validation of a Novel Integrated Clinical-Genomic Risk Group Classification for Localized Prostate Cancer</Data></Cell>
+			<Cell><Data ss:Type="String">Ross, Ashley E., Tewari, Ashutosh, Zhang, Jingbin, Zhang, Jingbin</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF CLINICAL ONCOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Differentiation between vestibular schwannomas and meningiomas with atypical appearance using diffusion kurtosis imaging and three-dimensional arterial spin labeling imaging</Data></Cell>
+			<Cell><Data ss:Type="String">Xu, Ganggang, Xue, Yunjing</Data></Cell>
+			<Cell><Data ss:Type="String">EUROPEAN JOURNAL OF RADIOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Direct Measurements of Momentum Flux and Dissipative Heating in the Surface Layer of Tropical Cyclones During Landfalls</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jun A., Zhang, Jun A.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF GEOPHYSICAL RESEARCH-ATMOSPHERES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Discussion of "The Psychology of Billing"</Data></Cell>
+			<Cell><Data ss:Type="String">Falsetta, Diana</Data></Cell>
+			<Cell><Data ss:Type="String">CONTEMPORARY ACCOUNTING RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Distinct Corticocortical Contributions to Human Precision and Power Grip (vol 27, pg 5070, 2017)</Data></Cell>
+			<Cell><Data ss:Type="String">Perez, Monica A., Perez, Monica A.</Data></Cell>
+			<Cell><Data ss:Type="String">CEREBRAL CORTEX</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Distinguished Scholars Invited Essay: Becoming a Good Sport and a Better Performer: A Social Information Processing View of Authentic Leadership</Data></Cell>
+			<Cell><Data ss:Type="String">Schriesheim, Chester A., Schriesheim, Chester A.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF LEADERSHIP & ORGANIZATIONAL STUDIES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Does Urbanization Mean Bigger Governments?</Data></Cell>
+			<Cell><Data ss:Type="String">Parmeter, Christopher F.</Data></Cell>
+			<Cell><Data ss:Type="String">SCANDINAVIAN JOURNAL OF ECONOMICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Downdrafts and the Evolution of Boundary Layer Thermodynamics in Hurricane Earl (2010) before and during Rapid Intensification</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jun A., Zhang, Jun A.</Data></Cell>
+			<Cell><Data ss:Type="String">MONTHLY WEATHER REVIEW</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Drug Pricing for Competing Pharmaceutical Manufacturers Distributing through a Common PBM</Data></Cell>
+			<Cell><Data ss:Type="String">Xiao, Yixuan, Yang, Nan</Data></Cell>
+			<Cell><Data ss:Type="String">PRODUCTION AND OPERATIONS MANAGEMENT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Dynamic trading with developing adverse selection</Data></Cell>
+			<Cell><Data ss:Type="String">Hwang, Ilwoo, Hwang, Ilwoo</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF ECONOMIC THEORY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Dynamics of the retinal microvasculature and morphology in Type 2 diabetes</Data></Cell>
+			<Cell><Data ss:Type="String">Shi, Wei</Data></Cell>
+			<Cell><Data ss:Type="String">INVESTIGATIVE OPHTHALMOLOGY & VISUAL SCIENCE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Effect of Alteplase vs Aspirin on Functional Outcome for Patients With Acute Ischemic Stroke and Minor Nondisabling Neurologic Deficits The PRISMS Randomized Clinical Trial</Data></Cell>
+			<Cell><Data ss:Type="String">Broderick, Joseph, Levine, Steven R., Chatterjee, Anjan</Data></Cell>
+			<Cell><Data ss:Type="String">JAMA-JOURNAL OF THE AMERICAN MEDICAL ASSOCIATION</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Effect of coil orientation on motor-evoked potentials in humans with tetraplegia</Data></Cell>
+			<Cell><Data ss:Type="String">Perez, Monica A., Perez, Monica A.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF PHYSIOLOGY-LONDON</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Effects of functional focus on bounded momentum: Examining firm- and industry-level alliances</Data></Cell>
+			<Cell><Data ss:Type="String">Mezias, John M.</Data></Cell>
+			<Cell><Data ss:Type="String">STRATEGIC ORGANIZATION</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Effects of heat waves on daily excess mortality in 14 Korean cities during the past 20 years (1991-2010): an application of the spatial synoptic classification approach</Data></Cell>
+			<Cell><Data ss:Type="String">Kim, Baek-Jo, Kim, Ho, Kim, Jiyoung, Kim, Kyu Rang, Cho, Chun-Ho</Data></Cell>
+			<Cell><Data ss:Type="String">INTERNATIONAL JOURNAL OF BIOMETEOROLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Effects of Stroboscopic Vision on Reactive Balance</Data></Cell>
+			<Cell><Data ss:Type="String">Kim, Joo-Sung, Kim, Kyung-Min, Kim, Joo-Sung</Data></Cell>
+			<Cell><Data ss:Type="String">MEDICINE AND SCIENCE IN SPORTS AND EXERCISE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Effects of sulfuric, nitric, and mixed acid rain on Chinese fir sapling growth in Southern China</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Bo, Zhang, Jinchi, Zhang, Bo, Zhang, Jinchi, Wang, G. Geoff, Zhai, Lu</Data></Cell>
+			<Cell><Data ss:Type="String">ECOTOXICOLOGY AND ENVIRONMENTAL SAFETY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Endoscopic management of surgical complications</Data></Cell>
+			<Cell><Data ss:Type="String">Perez-Ginnari, Armando, Perez-Ginnari, Armando</Data></Cell>
+			<Cell><Data ss:Type="String">TECHNIQUES IN GASTROINTESTINAL ENDOSCOPY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Enfortumab vedotin (EV) in patients (Pts) with metastatic urothelial carcinoma (mUC) with prior checkpoint inhibitor (CPI) failure: A prospective cohort of an ongoing phase 1 study.</Data></Cell>
+			<Cell><Data ss:Type="String">Ruether, Joseph D., Wu, Chunzhang, Zhang, Jingsong, Wu, Chunzhang, Zhang, Jingsong, Wu, Chunzhang</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF CLINICAL ONCOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Estimation of the two-tiered stochastic frontier model with the scaling property</Data></Cell>
+			<Cell><Data ss:Type="String">Parmeter, Christopher F.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF PRODUCTIVITY ANALYSIS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Ethnic differences in progression of islet autoimmunity and type 1 diabetes in relatives at risk</Data></Cell>
+			<Cell><Data ss:Type="String">Rodriguez, Henry, Rodriguez, Henry, Geyer, Susan M., Tosur, Mustafa</Data></Cell>
+			<Cell><Data ss:Type="String">DIABETOLOGIA</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Evaluating an Electronic Health Record Intervention for Management of Heart Failure Among Veterans</Data></Cell>
+			<Cell><Data ss:Type="String">Rodriguez, Remberto, Rodriguez, Remberto</Data></Cell>
+			<Cell><Data ss:Type="String">TELEMEDICINE AND E-HEALTH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Evaluating the Impact of Improvement in the Horizontal Diffusion Parameterization on Hurricane Prediction in the Operational Hurricane Weather Research and Forecast (HWRF) Model</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jun A., Zhang, Xuejin, Zhang, Zhan, Zhang, Xuejin, Zhang, Jun A., Zhang, Xuejin, Zhang, Zhan, Gopalakrishnan, Sundararaman G., Gopalakrishnan, Sundararaman G.</Data></Cell>
+			<Cell><Data ss:Type="String">WEATHER AND FORECASTING</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Exploratory Study of rTMS Neuromodulation Effects on Electrocortical Functional Measures of Performance in an Oddball Test and Behavioral Symptoms in Autism</Data></Cell>
+			<Cell><Data ss:Type="String">Kelly, Desmond P.</Data></Cell>
+			<Cell><Data ss:Type="String">FRONTIERS IN SYSTEMS NEUROSCIENCE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Exposure to an extreme environment comes at a sensorimotor cost</Data></Cell>
+			<Cell><Data ss:Type="String">Kim, Kyoung Jae</Data></Cell>
+			<Cell><Data ss:Type="String">NPJ MICROGRAVITY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Far-Red Photoactivatable BODIPYs for the Super-Resolution Imaging of Live Cells</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Hao F., Zhang, Yang, Zhang, Hao F., Zhang, Yang, Zhang, Yang, Tang, Sicheng, Sun, Cheng, Sun, Cheng, Tang, Sicheng</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THE AMERICAN CHEMICAL SOCIETY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Feasibility of Aerobic Exercise in the Subacute Phase of Recovery From Traumatic Brain Injury: A Case Series</Data></Cell>
+			<Cell><Data ss:Type="String">Gomes-Osman, Joyce, Rodriguez-Rajo, Pablo, Rodriguez-Rajo, Pablo</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF NEUROLOGIC PHYSICAL THERAPY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Flexible and efficient estimating equations for variogram estimation</Data></Cell>
+			<Cell><Data ss:Type="String">Sun, Ying, Guan, Yongtao</Data></Cell>
+			<Cell><Data ss:Type="String">COMPUTATIONAL STATISTICS & DATA ANALYSIS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Fluorescence activation with switchable oxazines</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Yang, Zhang, Yang, Zhang, Yang, Tang, Sicheng, Tang, Sicheng</Data></Cell>
+			<Cell><Data ss:Type="String">CHEMICAL COMMUNICATIONS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Full shape crystalline lens geometrical changes with age from 3-D OCT images in vivo and ex vivo</Data></Cell>
+			<Cell><Data ss:Type="String">Mohamed, Ashik, Perez-Merino, Pablo, Ho, Arthur, Perez-Merino, Pablo, Marcos, Susana, Mohamed, Ashik</Data></Cell>
+			<Cell><Data ss:Type="String">INVESTIGATIVE OPHTHALMOLOGY & VISUAL SCIENCE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Gain of function of ASXL1 truncating protein in the pathogenesis of myeloid malignancies</Data></Cell>
+			<Cell><Data ss:Type="String">Wahlestedt, Claes, Zhang, Peng, Xu, Mingjiang, Zhang, Peng, Yang, Feng-Chun, Yang, Hui, Chen, Shi, Yang, Feng-Chun, Chen, Shi, Chen, Zizhen</Data></Cell>
+			<Cell><Data ss:Type="String">BLOOD</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Gating of Sensory Input at Subcortical and Cortical Levels during Grasping in Humans</Data></Cell>
+			<Cell><Data ss:Type="String">Perez, Monica A., Perez, Monica A.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF NEUROSCIENCE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Genetic deletion or small-molecule inhibition of the arginine methyltransferase PRMT5 exhibit anti-tumoral activity in mouse models of MLL-rearranged AML</Data></Cell>
+			<Cell><Data ss:Type="String">Santos, M. A., Kaushik, S.</Data></Cell>
+			<Cell><Data ss:Type="String">LEUKEMIA</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Genetic Variation in Genes Underlying Diverse Dementias May Explain a Small Proportion of Cases in the Alzheimer's Disease Sequencing Project</Data></Cell>
+			<Cell><Data ss:Type="String">DeStefano, Anita, Wang, Li-San, Haines, Jonathan, Seshadri, Sudha, Tsuang, Debby W.</Data></Cell>
+			<Cell><Data ss:Type="String">DEMENTIA AND GERIATRIC COGNITIVE DISORDERS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Genome-wide Analyses Identify KIF5A as a Novel ALS Gene</Data></Cell>
+			<Cell><Data ss:Type="String">Esteban-Perez, Jesus, Abhyankar, Avinash, Cooper-Knock, Johnathan, Williams, Kelly L., Esteban-Perez, Jesus, Johnson, Janel O., Harris, Tim, Turner, Martin R., Esteban-Perez, Jesus, Rothstein, Jeffrey D., Esteban-Perez, Jesus, Gibson, Summer B., Mora, Jesus S., Musunuri, Rajeeva Lochan, Weishaupt, Jochen H.</Data></Cell>
+			<Cell><Data ss:Type="String">NEURON</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Global landscape of cell envelope protein complexes in Escherichia coli</Data></Cell>
+			<Cell><Data ss:Type="String">Kumar, Ashwani, Golshani, Ashkan, Kumar, Ashwani, Zhang, Qingzhou, Zhang, Zhongge, Zhang, Qingzhou, Zhang, Zhongge, Kim, Sunyoung, Kim, Sunyoung</Data></Cell>
+			<Cell><Data ss:Type="String">NATURE BIOTECHNOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Happy birthday! Celebrating 30years as JOB, 5years of review issues, and 1year of the "JOB Annual Review"</Data></Cell>
+			<Cell><Data ss:Type="String">Dasborough, Marie</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF ORGANIZATIONAL BEHAVIOR</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Highlights from the First Annual Spinal Navigation, Emerging Technologies and Systems Integration Meeting</Data></Cell>
+			<Cell><Data ss:Type="String">Johnson, J. Patrick, Kim, Terrence, Wang, Michael</Data></Cell>
+			<Cell><Data ss:Type="String">ANNALS OF TRANSLATIONAL MEDICINE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">HIV-discordant and concordant HIV-positive male couples' recommendations for how an eHealth HIV prevention toolkit for concordant HIV-negative male couples could be improved to meet their specific needs</Data></Cell>
+			<Cell><Data ss:Type="String">Perez, G., Perez, G.</Data></Cell>
+			<Cell><Data ss:Type="String">AIDS CARE-PSYCHOLOGICAL AND SOCIO-MEDICAL ASPECTS OF AIDS/HIV</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Housing Price Booms and Crowding-Out Effects in Bank Lending</Data></Cell>
+			<Cell><Data ss:Type="String">Chakraborty, Indraneel</Data></Cell>
+			<Cell><Data ss:Type="String">REVIEW OF FINANCIAL STUDIES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Identification of a five-lncRNA signature for predicting the risk of tumor recurrence in patients with breast cancer</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Li, Xu, Chaohan, Zhang, Li, Wang, Lily, Wang, Weida, Chen, Xi</Data></Cell>
+			<Cell><Data ss:Type="String">INTERNATIONAL JOURNAL OF CANCER</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Identification of a gene-expression predictor for diagnosis and personalized stratification of lupus patients</Data></Cell>
+			<Cell><Data ss:Type="String">Liao, Wang, Chen, Zhibin</Data></Cell>
+			<Cell><Data ss:Type="String">PLOS ONE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Identification of compound heterozygous variants in OPTN in an ALS-FTD patient from the CReATe consortium: a case report</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jinghui, Zhang, Jinghui, Hussain, Sumaira</Data></Cell>
+			<Cell><Data ss:Type="String">AMYOTROPHIC LATERAL SCLEROSIS AND FRONTOTEMPORAL DEGENERATION</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Identification of epigenetic modulators in human breast cancer by integrated analysis of DNA methylation and RNA-Seq data</Data></Cell>
+			<Cell><Data ss:Type="String">Chen, Zhibin</Data></Cell>
+			<Cell><Data ss:Type="String">EPIGENETICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">IMPLICATIONS OF LEFT VENTRICULAR ANEURYSM IN PATIENTS WITH ACUTE MYOCARDIAL INFARCTION: AN ANALYSIS FROM NATIONAL INPATIENT SAMPLE DATABASE</Data></Cell>
+			<Cell><Data ss:Type="String">Kumar, Arun, Kumar, Varun, Patel, Nileshkumar, Patel, Nileshkumar, Balla, Sudarshan</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THE AMERICAN COLLEGE OF CARDIOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Improving Diabetes Control using Electronic Secure Messaging</Data></Cell>
+			<Cell><Data ss:Type="String">Rodriguez, R., Rodriguez, R., Alvarez-Seijas, E.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THE AMERICAN GERIATRICS SOCIETY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">INCREASING GLOBAL ACCESS TO THROMBECTOMY: MISSION THROMBECTOMY 2020</Data></Cell>
+			<Cell><Data ss:Type="String">Sharma, A.</Data></Cell>
+			<Cell><Data ss:Type="String">INTERNATIONAL JOURNAL OF STROKE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Inhibition of microRNA suppression of Dishevelled results in Wnt pathway-associated developmental defects in sea urchin</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, Lingyu</Data></Cell>
+			<Cell><Data ss:Type="String">DEVELOPMENT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Initiation of inflammatory tumorigenesis by CTLA4 insufficiency due to type 2 cytokines</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, Gaofeng, Devarajan, Priyadharshini, Chen, Zhibin</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF EXPERIMENTAL MEDICINE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Insights into archaeal chaperone machinery: a network-based approach</Data></Cell>
+			<Cell><Data ss:Type="String">Sharma, Ankush, Rani, Shikha</Data></Cell>
+			<Cell><Data ss:Type="String">CELL STRESS & CHAPERONES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Intra-Aortic Balloon Pump Simulating Thoracic Aortic Dissection</Data></Cell>
+			<Cell><Data ss:Type="String">Roth, Patrick</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF COMPUTER ASSISTED TOMOGRAPHY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Is Obstructive Sleep Apnea Associated With Progressive Glaucomatous Optic Neuropathy?</Data></Cell>
+			<Cell><Data ss:Type="String">Shi, Wei</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF GLAUCOMA</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Is Operational Control Risk Informative of Financial Reporting Deficiencies?</Data></Cell>
+			<Cell><Data ss:Type="String">Vyas, Dushyantkumar, Minutti-Meza, Miguel</Data></Cell>
+			<Cell><Data ss:Type="String">AUDITING-A JOURNAL OF PRACTICE & THEORY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Is regulatory adoption ceremonial? Evidence from lead director appointments</Data></Cell>
+			<Cell><Data ss:Type="String">Shi, Wei</Data></Cell>
+			<Cell><Data ss:Type="String">STRATEGIC MANAGEMENT JOURNAL</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Knockdown of Crispld2 in zebrafish identifies a novel network for nonsyndromic cleft lip with or without cleft palate candidate genes</Data></Cell>
+			<Cell><Data ss:Type="String">Plant, Robert, Blanton, Susan H.</Data></Cell>
+			<Cell><Data ss:Type="String">EUROPEAN JOURNAL OF HUMAN GENETICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Labor productivity growth: disentangling technology and capital accumulation</Data></Cell>
+			<Cell><Data ss:Type="String">Parmeter, Christopher F.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF ECONOMIC GROWTH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Lagrangian ocean analysis: Fundamentals and practices</Data></Cell>
+			<Cell><Data ss:Type="String">Kjellsson, Joakim, Wang, Jinbo, Adams, Thomas P., Cheng, Yu</Data></Cell>
+			<Cell><Data ss:Type="String">OCEAN MODELLING</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Large Stimulation of Recalcitrant Dissolved Organic Carbon Degradation by Increasing Ocean Temperatures</Data></Cell>
+			<Cell><Data ss:Type="String">Hansell, Dennis A., Alvarez-Salgado, Xose A.</Data></Cell>
+			<Cell><Data ss:Type="String">FRONTIERS IN MARINE SCIENCE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">LEADER HUMOR AS AN INTERPERSONAL RESOURCE: INTEGRATING THREE THEORETICAL PERSPECTIVES</Data></Cell>
+			<Cell><Data ss:Type="String">Cooper, Cecily D.</Data></Cell>
+			<Cell><Data ss:Type="String">ACADEMY OF MANAGEMENT JOURNAL</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Leadership, Dominance, and Preeminence in a Channel Structure with a Common Retailer</Data></Cell>
+			<Cell><Data ss:Type="String">Natarajan, Harihara Prasad</Data></Cell>
+			<Cell><Data ss:Type="String">DECISION SCIENCES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Lens regeneration in children</Data></Cell>
+			<Cell><Data ss:Type="String">Wilson, M. Edward</Data></Cell>
+			<Cell><Data ss:Type="String">NATURE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Limb-sparing surgery plus radiotherapy results in superior survival: an analysis of patients with high-grade, extremity soft-tissue sarcoma from the NCDB and SEER</Data></Cell>
+			<Cell><Data ss:Type="String">Asher, David, Patel, Vivek, Wang, Lily, Subhawong, Ty</Data></Cell>
+			<Cell><Data ss:Type="String">CANCER MEDICINE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Limited capacity in project selection: competition through evidence production</Data></Cell>
+			<Cell><Data ss:Type="String">Boleslavsky, Raphael</Data></Cell>
+			<Cell><Data ss:Type="String">ECONOMIC THEORY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Lmo2 expression defines tumor cell identity during T-cell leukemogenesis</Data></Cell>
+			<Cell><Data ss:Type="String">Rodriguez-Hernandez, Guillermo, Rodriguez-Hernandez, Guillermo, Alonso-Lopez, Diego</Data></Cell>
+			<Cell><Data ss:Type="String">EMBO JOURNAL</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Local Health Departments' Promotion of Mental Health Care and Reductions in 30-Day All-Cause Readmission Rates in Maryland</Data></Cell>
+			<Cell><Data ss:Type="String">Barath, Deanna, Mortensen, Karoline, Chen, Jie</Data></Cell>
+			<Cell><Data ss:Type="String">MEDICAL CARE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Loss of ASXL1 in the bone marrow niche dysregulates hematopoietic stem and progenitor cell fates</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Peng, Xu, Mingjiang, Zhang, Peng, Yang, Feng-Chun, Yang, Hui, Chen, Shi, Shi, Hui, Yang, Feng-Chun, Chen, Shi, Chen, Zizhen, Cheng, Tao</Data></Cell>
+			<Cell><Data ss:Type="String">CELL DISCOVERY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Loss of coral reef growth capacity to track future increases in sea level</Data></Cell>
+			<Cell><Data ss:Type="String">Macdonald, Chancey, Perez-Cervantes, Esmeralda, Perez-Cervantes, Esmeralda, Wilson, Margaret, Wilson, Shaun K., Alvarez-Filip, Lorenzo, Suchley, Adam</Data></Cell>
+			<Cell><Data ss:Type="String">NATURE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Loss of TFF1 promotes growth and chemotherapeutic resistance in gastric cancer</Data></Cell>
+			<Cell><Data ss:Type="String">Xu, Zekuan, Wang, Weizhi, Chen, Zheng</Data></Cell>
+			<Cell><Data ss:Type="String">CANCER RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Low-Dose Anti-Thymocyte Globulin (ATG) Preserves -Cell Function and Improves HbA(1c) in New-Onset Type 1 Diabetes</Data></Cell>
+			<Cell><Data ss:Type="String">Rodriguez, Henry, Wilson, Darrell M., Becker, Dorothy J., Rodriguez, Henry</Data></Cell>
+			<Cell><Data ss:Type="String">DIABETES CARE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Management Disclosures of Going Concern Uncertainties: The Case of Initial Public Offerings</Data></Cell>
+			<Cell><Data ss:Type="String">Bochkay, Khrystyna, Chychyla, Roman</Data></Cell>
+			<Cell><Data ss:Type="String">ACCOUNTING REVIEW</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Managing Performance Signals Through Delay: Evidence from Venture Capital</Data></Cell>
+			<Cell><Data ss:Type="String">Chakraborty, Indraneel I.</Data></Cell>
+			<Cell><Data ss:Type="String">MANAGEMENT SCIENCE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Mandatory Statewide Medicaid Managed Care in Florida and Hospitalizations for Ambulatory Care Sensitive Conditions</Data></Cell>
+			<Cell><Data ss:Type="String">Mortensen, Karoline</Data></Cell>
+			<Cell><Data ss:Type="String">HEALTH SERVICES RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Measurement of lower limb segmental excursion using inertial sensors during single limb stance</Data></Cell>
+			<Cell><Data ss:Type="String">Kim, Kyoung Jae</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF BIOMECHANICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Medicaid Managed Care in Florida and Racial and Ethnic Disparities in Preventable Emergency Department Visits</Data></Cell>
+			<Cell><Data ss:Type="String">Mortensen, Karoline, Chen, Jie</Data></Cell>
+			<Cell><Data ss:Type="String">MEDICAL CARE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Medical Comorbidities in Bipolar Disorder</Data></Cell>
+			<Cell><Data ss:Type="String">Sharma, Abhinav</Data></Cell>
+			<Cell><Data ss:Type="String">CURRENT PSYCHIATRY REPORTS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Methylation of the HOXA10 Promoter Directs miR-196b-5p-Dependent Cell Proliferation and Invasion of Gastric Cancer Cells</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Shutian, Zhang, Shutian, Chen, Zheng</Data></Cell>
+			<Cell><Data ss:Type="String">MOLECULAR CANCER RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">microRNA regulation in an ancient obligate endosymbiosis</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, Lingyu, Wilson, Alex C. C.</Data></Cell>
+			<Cell><Data ss:Type="String">MOLECULAR ECOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Modeling the importation and local transmission of vector-borne diseases in Florida: The case of Zika outbreak in 2016</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Guoyan, Zhang, Guoyan, Ruan, Shigui, Guan, Yongtao, Chen, Jing</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THEORETICAL BIOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Modulation of TET2 Activity By Ascorbic Acid and Factors Affecting Lysine Acetylation</Data></Cell>
+			<Cell><Data ss:Type="String">Xu, Mingjiang, Chen, Shi, Makishima, Hideki, Guan, Yihong, Chen, Shi, Liu, Xiaochen</Data></Cell>
+			<Cell><Data ss:Type="String">BLOOD</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Moisture Distributions in Tropical Cold Pools From Equatorial Indian Ocean Observations and Cloud-Resolving Simulations</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jianhao, Zhang, Jianhao</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF GEOPHYSICAL RESEARCH-ATMOSPHERES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">MRI findings associated with microscopic residual tumor following unplanned excision of soft tissue sarcomas in the extremities</Data></Cell>
+			<Cell><Data ss:Type="String">Yang, Xuan, Wang, Lee, Yang, Xuan, Subhawong, Ty K.</Data></Cell>
+			<Cell><Data ss:Type="String">SKELETAL RADIOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Multiancestry genome-wide association study of 520,000 subjects identifies 32 loci associated with stroke and stroke subtypes</Data></Cell>
+			<Cell><Data ss:Type="String">DeStefano, Anita L., Sharma, Pankaj, Jian, Xueqiu, Johnson, Andrew D., Johnson, Julie A., Harris, Tamara B., Wilson, James G., Yang, Qiong, Rothwell, Peter M., Manichaikul, Ani, Ago, Tetsuro, Heckbert, Susan R., Hsu, Fang-Chi, Seshadri, Sudha, Sudlow, Cathie L. M., Tatlisumak, Turgut, Yusuf, Salim, Adams, Hieab H. H., Ninomiya, Toshiharu, Chen, Wei-Min</Data></Cell>
+			<Cell><Data ss:Type="String">NATURE GENETICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Multilevel Tower Observations of Vertical Eddy Diffusivity and Mixing Length in the Tropical Cyclone Boundary Layer during Landfalls</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jun A., Zhang, Jun A., Tang, Jie</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THE ATMOSPHERIC SCIENCES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">NEUROPSYCHOLOGICAL FUNCTION IN HIV CLADE C INFECTED AND UNINFECTED INDIVIDUALS IN NORTHERN INDIA</Data></Cell>
+			<Cell><Data ss:Type="String">Kumar, Mahendra., Sharma, Aman, Sharma, Anchal, Babayigit, Suat, Khandelwal, Niranjan</Data></Cell>
+			<Cell><Data ss:Type="String">ANNALS OF BEHAVIORAL MEDICINE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Novel role of miR-133a-3p in repressing gastric cancer growth and metastasis via blocking autophagy-mediated glutaminolysis</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Xing, Xu, Jianghao, Xu, Penghui, Xu, Zekuan, Xuan, Zhe, Zhang, Xing, Wang, Sen, Wang, Weizhi, Sun, Guangli, Sun, Guangli, Chen, Zheng</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF EXPERIMENTAL & CLINICAL CANCER RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">On the Effect of Bias Estimation on Coverage Accuracy in Nonparametric Inference</Data></Cell>
+			<Cell><Data ss:Type="String">Calonico, Sebastian</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THE AMERICAN STATISTICAL ASSOCIATION</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">On the Properties of Yield Distributions in Random Yield Problems: Conditions, Class of Distributions and Relevant Applications</Data></Cell>
+			<Cell><Data ss:Type="String">Yang, Nan, Xiao, Guang</Data></Cell>
+			<Cell><Data ss:Type="String">PRODUCTION AND OPERATIONS MANAGEMENT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Opaque pricing over vertically differentiated servers</Data></Cell>
+			<Cell><Data ss:Type="String">Geng, Xin</Data></Cell>
+			<Cell><Data ss:Type="String">IISE TRANSACTIONS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Outcomes of conventional phacoemulsification versus femtosecond laser-assisted cataract surgery in eyes with Fuchs endothelial corneal dystrophy</Data></Cell>
+			<Cell><Data ss:Type="String">Shi, Wei</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF CATARACT AND REFRACTIVE SURGERY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Overexpression of DARPP-32 promotes activation of STAT3 through IGF1R-SRC axis in gastric cancer</Data></Cell>
+			<Cell><Data ss:Type="String">Chen, Zheng</Data></Cell>
+			<Cell><Data ss:Type="String">CANCER RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">PAPILLARY MUSCLE RUPTURE IN PATIENTS WITH ACUTE MYOCARDIAL INFARCTION: AN ANALYSIS FROM NATIONAL INPATIENT SAMPLE DATABASE</Data></Cell>
+			<Cell><Data ss:Type="String">Kumar, Arun, Kumar, Varun, Patel, Nileshkumar, Patel, Nileshkumar, Balla, Sudarshan</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THE AMERICAN COLLEGE OF CARDIOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">PathwaySplice: an R package for unbiased pathway analysis of alternative splicing in RNA-Seq data</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, Lily, Ban, Yuguang, Chen, Xi</Data></Cell>
+			<Cell><Data ss:Type="String">BIOINFORMATICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Patient-Reported Outcomes Following Platelet-Rich Plasma Injections in Treating Osteochondral Lesions of the Talus: A Critically Appraised Topic</Data></Cell>
+			<Cell><Data ss:Type="String">Kim, Kyung-Min</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF SPORT REHABILITATION</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Performance of the Population Bioequivalence (PBE) Statistical Test Using an IPAC-RS Database of Delivered Dose from Metered Dose Inhalers</Data></Cell>
+			<Cell><Data ss:Type="String">McKenry, Mary, Joshi, Keyur, Chen, Stephanie</Data></Cell>
+			<Cell><Data ss:Type="String">AAPS PHARMSCITECH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Personal selling and the purchasing function: where do we go from here?</Data></Cell>
+			<Cell><Data ss:Type="String">Sharma, Arun</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF PERSONAL SELLING & SALES MANAGEMENT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Phase 2 Open-Label Study of Bortezomib, Cladribine, and Rituximab in Advanced, Newly Diagnosed, and Relapsed/Refractory Mantle-Cell and Indolent Lymphomas</Data></Cell>
+			<Cell><Data ss:Type="String">Kumar, Abhijeet, Guillen-Rodriguez, Jose, Guillen-Rodriguez, Jose</Data></Cell>
+			<Cell><Data ss:Type="String">CLINICAL LYMPHOMA MYELOMA & LEUKEMIA</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Phase-dependent deficits during reach-to-grasp after human spinal cord injury</Data></Cell>
+			<Cell><Data ss:Type="String">Perez, Monica A., Perez, Monica A.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF NEUROPHYSIOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Photochemical Barcodes</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Yang, Collins, Kevin M., Zhang, Yang, Zhang, Yang, Tang, Sicheng, Tang, Sicheng</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THE AMERICAN CHEMICAL SOCIETY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Phylogenetic classification of the world's tropical forests</Data></Cell>
+			<Cell><Data ss:Type="String">Sarker, Swapan Kumar, Sukumar, Raman, Joseph, Shijo, Kelly, Daniel L., Paudel, Ekananda, Perez-Garcia, Eduardo A., Perez, Rolando, Arroyo-Rodriguez, Victor, Harris, David J., Harrison, Rhett D., Ewango, Corneille, dos Santos, Joao Roberto, Santos, Braulio, Perez-Garcia, Eduardo A., Perez, Rolando, Spironello, Wilson Roberto, Yang, Xiaobo, Arroyo-Rodriguez, Victor, Bin Mahmud, Khairil, Chai, Shauna-Lee, Tang, Jianwei, DeWalt, Saara J., Enoki, Tsutomu, Laurance, Susan G., Letcher, Susan G., Suganuma, Marcio Seiji, Sukri, Rahayu, Sukumar, Raman, Sultana, Aisha, Sunderland, Terry, Supriyadi, Suresh, H. S., Suzuki, Eizi, Wiser, Susan, Aiba, Shin-Ichiro, Joseph, Shijo, Chen, Shengbin, Schoengart, Jochen</Data></Cell>
+			<Cell><Data ss:Type="String">PROCEEDINGS OF THE NATIONAL ACADEMY OF SCIENCES OF THE UNITED STATES OF AMERICA</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Pilot Study of Potential Activation of c-MYC by Aurora Kinase A in Everolimus-Resistant Localized Esophageal Cancer Treated with XELOX followed by Carboplatin/Radiation</Data></Cell>
+			<Cell><Data ss:Type="String">Shin, D. M., Chen, Z.</Data></Cell>
+			<Cell><Data ss:Type="String">INTERNATIONAL JOURNAL OF RADIATION ONCOLOGY BIOLOGY PHYSICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Potential contribution of the retinal circulation to photoreceptor compromise in individuals with diabetes.</Data></Cell>
+			<Cell><Data ss:Type="String">Shi, Wei</Data></Cell>
+			<Cell><Data ss:Type="String">INVESTIGATIVE OPHTHALMOLOGY & VISUAL SCIENCE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Potentiating paired corticospinal-motoneuronal plasticity after spinal cord injury</Data></Cell>
+			<Cell><Data ss:Type="String">Perez, Monica A., Perez, Monica A.</Data></Cell>
+			<Cell><Data ss:Type="String">BRAIN STIMULATION</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Predicting diabetes risk among HIV-positive and HIV-negative women</Data></Cell>
+			<Cell><Data ss:Type="String">Sharma, Anjali, Schneider, Michael F.</Data></Cell>
+			<Cell><Data ss:Type="String">AIDS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Predictive value for cardiovascular events of common carotid intima media thickness and its rate of change in individuals at high cardiovascular risk - Results from the PROG-IMT collaboration</Data></Cell>
+			<Cell><Data ss:Type="String">Polak, Joseph F., Ronkainen, Kimmo, Su, Ta-Chen, Suarez, Carmen, Su, Ta-Chen</Data></Cell>
+			<Cell><Data ss:Type="String">PLOS ONE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">PREVALENCE AND INCIDENCE OF DIABETES IN THE HISPANIC COMMUNITY HEALTH STUDY/STUDY OF LATINOS (HCHS/SOL)</Data></Cell>
+			<Cell><Data ss:Type="String">Medina, Diana Chrininos, Schneiderman, Neil</Data></Cell>
+			<Cell><Data ss:Type="String">ANNALS OF BEHAVIORAL MEDICINE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">PRMT5 interacts with the BCL6 oncoprotein and is required for germinal center formation and lymphoma cell survival</Data></Cell>
+			<Cell><Data ss:Type="String">Yusufova, Nevin, Geng, Huimin, Luo, Yuan, Lossos, Chen</Data></Cell>
+			<Cell><Data ss:Type="String">BLOOD</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Product Portfolio Restructuring: Methodology and Application at Caterpillar</Data></Cell>
+			<Cell><Data ss:Type="String">Shunko, Masha, Yunes, Tallys</Data></Cell>
+			<Cell><Data ss:Type="String">PRODUCTION AND OPERATIONS MANAGEMENT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Production Chain Disruptions: Inventory, Preparedness, and Insurance</Data></Cell>
+			<Cell><Data ss:Type="String">Tang, Sammi Yu</Data></Cell>
+			<Cell><Data ss:Type="String">PRODUCTION AND OPERATIONS MANAGEMENT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Relationship between the MDS-UPDRS and Quality of Life: A large multicenter study of 3206 patients</Data></Cell>
+			<Cell><Data ss:Type="String">Mendoza-Rodriguez, Amelia, Rodriguez-Blazquez, Carmen, Rodriguez-Violante, Mayela, Poewe, Werner, Mendoza-Rodriguez, Amelia, Rodriguez-Blazquez, Carmen, Rodriguez-Violante, Mayela, Alvarez-Sanchez, Mario, Aschermann, Zsuzsanna</Data></Cell>
+			<Cell><Data ss:Type="String">PARKINSONISM & RELATED DISORDERS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Resident Physician Knowledge of Urine Testing and Treatment Over Four Years</Data></Cell>
+			<Cell><Data ss:Type="String">Johnson, James R.</Data></Cell>
+			<Cell><Data ss:Type="String">INFECTION CONTROL AND HOSPITAL EPIDEMIOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Rethinking the prescription of biotin for dermatologic conditions</Data></Cell>
+			<Cell><Data ss:Type="String">Kumar, Anagha</Data></Cell>
+			<Cell><Data ss:Type="String">DERMATOLOGIC THERAPY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Riociguat prevents hyperoxia-induced lung injury and pulmonary hypertension in neonatal rats without effects on long bone growth</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, Luqing, Luo, Shihua, Luo, Shihua</Data></Cell>
+			<Cell><Data ss:Type="String">PLOS ONE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Room for Improvement: The HIV-Diabetes Care Continuum Over 15 Years in the Women's Interagency HIV Study</Data></Cell>
+			<Cell><Data ss:Type="String">Sharma, Anjali, Schneider, Michael F.</Data></Cell>
+			<Cell><Data ss:Type="String">OPEN FORUM INFECTIOUS DISEASES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Sales and customer development: An agenda for inquiry</Data></Cell>
+			<Cell><Data ss:Type="String">Sharma, Arun</Data></Cell>
+			<Cell><Data ss:Type="String">INDUSTRIAL MARKETING MANAGEMENT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Seasonal radiogenic isotopic variability of the African dust outflow to the tropical Atlantic Ocean and across to the Caribbean</Data></Cell>
+			<Cell><Data ss:Type="String">Kumar, Ashwini, Kumar, Ashwini</Data></Cell>
+			<Cell><Data ss:Type="String">EARTH AND PLANETARY SCIENCE LETTERS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Self-reported Health Status Differs for Amazon's Mechanical Turk Respondents Compared With Nationally Representative Surveys</Data></Cell>
+			<Cell><Data ss:Type="String">Mortensen, Karoline, French, Michael T.</Data></Cell>
+			<Cell><Data ss:Type="String">MEDICAL CARE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Sell-Side Financial Analysts and the CFA (R) Program</Data></Cell>
+			<Cell><Data ss:Type="String">Su, Tie</Data></Cell>
+			<Cell><Data ss:Type="String">FINANCIAL ANALYSTS JOURNAL</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">SENSITIVITY OF HURRICANE INTENSITY AND STRUCTURE TO TWO TYPES OF PLANETARY BOUNDARY LAYER PARAMETERIZATION SCHEMES IN IDEALIZED HWRF SIMULATIONS</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jun A., Zhang, Jun A., Tang, Jie</Data></Cell>
+			<Cell><Data ss:Type="String">TROPICAL CYCLONE RESEARCH AND REVIEW</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Sequencing of Linkage Region on Chromosome 12p11 Identifies PKP2 as a Candidate Gene for Left Ventricular Mass in Dominican Families</Data></Cell>
+			<Cell><Data ss:Type="String">Beecham, Ashley, Wang, Liyong, Blanton, Susan H.</Data></Cell>
+			<Cell><Data ss:Type="String">G3-GENES GENOMES GENETICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Serious leisure and depression in older adults: a study of pickleball players</Data></Cell>
+			<Cell><Data ss:Type="String">Kim, Kyung Min, Yang, Hyunmin, Ryu, Jungsu</Data></Cell>
+			<Cell><Data ss:Type="String">LEISURE STUDIES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">SHORT SELLER INFLUENCE ON FIRM GROWTH: A THREAT RIGIDITY PERSPECTIVE</Data></Cell>
+			<Cell><Data ss:Type="String">Shi, Wei</Data></Cell>
+			<Cell><Data ss:Type="String">ACADEMY OF MANAGEMENT JOURNAL</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Social presence and digital dialogic communication: engagement lessons from top social CEOs</Data></Cell>
+			<Cell><Data ss:Type="String">Tsai, Wan-Hsiu Sunny, Chen, Zifei Fay</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF PUBLIC RELATIONS RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Sorting through global corruption determinants: Institutions and education matter - Not culture</Data></Cell>
+			<Cell><Data ss:Type="String">Parmeter, Christopher F.</Data></Cell>
+			<Cell><Data ss:Type="String">WORLD DEVELOPMENT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Strategic entry or strategic exit? International presence by emerging economy enterprises</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, Stephanie L., Sun, Jinyun, Luo, Yadong</Data></Cell>
+			<Cell><Data ss:Type="String">INTERNATIONAL BUSINESS REVIEW</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Submicron Aggregation of Chemically Denatured Monoclonal Antibody</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jifeng, Zhang, Jifeng, Wooten, Harrison R., Wang, Ying, Noufer, Hailey A., Subramony, J. Anand, Pechenov, Sergei</Data></Cell>
+			<Cell><Data ss:Type="String">MOLECULAR PHARMACEUTICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Surface-Based Microwave Humidity Retrievals over the Equatorial Indian Ocean: Applications and Challenges</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jianhao, Zhang, Jianhao, Turner, David D.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF APPLIED METEOROLOGY AND CLIMATOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Surgical Simulation Training Reduces Intraoperative Cataract Surgery Complications Among Residents</Data></Cell>
+			<Cell><Data ss:Type="String">Shi, Wei</Data></Cell>
+			<Cell><Data ss:Type="String">SIMULATION IN HEALTHCARE-JOURNAL OF THE SOCIETY FOR SIMULATION IN HEALTHCARE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Targeted-Plasticity in the Corticospinal Tract After Human Spinal Cord Injury</Data></Cell>
+			<Cell><Data ss:Type="String">Perez, Monica A., Perez, Monica A.</Data></Cell>
+			<Cell><Data ss:Type="String">NEUROTHERAPEUTICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Temporal-Spatial Values During a 180 degrees Step Turn in People with Unilateral Lower Limb Amputation</Data></Cell>
+			<Cell><Data ss:Type="String">Kim, Kyoung Jae, Clemens, Sheila M.</Data></Cell>
+			<Cell><Data ss:Type="String">GAIT & POSTURE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Testosterone replacement therapy for physician assistants and nurse practitioners</Data></Cell>
+			<Cell><Data ss:Type="String">Patel, Amir Shahreza, Ramos, Libert</Data></Cell>
+			<Cell><Data ss:Type="String">TRANSLATIONAL ANDROLOGY AND UROLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TET2 Loss Dysregulates the Behavior of Bone Marrow Mesenchymal Stromal Cells and Accelerates Tet2(-/-)-Driven Myeloid Malignancy Progression</Data></Cell>
+			<Cell><Data ss:Type="String">Xu, Mingjiang, Wang, Jinhuan, Yang, Feng-Chun, Chen, Shi, Yang, Feng-Chun, Chen, Shi, Chen, Zizhen, Cheng, Tao</Data></Cell>
+			<Cell><Data ss:Type="String">STEM CELL REPORTS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">TFF1 antagonizes TIMP-1 mediated proliferative functions in gastric cancer</Data></Cell>
+			<Cell><Data ss:Type="String">Chen, Zheng</Data></Cell>
+			<Cell><Data ss:Type="String">MOLECULAR CARCINOGENESIS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">The Accuracies of Himawari-8 and MTSAT-2 Sea-Surface Temperatures in the Tropical Western Pacific Ocean</Data></Cell>
+			<Cell><Data ss:Type="String">Kumar, Ajoy, Liu, Yang</Data></Cell>
+			<Cell><Data ss:Type="String">REMOTE SENSING</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">The Arrival of Robotics in Spine Surgery A Review of the Literature</Data></Cell>
+			<Cell><Data ss:Type="String">Sharma, Akhil</Data></Cell>
+			<Cell><Data ss:Type="String">SPINE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">The Ascension Island Boundary Layer in the Remote Southeast Atlantic is Often Smoky</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jianhao, Sedlacek, Arthur J., III, Zhang, Jianhao</Data></Cell>
+			<Cell><Data ss:Type="String">GEOPHYSICAL RESEARCH LETTERS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">The Costs of Sovereign Default: Evidence from the Stock Market</Data></Cell>
+			<Cell><Data ss:Type="String">Andrade, Sandro C., Chhaochharia, Vidhi</Data></Cell>
+			<Cell><Data ss:Type="String">REVIEW OF FINANCIAL STUDIES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">The economic costs of jail-based methadone maintenance treatment</Data></Cell>
+			<Cell><Data ss:Type="String">Li, Xiaoxue, French, Michael T.</Data></Cell>
+			<Cell><Data ss:Type="String">AMERICAN JOURNAL OF DRUG AND ALCOHOL ABUSE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">The Effects of Rarity on Indulgent Consumption: Non-Impulsives Indulge When Low Frequency Is Salient</Data></Cell>
+			<Cell><Data ss:Type="String">Irmak, Caglar</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF CONSUMER RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">The GEOTRACES Intermediate Data Product 2017</Data></Cell>
+			<Cell><Data ss:Type="String">Singh, Sunil Kumar, Resing, Joseph A., Garcia-Solsona, Ester, Nakayama, Noriko, Townsend, Ashley T., Hayes, Christopher T., Townsend, Ashley T., Townsend, Emily, Zhang, Jing, Zhang, Pu, Xue, Zichen, Church, Thomas M., Zhang, Jing, Zhang, Pu, Kim, Taejin, Xiang, Yang, Black, Erin, Bauch, Dorothea, Robinson, Laura F., Cheng, Hai, Dehairs, Frank, Weinstein, Yishai, Little, Susan, Measures, Christopher, O'Sullivan, Jeanette, Schauer, Ursula, Singh, Sunil Kumar, Velazquez, Sue, Daniels, Chris, Gamo, Toshitaka, Isshiki, Kenji, Nishioka, Jun, Nishiuchi, Akira, Shiller, Alan M., Sohrin, Yoshiki, Yoshikawa, Hisayuki, Cheng, Hai, Rauschenberg, S., Swarr, Gretchen J., Xue, Zichen</Data></Cell>
+			<Cell><Data ss:Type="String">CHEMICAL GEOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">The Impact of the home country on internationalization</Data></Cell>
+			<Cell><Data ss:Type="String">Cuervo-Cazurra, Alvaro, Luo, Yadong</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF WORLD BUSINESS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">The Influence of Swell on the Atmospheric Boundary Layer under Nonneutral Conditions</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jun A., Zhang, Jun A., Lv, Haibin, Cheng, Yinhe</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF PHYSICAL OCEANOGRAPHY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">The playfulness of Facebook - Shaped by underlying psychological drivers and gender differences</Data></Cell>
+			<Cell><Data ss:Type="String">Rodriguez-Ardura, Inma, Rodriguez-Ardura, Inma, Rodriguez-Ardura, Inma</Data></Cell>
+			<Cell><Data ss:Type="String">TELEMATICS AND INFORMATICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">The Primary Tube Versus Trabeculectomy Study Methodology of a Multicenter Randomized Clinical Trial Comparing Tube Shunt Surgery and Trabeculectomy with Mitomycin C</Data></Cell>
+			<Cell><Data ss:Type="String">Schiffman, Joyce C., Wright, Martha M., Shi, Wei, Chen, Philip P.</Data></Cell>
+			<Cell><Data ss:Type="String">OPHTHALMOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">The Third Generation Irreversible EGFR Inhibitor HS-10296 in Advanced Non-Small Cell Lung Cancer Patients</Data></Cell>
+			<Cell><Data ss:Type="String">Wang, C., Wang, Z., Yang, C., Yang, J. C., Yang, N., Su, W., Shiah, H., Shirai, K., Chen, J., Chen, Y.</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF THORACIC ONCOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Therapeutic potential of GSK-J4, a histone demethylase KDM6B/JMJD3 inhibitor, for acute myeloid leukemia</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Mingying, Zhang, Peng, Zhang, Mingying, Zhang, Peng, Yang, Feng-Chun, Yang, Feng-Chun, Chen, Zizhen, Cheng, Tao</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF CANCER RESEARCH AND CLINICAL ONCOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">To Treat or Not to Treat?: Exploring Factors Influencing Intravenous Thrombolysis Treatment Decisions for Minor Stroke</Data></Cell>
+			<Cell><Data ss:Type="String">Broderick, Joseph P., Hurley, Dana, Kim, Doojin, Levine, Steven R.</Data></Cell>
+			<Cell><Data ss:Type="String">STROKE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Toward an Optimal Donation Solicitation: Evidence from the Field of the Differential Influence of Donor-Related and Organization-Related Information on Donation Choice and Amount</Data></Cell>
+			<Cell><Data ss:Type="String">Townsend, Claudia</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF MARKETING</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Trading Dynamics with Private Buyer Signals in the Market for Lemons</Data></Cell>
+			<Cell><Data ss:Type="String">Kaya, Ayca, Kim, Kyungmin</Data></Cell>
+			<Cell><Data ss:Type="String">REVIEW OF ECONOMIC STUDIES</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Transcriptomic analysis of synovial extracellular RNA following knee trauma: A pilot study</Data></Cell>
+			<Cell><Data ss:Type="String">Perez, Jose, Wang, Liyong, Perez, Jose</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF ORTHOPAEDIC RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Treatment Outcomes in the Primary Tube Versus Trabeculectomy Study after 1 Year of Follow-up</Data></Cell>
+			<Cell><Data ss:Type="String">Shi, Wei</Data></Cell>
+			<Cell><Data ss:Type="String">OPHTHALMOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Tropical Cyclone Boundary Layer Rolls in Synthetic Aperture Radar Imagery</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Jun A., Zhang, Zenghui, Zhang, Jun A., Zhang, Zenghui</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF GEOPHYSICAL RESEARCH-OCEANS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Two-patch model for the spread of West Nile virus</Data></Cell>
+			<Cell><Data ss:Type="String">Zhang, Juping, Zhang, Juping</Data></Cell>
+			<Cell><Data ss:Type="String">BULLETIN OF MATHEMATICAL BIOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Uncertainty about managers' reporting objectives and investors' response to earnings reports: Evidence from the 2006 executive compensation disclosures</Data></Cell>
+			<Cell><Data ss:Type="String">Ferri, Fabrizio</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF ACCOUNTING & ECONOMICS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Understanding pickleball as a new leisure pursuit among older adults</Data></Cell>
+			<Cell><Data ss:Type="String">Kim, Amy Chan Hyung, Kim, Kyung Min, Yang, Hyunmin, Ryu, Jungsu</Data></Cell>
+			<Cell><Data ss:Type="String">EDUCATIONAL GERONTOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Using Administrative Data to Explore the Effect of Survey Nonresponse in the UK Employment Retention and Advancement Demonstration</Data></Cell>
+			<Cell><Data ss:Type="String">Robins, Philip K.</Data></Cell>
+			<Cell><Data ss:Type="String">EVALUATION REVIEW</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Validation of an Airborne Doppler Wind Lidar in Tropical Cyclones</Data></Cell>
+			<Cell><Data ss:Type="String">Ryan, Kelly, Zhang, Jun A., Zhang, Jun A.</Data></Cell>
+			<Cell><Data ss:Type="String">SENSORS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Variation of preventive service utilization by state Medicaid coverage, cost-sharing, and Medicaid expansion status</Data></Cell>
+			<Cell><Data ss:Type="String">Mortensen, Karoline, Chen, Jie</Data></Cell>
+			<Cell><Data ss:Type="String">PREVENTIVE MEDICINE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Virologic response with 2 different cidofovir dosing regimens for preemptive treatment of adenovirus DNAemia in pediatric solid organ transplant recipients</Data></Cell>
+			<Cell><Data ss:Type="String">Perez, Michelle M., Perez, Michelle M.</Data></Cell>
+			<Cell><Data ss:Type="String">PEDIATRIC TRANSPLANTATION</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Waiting for a sales renaissance in the fourth industrial revolution: Machine learning and artificial intelligence in sales research and practice</Data></Cell>
+			<Cell><Data ss:Type="String">Sharma, Arun</Data></Cell>
+			<Cell><Data ss:Type="String">INDUSTRIAL MARKETING MANAGEMENT</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Watch for motorcycles! The effects of texting and handheld bans on motorcyclist fatalities</Data></Cell>
+			<Cell><Data ss:Type="String">French, Michael T.</Data></Cell>
+			<Cell><Data ss:Type="String">SOCIAL SCIENCE & MEDICINE</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Wearing the marks of violence: Unusual trauma patterning at Coyo Oriental, Northern Chile</Data></Cell>
+			<Cell><Data ss:Type="String">Torres-Rouff, Christina</Data></Cell>
+			<Cell><Data ss:Type="String">AMERICAN JOURNAL OF PHYSICAL ANTHROPOLOGY</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">When are emerging market multinationals more risk taking?</Data></Cell>
+			<Cell><Data ss:Type="String">Luo, Yadong</Data></Cell>
+			<Cell><Data ss:Type="String">GLOBAL STRATEGY JOURNAL</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">When Nudges Are Forever: Inertia in the Swedish Premium Pension Plant</Data></Cell>
+			<Cell><Data ss:Type="String">Cronqvist, Henrik</Data></Cell>
+			<Cell><Data ss:Type="String">AEA PAPERS AND PROCEEDINGS</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">When Public Recognition for Charitable Giving Backfires: The Role of Independent Self-Construal</Data></Cell>
+			<Cell><Data ss:Type="String">Laran, Juliano</Data></Cell>
+			<Cell><Data ss:Type="String">JOURNAL OF CONSUMER RESEARCH</Data></Cell>
+		</Row>
+		<Row>
+			<Cell><Data ss:Type="String">Women veterans and menopause: Knowledge and preferences</Data></Cell>
+			<Cell><Data ss:Type="String">Rodriguez, Remberto, Rodriguez, Remberto</Data></Cell>
+			<Cell><Data ss:Type="String">WOMEN & HEALTH</Data></Cell>
+		</Row>	</Table>
+</Worksheet>
+</Workbook>
