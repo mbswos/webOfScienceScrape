@@ -11,7 +11,7 @@
     <WindowsPersistSimpleIdentifiers />
     <ZoneBackgroundTransparency />
   </document-format-change-manifest>
-  <repository-location id='Book1_15633017767180' path='/workbooks' revision='1.4' />
+  <repository-location id='Book1_15633017767180' path='/workbooks' revision='1.7' />
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
     <preference name='ui.shelf.height' value='26' />
@@ -3296,55 +3296,71 @@
       <source dashboard='Categorical Scores' type='sheet' worksheet='Top Professors By Number of Quality Publications' />
       <command command='tsc:tsl-filter'>
         <param name='special-fields' value='all' />
-        <param name='target' value='Publication Breakdown' />
+        <param name='target' value='Publication Score Breakdown' />
       </command>
     </action>
     <action caption='Filter 1 (generated)' name='[Action1]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='Top Professors' type='sheet' />
+      <source dashboard='RateMyProfessors Score Breakdown' type='sheet' />
       <command command='tsc:tsl-filter'>
         <param name='special-fields' value='all' />
-        <param name='target' value='Top Professors' />
+        <param name='target' value='RateMyProfessors Score Breakdown' />
       </command>
     </action>
     <action caption='Filter 7 (generated)' name='[Action21]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='Publication Breakdown' type='sheet' worksheet='Number of Publications on FinancialTimes Top 50' />
+      <source dashboard='Publication Score Breakdown' type='sheet' worksheet='Number of Publications on FinancialTimes Top 50' />
       <command command='tsc:tsl-filter'>
         <param name='special-fields' value='all' />
-        <param name='target' value='Publication Breakdown' />
+        <param name='target' value='Publication Score Breakdown' />
       </command>
     </action>
     <action caption='Filter 8 (generated)' name='[Action22]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='Publication Breakdown' type='sheet' worksheet='Number of Publications on UTDallas' />
+      <source dashboard='Publication Score Breakdown' type='sheet' worksheet='Number of Publications on UTDallas' />
       <command command='tsc:tsl-filter'>
         <param name='special-fields' value='all' />
-        <param name='target' value='Publication Breakdown' />
+        <param name='target' value='Publication Score Breakdown' />
       </command>
     </action>
     <action caption='Filter 9 (generated)' name='[Action23]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='Publication Breakdown' type='sheet' worksheet='Professor and Publication Names' />
+      <source dashboard='Publication Score Breakdown' type='sheet' worksheet='Professor and Publication Names' />
       <command command='tsc:tsl-filter'>
         <param name='special-fields' value='all' />
-        <param name='target' value='Publication Breakdown' />
+        <param name='target' value='Publication Score Breakdown' />
+      </command>
+    </action>
+    <action caption='Filter 10 (generated)' name='[Action25]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='RateMyProfessors Score Breakdown' type='sheet' worksheet='RateMyProfessors Professor Comments' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='RateMyProfessors Score Breakdown' />
+      </command>
+    </action>
+    <action caption='Filter 11 (generated)' name='[Action26]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='RateMyProfessors Score Breakdown' type='sheet' worksheet='RateMyProfessors Score' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='RateMyProfessors Score Breakdown' />
       </command>
     </action>
     <action caption='Filter 2 (generated)' name='[Action2]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='Top Professors' type='sheet' worksheet='Top Teachers by Number of Ratings (RateMyProfessors)' />
+      <source dashboard='RateMyProfessors Score Breakdown' type='sheet' worksheet='Top Teachers by Number of Ratings (RateMyProfessors)' />
       <command command='tsc:tsl-filter'>
         <param name='special-fields' value='all' />
-        <param name='target' value='Top Professors' />
+        <param name='target' value='RateMyProfessors Score Breakdown' />
       </command>
     </action>
     <action caption='Filter 3 (generated)' name='[Action3]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='Top Professors' type='sheet' worksheet='Top Teachers by Average RateMyProfessors Rating' />
+      <source dashboard='RateMyProfessors Score Breakdown' type='sheet' worksheet='Top Teachers by Average RateMyProfessors Rating' />
       <command command='tsc:tsl-filter'>
         <param name='special-fields' value='all' />
-        <param name='target' value='Top Professors' />
+        <param name='target' value='RateMyProfessors Score Breakdown' />
       </command>
     </action>
     <action caption='Filter 4 (generated)' name='[Action4]'>
@@ -3382,11 +3398,11 @@
     <nav-action caption='See Publication Breakdown' name='[Action18]'>
       <source dashboard='Categorical Scores' type='sheet' worksheet='Top Professors By Number of Quality Publications' />
       <params>
-        <param name='sheet' value='Publication Breakdown' />
+        <param name='sheet' value='Publication Score Breakdown' />
       </params>
     </nav-action>
     <nav-action caption='Go to Categorical Scores' name='[Action20]'>
-      <source dashboard='Publication Breakdown' type='sheet' />
+      <source dashboard='Publication Score Breakdown' type='sheet' />
       <params>
         <param name='sheet' value='Categorical Scores' />
       </params>
@@ -3718,36 +3734,20 @@
         <view>
           <datasources>
             <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
-            <datasource name='Parameters' />
           </datasources>
-          <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1970'>
-              <calculation class='tableau' formula='1970' />
-              <range max='2019' min='1960' />
-            </column>
-            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
-              <calculation class='tableau' formula='2019' />
-              <range max='2019' min='1960' />
-            </column>
-          </datasource-dependencies>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
             <column caption='Overall Rank' datatype='integer' name='[Calculation_605171212239351823]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='RANK(ATTR([total_score]),&apos;desc&apos;)'>
                 <table-calc ordering-type='Rows' />
               </calculation>
             </column>
-            <column caption='Date Range' datatype='boolean' name='[Calculation_605171214661550101]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])' />
-            </column>
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
             </column>
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
-            <column datatype='integer' name='[YEAR (publications)]' role='dimension' type='quantitative' />
             <column-instance column='[total_score]' derivation='Attribute' name='[attr:total_score:qk]' pivot='key' type='quantitative' />
             <column-instance column='[total_score]' derivation='Min' name='[min:total_score:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_605171214661550101]' derivation='None' name='[none:Calculation_605171214661550101:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
             <column-instance column='[LAST_NAME]' derivation='None' name='[none:LAST_NAME:nk]' pivot='key' type='nominal' />
             <column datatype='real' name='[total_score]' role='measure' type='quantitative' />
@@ -3755,18 +3755,12 @@
               <table-calc ordering-type='Columns' />
             </column-instance>
           </datasource-dependencies>
-          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]'>
-            <groupfilter function='member' level='[none:Calculation_605171214661550101:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
           <computed-sort column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' direction='DESC' using='[federated.0boy2ug1szy2q116xw0dv02nzveb].[min:total_score:qk]' />
-          <slices>
-            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]</column>
-          </slices>
           <aggregation value='true' />
         </view>
         <style />
         <panes>
-          <pane id='4' selection-relaxation-option='selection-relaxation-allow'>
+          <pane id='5' selection-relaxation-option='selection-relaxation-allow'>
             <view>
               <breakdown value='auto' />
             </view>
@@ -3826,6 +3820,9 @@
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]'>
             <groupfilter function='member' level='[none:Calculation_605171214661550101:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]'>
+            <groupfilter function='level-members' level='[none:Calculation_605171214667993110:nk]' />
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (Custom SQL Query):nk]'>
             <groupfilter from='&quot;14-Week quarters&quot;' function='range' level='[none:TITLE (Custom SQL Query):nk]' to='&quot;Your use of the JSTOR archive indicates your acceptance of the Terms &amp; Conditions of Use, available at http://about. jstor. org/terms&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
@@ -3833,6 +3830,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (Custom SQL Query):nk]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -3905,21 +3903,28 @@
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
             <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action16]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]'>
+            <groupfilter function='level-members' level='[none:Calculation_605171214667993110:nk]' />
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:RCOMMENTS:nk]'>
             <groupfilter from='&quot;...CONTD If u do the hmwks and understand each problem, the exams are very fair. He doesnt scream and yell at the students;if h calls on u in class its not to embarrass u but to actively involve you in the learning process.  ABOVE ALL: Bernile happily makes himself readily available for any1 needing extra help of the material in his 1on1 OFFICE HRS&quot;' function='range' level='[none:RCOMMENTS:nk]' to='&quot;Zohar rocks, she&apos;s super clear cut tells you everything she expects from you, holds review sessions in class the class before the test, and gives out study guides. Only 3 exams but a bunch of quizzes but is so so so nice. She will help you understand whatever you don&apos;t get and I 100\% recommend taking her &quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
           <slices>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:RCOMMENTS:nk]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]</column>
           </slices>
           <aggregation value='true' />
         </view>
         <style>
           <style-rule element='cell'>
-            <format attr='width' value='5' />
+            <format attr='width' value='1375' />
           </style-rule>
           <style-rule element='header'>
             <format attr='width' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:RCOMMENTS:nk]' value='1200' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:RCOMMENTS:nk]' value='false' />
           </style-rule>
         </style>
         <panes>
@@ -3928,10 +3933,13 @@
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:RCOMMENTS:nk]' />
+            </encodings>
             <style>
               <style-rule element='mark'>
                 <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-labels-show' value='true' />
               </style-rule>
               <style-rule element='pane'>
                 <format attr='minwidth' value='-1' />
@@ -4266,21 +4274,7 @@
         <style>
           <style-rule element='mark'>
             <encoding attr='size-bar' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[avg:ROVERALL:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
-            <encoding attr='color' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[avg:ROVERALL:qk]' type='custom-interpolated'>
-              <color-palette custom='true' name='' type='ordered-sequential'>
-                <color>#f1f1f1</color>
-                <color>#cae1ca</color>
-                <color>#a7d1a7</color>
-                <color>#87c287</color>
-                <color>#6bb26b</color>
-                <color>#51a351</color>
-                <color>#3a933a</color>
-                <color>#278327</color>
-                <color>#177417</color>
-                <color>#0a640a</color>
-                <color>#005500</color>
-              </color-palette>
-            </encoding>
+            <encoding attr='color' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[avg:ROVERALL:qk]' palette='orange_10_0' type='interpolated' />
           </style-rule>
         </style>
         <panes>
@@ -4356,7 +4350,7 @@
             <mark class='Automatic' />
             <style>
               <style-rule element='mark'>
-                <format attr='mark-color' value='#f28e2b' />
+                <format attr='mark-color' value='#59a14f' />
               </style-rule>
             </style>
           </pane>
@@ -4383,63 +4377,79 @@
         </style-rule>
       </style>
       <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <datasources>
+        <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb' />
       <zones>
         <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98000' id='35' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
-            <zone h='5125' id='36' type='title' w='98400' x='800' y='1000'>
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='4' />
-              </zone-style>
-            </zone>
-            <zone h='92875' id='33' type='layout-basic' w='98400' x='800' y='6125'>
-              <zone h='83634' id='32' param='horz' type='layout-flow' w='98400' x='800' y='6125'>
-                <zone h='83634' id='30' type='layout-basic' w='98400' x='800' y='6125'>
-                  <zone h='83634' id='16' param='horz' type='layout-flow' w='98400' x='800' y='6125'>
-                    <zone h='83634' id='11' param='horz' type='layout-flow' w='98400' x='800' y='6125'>
-                      <zone h='83634' id='8' param='horz' type='layout-flow' w='98400' x='800' y='6125'>
-                        <zone h='83634' id='6' type='layout-basic' w='98400' x='800' y='6125'>
-                          <zone h='44458' id='3' name='Professor Publication Count' w='35700' x='800' y='6125'>
-                            <zone-style>
-                              <format attr='border-color' value='#000000' />
-                              <format attr='border-style' value='none' />
-                              <format attr='border-width' value='0' />
-                              <format attr='margin' value='4' />
-                            </zone-style>
-                          </zone>
-                          <zone h='44458' id='9' name='RateMyProfessors Score' w='38500' x='36500' y='6125'>
-                            <zone-style>
-                              <format attr='border-color' value='#000000' />
-                              <format attr='border-style' value='none' />
-                              <format attr='border-width' value='0' />
-                              <format attr='margin' value='4' />
-                            </zone-style>
-                          </zone>
-                          <zone h='83634' id='29' name='Top Teachers by Average RateMyProfessors Rating' w='24200' x='75000' y='6125'>
-                            <zone-style>
-                              <format attr='border-color' value='#000000' />
-                              <format attr='border-style' value='none' />
-                              <format attr='border-width' value='0' />
-                              <format attr='margin' value='4' />
-                            </zone-style>
-                          </zone>
-                          <zone h='39176' id='5' name='Top Professors By Number of Quality Publications' w='74200' x='800' y='50583'>
-                            <zone-style>
-                              <format attr='border-color' value='#000000' />
-                              <format attr='border-style' value='none' />
-                              <format attr='border-width' value='0' />
-                              <format attr='margin' value='4' />
-                            </zone-style>
+          <zone h='98000' id='38' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='35' param='vert' type='layout-flow' w='82400' x='800' y='1000'>
+              <zone h='5125' id='36' type='title' w='82400' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='92875' id='33' type='layout-basic' w='82400' x='800' y='6125'>
+                <zone h='83633' id='32' param='horz' type='layout-flow' w='82400' x='800' y='6125'>
+                  <zone h='83633' id='30' type='layout-basic' w='82400' x='800' y='6125'>
+                    <zone h='83633' id='16' param='horz' type='layout-flow' w='82400' x='800' y='6125'>
+                      <zone h='83633' id='11' param='horz' type='layout-flow' w='82400' x='800' y='6125'>
+                        <zone h='83633' id='8' param='horz' type='layout-flow' w='82400' x='800' y='6125'>
+                          <zone h='83633' id='6' type='layout-basic' w='82400' x='800' y='6125'>
+                            <zone h='44457' id='3' name='Professor Publication Count' w='29895' x='800' y='6125'>
+                              <zone-style>
+                                <format attr='border-color' value='#000000' />
+                                <format attr='border-style' value='none' />
+                                <format attr='border-width' value='0' />
+                                <format attr='margin' value='4' />
+                              </zone-style>
+                            </zone>
+                            <zone h='44457' id='9' name='RateMyProfessors Score' w='32239' x='30695' y='6125'>
+                              <zone-style>
+                                <format attr='border-color' value='#000000' />
+                                <format attr='border-style' value='none' />
+                                <format attr='border-width' value='0' />
+                                <format attr='margin' value='4' />
+                              </zone-style>
+                            </zone>
+                            <zone h='83633' id='29' name='Top Teachers by Average RateMyProfessors Rating' w='20266' x='62934' y='6125'>
+                              <zone-style>
+                                <format attr='border-color' value='#000000' />
+                                <format attr='border-style' value='none' />
+                                <format attr='border-width' value='0' />
+                                <format attr='margin' value='4' />
+                              </zone-style>
+                            </zone>
+                            <zone h='39176' id='5' name='Top Professors By Number of Quality Publications' w='62134' x='800' y='50582'>
+                              <zone-style>
+                                <format attr='border-color' value='#000000' />
+                                <format attr='border-style' value='none' />
+                                <format attr='border-width' value='0' />
+                                <format attr='margin' value='4' />
+                              </zone-style>
+                            </zone>
                           </zone>
                         </zone>
                       </zone>
                     </zone>
                   </zone>
                 </zone>
+                <zone h='9242' id='14' name='Timeline' show-title='false' w='82400' x='800' y='89758'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
               </zone>
-              <zone h='9241' id='14' name='Timeline' show-title='false' w='98400' x='800' y='89759'>
+            </zone>
+            <zone fixed-size='160' h='98000' id='37' is-fixed='true' param='vert' type='layout-flow' w='16000' x='83200' y='1000'>
+              <zone h='98000' id='39' name='Top Teachers by Average RateMyProfessors Rating' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]' type='filter' values='database' w='16000' x='83200' y='1000'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4521,9 +4531,11 @@
             <zone h='3423' id='3' type='title' w='98426' x='787' y='830' />
             <zone h='10477' id='4' is-fixed='true' paired-zone-id='5' removable='false' type='flipboard-nav' w='98426' x='787' y='4253' />
             <zone h='84440' id='5' paired-zone-id='4' removable='false' type='flipboard' w='98426' x='787' y='14730'>
-              <flipboard active-id='3' nav-type='caption' show-nav-arrows='true'>
+              <flipboard active-id='6' nav-type='caption' show-nav-arrows='true'>
                 <story-points>
-                  <story-point caption='Professor Rankings for Each Category' captured-sheet='Top Professors' id='3' />
+                  <story-point caption='Publication Score Breakdown' captured-sheet='Publication Score Breakdown' id='6' />
+                  <story-point caption='RateMyProfessor Score Breakdown' captured-sheet='RateMyProfessors Score Breakdown' id='5' />
+                  <story-point caption='Scores Used to Calculate Professor Score and Rank' captured-sheet='Categorical Scores' id='4' />
                   <story-point caption='Professor Rankings by Total Score' captured-sheet='Professor Rankings' id='2'>
                     <capturedDeltas>
                       <worksheet name='Professor Scores'>
@@ -4531,7 +4543,6 @@
                       </worksheet>
                     </capturedDeltas>
                   </story-point>
-                  <story-point caption='Scores Used to Calculate Professor Score and Rank' captured-sheet='Categorical Scores' id='4' />
                 </story-points>
               </flipboard>
             </zone>
@@ -4627,59 +4638,87 @@
       </devicelayouts>
       <simple-id uuid='{0BB514C0-BB94-41C9-8B58-4120441AAA34}' />
     </dashboard>
-    <dashboard name='Publication Breakdown'>
+    <dashboard name='Publication Score Breakdown'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#ffffff'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
       <style>
         <style-rule element='table'>
           <format attr='background-color' value='#ffffff' />
         </style-rule>
         <style-rule element='dash-title'>
           <format attr='text-align' value='center' />
-          <format attr='background-color' value='#e9ebe0' />
+          <format attr='background-color' value='#00aa00' />
         </style-rule>
         <style-rule element='dash-text'>
           <format attr='text-align' value='left' />
         </style-rule>
       </style>
       <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <datasources>
+        <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+        <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
+          <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
+        </column>
+        <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
       <zones>
         <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98000' id='13' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
-            <zone h='5250' id='14' type='title' w='98400' x='800' y='1000'>
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='4' />
-              </zone-style>
-            </zone>
-            <zone h='92750' id='11' param='horz' type='layout-flow' w='98400' x='800' y='6250'>
-              <zone h='92750' id='7' param='horz' type='layout-flow' w='98400' x='800' y='6250'>
-                <zone h='92750' id='5' type='layout-basic' w='98400' x='800' y='6250'>
-                  <zone h='46375' id='3' name='Number of Publications on UTDallas' w='49200' x='800' y='6250'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='92750' id='8' name='Professor and Publication Names' w='49200' x='50000' y='6250'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
-                  </zone>
-                  <zone h='46375' id='9' name='Number of Publications on FinancialTimes Top 50' w='49200' x='800' y='52625'>
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='none' />
-                      <format attr='border-width' value='0' />
-                      <format attr='margin' value='4' />
-                    </zone-style>
+          <zone h='98000' id='16' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='13' param='vert' type='layout-flow' w='82400' x='800' y='1000'>
+              <zone h='5125' id='14' type='title' w='82400' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='92875' id='11' param='horz' type='layout-flow' w='82400' x='800' y='6125'>
+                <zone h='92875' id='7' param='horz' type='layout-flow' w='82400' x='800' y='6125'>
+                  <zone h='92875' id='5' type='layout-basic' w='82400' x='800' y='6125'>
+                    <zone h='46436' id='3' name='Number of Publications on UTDallas' w='41200' x='800' y='6125'>
+                      <zone-style>
+                        <format attr='border-color' value='#000000' />
+                        <format attr='border-style' value='none' />
+                        <format attr='border-width' value='0' />
+                        <format attr='margin' value='4' />
+                      </zone-style>
+                    </zone>
+                    <zone h='92875' id='8' name='Professor and Publication Names' w='41200' x='42000' y='6125'>
+                      <zone-style>
+                        <format attr='border-color' value='#000000' />
+                        <format attr='border-style' value='none' />
+                        <format attr='border-width' value='0' />
+                        <format attr='margin' value='4' />
+                      </zone-style>
+                    </zone>
+                    <zone h='46439' id='9' name='Number of Publications on FinancialTimes Top 50' w='41200' x='800' y='52561'>
+                      <zone-style>
+                        <format attr='border-color' value='#000000' />
+                        <format attr='border-style' value='none' />
+                        <format attr='border-width' value='0' />
+                        <format attr='margin' value='4' />
+                      </zone-style>
+                    </zone>
                   </zone>
                 </zone>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98000' id='15' is-fixed='true' param='vert' type='layout-flow' w='16000' x='83200' y='1000'>
+              <zone h='98000' id='17' name='Professor and Publication Names' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' type='filter' values='database' w='16000' x='83200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
               </zone>
             </zone>
           </zone>
@@ -4709,54 +4748,95 @@
       </devicelayouts>
       <simple-id uuid='{D83546C3-4C00-492D-BA5C-1F5030B33B6B}' />
     </dashboard>
-    <dashboard name='Top Professors'>
-      <style />
+    <dashboard name='RateMyProfessors Score Breakdown'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#ffffff'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style>
+        <style-rule element='dash-title'>
+          <format attr='text-align' value='center' />
+          <format attr='background-color' value='#f28f2d' />
+        </style-rule>
+      </style>
       <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' preset-index='1' sizing-mode='fixed' />
+      <datasources>
+        <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+        <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
+          <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
+        </column>
+        <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
       <zones>
         <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98000' id='27' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
-            <zone h='5250' id='28' type='title' w='98400' x='800' y='1000'>
-              <zone-style>
-                <format attr='border-color' value='#000000' />
-                <format attr='border-style' value='none' />
-                <format attr='border-width' value='0' />
-                <format attr='margin' value='4' />
-              </zone-style>
-            </zone>
-            <zone h='92750' id='25' param='horz' type='layout-flow' w='98400' x='800' y='6250'>
-              <zone h='92750' id='23' param='horz' type='layout-flow' w='98400' x='800' y='6250'>
-                <zone h='92750' id='21' param='horz' type='layout-flow' w='98400' x='800' y='6250'>
-                  <zone h='92750' id='19' param='horz' type='layout-flow' w='98400' x='800' y='6250'>
-                    <zone h='92750' id='17' param='horz' type='layout-flow' w='98400' x='800' y='6250'>
-                      <zone h='92750' id='15' type='layout-basic' w='98400' x='800' y='6250'>
-                        <zone h='46376' id='3' name='Top Professors By Number of Quality Publications' w='98400' x='800' y='52624'>
-                          <zone-style>
-                            <format attr='border-color' value='#000000' />
-                            <format attr='border-style' value='none' />
-                            <format attr='border-width' value='0' />
-                            <format attr='margin' value='4' />
-                          </zone-style>
-                        </zone>
-                        <zone h='46374' id='6' name='Top Teachers by Number of Ratings (RateMyProfessors)' w='71395' x='800' y='6250'>
-                          <zone-style>
-                            <format attr='border-color' value='#000000' />
-                            <format attr='border-style' value='none' />
-                            <format attr='border-width' value='0' />
-                            <format attr='margin' value='4' />
-                          </zone-style>
-                        </zone>
-                        <zone h='46374' id='5' name='Top Teachers by Average RateMyProfessors Rating' w='27005' x='72195' y='6250'>
-                          <zone-style>
-                            <format attr='border-color' value='#000000' />
-                            <format attr='border-style' value='none' />
-                            <format attr='border-width' value='0' />
-                            <format attr='margin' value='4' />
-                          </zone-style>
+          <zone h='98000' id='40' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='27' param='vert' type='layout-flow' w='82400' x='800' y='1000'>
+              <zone h='5125' id='28' type='title' w='82400' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='92875' id='25' param='horz' type='layout-flow' w='82400' x='800' y='6125'>
+                <zone h='92875' id='23' param='horz' type='layout-flow' w='82400' x='800' y='6125'>
+                  <zone h='92875' id='21' param='horz' type='layout-flow' w='82400' x='800' y='6125'>
+                    <zone h='92875' id='19' param='horz' type='layout-flow' w='82400' x='800' y='6125'>
+                      <zone h='92875' id='17' param='horz' type='layout-flow' w='82400' x='800' y='6125'>
+                        <zone h='92875' id='15' type='layout-basic' w='82400' x='800' y='6125'>
+                          <zone h='33420' id='6' name='Top Teachers by Number of Ratings (RateMyProfessors)' w='59786' x='800' y='41547'>
+                            <zone-style>
+                              <format attr='border-color' value='#000000' />
+                              <format attr='border-style' value='none' />
+                              <format attr='border-width' value='0' />
+                              <format attr='margin' value='4' />
+                            </zone-style>
+                          </zone>
+                          <zone h='68842' id='5' name='Top Teachers by Average RateMyProfessors Rating' w='22614' x='60586' y='6125'>
+                            <zone-style>
+                              <format attr='border-color' value='#000000' />
+                              <format attr='border-style' value='none' />
+                              <format attr='border-width' value='0' />
+                              <format attr='margin' value='4' />
+                            </zone-style>
+                          </zone>
+                          <zone h='24033' id='37' name='RateMyProfessors Professor Comments' show-title='false' w='82400' x='800' y='74967'>
+                            <zone-style>
+                              <format attr='border-color' value='#000000' />
+                              <format attr='border-style' value='none' />
+                              <format attr='border-width' value='0' />
+                              <format attr='margin' value='4' />
+                            </zone-style>
+                          </zone>
+                          <zone h='35422' id='38' name='RateMyProfessors Score' w='59786' x='800' y='6125'>
+                            <zone-style>
+                              <format attr='border-color' value='#000000' />
+                              <format attr='border-style' value='none' />
+                              <format attr='border-width' value='0' />
+                              <format attr='margin' value='4' />
+                            </zone-style>
+                          </zone>
                         </zone>
                       </zone>
                     </zone>
                   </zone>
                 </zone>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98000' id='39' is-fixed='true' param='vert' type='layout-flow' w='16000' x='83200' y='1000'>
+              <zone h='98000' id='41' name='RateMyProfessors Professor Comments' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' type='filter' values='database' w='16000' x='83200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
               </zone>
             </zone>
           </zone>
@@ -4801,15 +4881,6 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='46376' id='3' is-fixed='true' name='Top Professors By Number of Quality Publications' w='98400' x='800' y='52624'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
               </zone>
               <zone-style>
                 <format attr='border-color' value='#000000' />
@@ -4825,7 +4896,66 @@
     </dashboard>
   </dashboards>
   <windows film-mode='true' source-height='30'>
-    <window class='worksheet' name='Top Professors By Number of Quality Publications'>
+    <window class='dashboard' name='Publication Score Breakdown'>
+      <viewpoints>
+        <viewpoint name='Number of Publications on FinancialTimes Top 50'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='Number of Publications on UTDallas'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='Professor and Publication Names' />
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{AAB7AAEE-F92C-4B2D-9863-1FC0FA1A2AE2}' />
+    </window>
+    <window class='dashboard' name='RateMyProfessors Score Breakdown'>
+      <viewpoints>
+        <viewpoint name='RateMyProfessors Professor Comments' />
+        <viewpoint name='RateMyProfessors Score' />
+        <viewpoint name='Top Teachers by Average RateMyProfessors Rating'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='Top Teachers by Number of Ratings (RateMyProfessors)'>
+          <zoom type='fit-width' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{F6C5615A-4C22-489C-93DE-8DEBDC47235F}' />
+    </window>
+    <window class='dashboard' name='Categorical Scores'>
+      <viewpoints>
+        <viewpoint name='Professor Publication Count' />
+        <viewpoint name='RateMyProfessors Score' />
+        <viewpoint name='Timeline'>
+          <zoom type='entire-view' />
+          <floating-toolbar-visibility value='2' />
+        </viewpoint>
+        <viewpoint name='Top Professors By Number of Quality Publications'>
+          <zoom type='fit-width' />
+        </viewpoint>
+        <viewpoint name='Top Teachers by Average RateMyProfessors Rating'>
+          <zoom type='fit-width' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{CA91D40C-1E15-43D6-B572-3C581B8EDE03}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Professor Rankings'>
+      <viewpoints>
+        <viewpoint name='Professor Scores'>
+          <floating-toolbar-visibility value='2' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{6208669E-5740-46B8-AEAA-740BB47CFD73}' />
+    </window>
+    <window class='dashboard' name='Professor Overview'>
+      <viewpoints />
+      <active id='4' />
+      <simple-id uuid='{116570CF-DA53-425D-B136-077270BCB06E}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Number of Publications on FinancialTimes Top 50'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -4847,13 +4977,13 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_333266388276514820:qk]' type='color' />
+            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Calculation_674414061119975425:qk]' type='color' />
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{7898015B-5490-40FC-B364-8828559B413D}' />
+      <simple-id uuid='{35B13DBF-630E-41C6-B417-616ECDD2091C}' />
     </window>
-    <window class='worksheet' name='Top Teachers by Average RateMyProfessors Rating'>
+    <window class='worksheet' hidden='true' name='Number of Publications on UTDallas'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -4875,59 +5005,13 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[avg:ROVERALL:qk]' type='color' />
+            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[ctd:PUBLICATION_ID (utdallas_publications):qk]' type='color' />
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{44D80429-3EE2-4168-B456-94A87709AF29}' />
+      <simple-id uuid='{98931C45-928A-427C-A83A-B90846B8202B}' />
     </window>
-    <window class='worksheet' name='Top Teachers by Number of Ratings (RateMyProfessors)'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{C3060775-8118-4F15-946A-7322AD9CE326}' />
-    </window>
-    <window class='worksheet' name='Professor Scores'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{87B7C0ED-D888-4042-A03E-BDB3C7883E78}' />
-    </window>
-    <window class='worksheet' name='Professor Publication Count'>
+    <window class='worksheet' hidden='true' name='Professor Publication Count'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -4950,7 +5034,99 @@
       </cards>
       <simple-id uuid='{4110A72B-121B-4EE8-938D-9D05929107C6}' />
     </window>
-    <window class='worksheet' maximized='true' name='Timeline'>
+    <window class='worksheet' hidden='true' name='Professor Scores'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{87B7C0ED-D888-4042-A03E-BDB3C7883E78}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Professor and Publication Names'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F2B7EDC2-0650-4538-B236-58ADBA3BBF6B}' />
+    </window>
+    <window class='worksheet' hidden='true' name='RateMyProfessors Professor Comments'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{063354A8-1C60-4D06-A50E-07BB85E44CF7}' />
+    </window>
+    <window class='worksheet' hidden='true' name='RateMyProfessors Score'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D96C9107-E1FD-44E1-814B-4B700FDB92A2}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Timeline'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -4986,7 +5162,7 @@
       </viewpoint>
       <simple-id uuid='{616885EF-D00D-4C40-8BE0-E711AC128C0A}' />
     </window>
-    <window class='worksheet' name='Number of Publications on UTDallas'>
+    <window class='worksheet' hidden='true' name='Top Professors By Number of Quality Publications'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -5008,13 +5184,13 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[ctd:PUBLICATION_ID (utdallas_publications):qk]' type='color' />
+            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_333266388276514820:qk]' type='color' />
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{98931C45-928A-427C-A83A-B90846B8202B}' />
+      <simple-id uuid='{7898015B-5490-40FC-B364-8828559B413D}' />
     </window>
-    <window class='worksheet' name='Number of Publications on FinancialTimes Top 50'>
+    <window class='worksheet' hidden='true' name='Top Teachers by Average RateMyProfessors Rating'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -5036,36 +5212,13 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Calculation_674414061119975425:qk]' type='color' />
+            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[avg:ROVERALL:qk]' type='color' />
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{35B13DBF-630E-41C6-B417-616ECDD2091C}' />
+      <simple-id uuid='{44D80429-3EE2-4168-B456-94A87709AF29}' />
     </window>
-    <window class='worksheet' name='Professor and Publication Names'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{F2B7EDC2-0650-4538-B236-58ADBA3BBF6B}' />
-    </window>
-    <window class='worksheet' name='RateMyProfessors Professor Comments'>
+    <window class='worksheet' hidden='true' name='Top Teachers by Number of Ratings (RateMyProfessors)'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -5086,88 +5239,7 @@
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{063354A8-1C60-4D06-A50E-07BB85E44CF7}' />
-    </window>
-    <window class='worksheet' name='RateMyProfessors Score'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{D96C9107-E1FD-44E1-814B-4B700FDB92A2}' />
-    </window>
-    <window class='dashboard' name='Categorical Scores'>
-      <viewpoints>
-        <viewpoint name='Professor Publication Count' />
-        <viewpoint name='RateMyProfessors Score' />
-        <viewpoint name='Timeline'>
-          <zoom type='entire-view' />
-          <floating-toolbar-visibility value='2' />
-        </viewpoint>
-        <viewpoint name='Top Professors By Number of Quality Publications'>
-          <zoom type='fit-width' />
-        </viewpoint>
-        <viewpoint name='Top Teachers by Average RateMyProfessors Rating'>
-          <zoom type='fit-width' />
-        </viewpoint>
-      </viewpoints>
-      <active id='-1' />
-      <simple-id uuid='{CA91D40C-1E15-43D6-B572-3C581B8EDE03}' />
-    </window>
-    <window class='dashboard' name='Publication Breakdown'>
-      <viewpoints>
-        <viewpoint name='Number of Publications on FinancialTimes Top 50'>
-          <zoom type='fit-width' />
-        </viewpoint>
-        <viewpoint name='Number of Publications on UTDallas'>
-          <zoom type='fit-width' />
-        </viewpoint>
-        <viewpoint name='Professor and Publication Names' />
-      </viewpoints>
-      <active id='-1' />
-      <simple-id uuid='{AAB7AAEE-F92C-4B2D-9863-1FC0FA1A2AE2}' />
-    </window>
-    <window class='dashboard' name='Professor Rankings'>
-      <viewpoints>
-        <viewpoint name='Professor Scores' />
-      </viewpoints>
-      <active id='-1' />
-      <simple-id uuid='{6208669E-5740-46B8-AEAA-740BB47CFD73}' />
-    </window>
-    <window class='dashboard' name='Professor Overview'>
-      <viewpoints />
-      <active id='5' />
-      <simple-id uuid='{116570CF-DA53-425D-B136-077270BCB06E}' />
-    </window>
-    <window class='dashboard' hidden='true' name='Top Professors'>
-      <viewpoints>
-        <viewpoint name='Top Professors By Number of Quality Publications'>
-          <zoom type='fit-width' />
-        </viewpoint>
-        <viewpoint name='Top Teachers by Average RateMyProfessors Rating'>
-          <zoom type='fit-width' />
-        </viewpoint>
-        <viewpoint name='Top Teachers by Number of Ratings (RateMyProfessors)'>
-          <zoom type='fit-width' />
-        </viewpoint>
-      </viewpoints>
-      <active id='-1' />
-      <simple-id uuid='{F6C5615A-4C22-489C-93DE-8DEBDC47235F}' />
+      <simple-id uuid='{C3060775-8118-4F15-946A-7322AD9CE326}' />
     </window>
   </windows>
 </workbook>
