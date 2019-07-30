@@ -3,7 +3,7 @@ import dbconnection
 
 connection = dbconnection.DBConnection()
 storer = connection.storer
-unread_professors = open('CSVOfAllBusinessProfessors/Professors.txt', 'r')
+unread_professors = open('MiamiBusinessSchool/Professors.txt', 'r')
 
 for prof_name in unread_professors:
 	prof_name_stripped = prof_name.strip()[1:len(prof_name)-2]
