@@ -7,3 +7,4 @@ import ORCID.readorcidcsv
 import FinancialTimesTop50Journals.financialtimestop50journals
 import UTDallas.webcrawlerutdallasjournals
 import RateMyProfessorScrape.ratemyprofessors
+import WebOfScience.webofsciencequerier

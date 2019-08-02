@@ -9,7 +9,6 @@
     <SheetIdentifierTracking ignorable='true' predowngraded='true' />
     <SortTagCleanup />
     <WindowsPersistSimpleIdentifiers />
-    <ZoneBackgroundTransparency />
   </document-format-change-manifest>
   <repository-location id='Book1_15633017767180' path='/workbooks' revision='1.8' />
   <preferences>
@@ -19,12 +18,12 @@
   <datasources>
     <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
       <aliases enabled='yes' />
-      <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1995'>
-        <calculation class='tableau' formula='1995' />
+      <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1970'>
+        <calculation class='tableau' formula='1970' />
         <range max='2019' min='1960' />
       </column>
-      <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2010'>
-        <calculation class='tableau' formula='2010' />
+      <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
+        <calculation class='tableau' formula='2019' />
         <range max='2019' min='1960' />
       </column>
       <column caption='YEAR Parameter' datatype='date' name='[YEAR Parameter]' param-domain-type='range' role='measure' type='quantitative' value='#2019-07-25#'>
@@ -1448,21 +1447,23 @@
       <column caption='PublicationsByYear' datatype='integer' name='[Calculation_1186417042285547521]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='{FIXED [YEAR (publications)]: &#13;&#10;COUNTD(&#13;&#10;    IF NOT ISNULL([JOURNAL_ID]) OR NOT ISNULL([TITLE (Custom SQL Query) #1])&#13;&#10;    THEN [PUBLICATION_ID (publications)]&#13;&#10;    ELSE NULL&#13;&#10;    END&#13;&#10;)}' />
       </column>
+      <column caption='Number of UTDallas Publications' datatype='integer' name='[Calculation_1189513269497040896]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{FIXED [Calculation_605171214667993110]: COUNTD(&#13;&#10;IF NOT ISNULL([JOURNAL_ID (utdallas_journals)]) AND &#13;&#10;[YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;=[Parameters].[Parameter 2]&#13;&#10;THEN [PUBLICATION_ID (publications)]&#13;&#10;ELSE NULL&#13;&#10;END&#13;&#10;)}' />
+      </column>
+      <column caption='All Publication Titles' datatype='boolean' name='[Calculation_1189513269498634241]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='NOT ISNULL([PUBLICATION_ID (Custom SQL Query) #1]) &#13;&#10;OR [Calculation_1189513269507411970 1]&#13;&#10;OR [Calculation_1189513269507411970]' />
+      </column>
+      <column caption='FinancialTimes Publication Titles' datatype='boolean' name='[Calculation_1189513269507411970 1]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='NOT ISNULL([JOURNAL_ID (financial_times_top_50_journals)])' />
+      </column>
+      <column caption='Other Publications' datatype='boolean' name='[Calculation_1189513269507411970 2]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='ISNULL([JOURNAL_ID (utdallas_journals)]) &#13;&#10;AND ISNULL([JOURNAL_ID (financial_times_top_50_journals)])&#13;&#10;AND NOT ISNULL([PUBLICATION_ID (Custom SQL Query) #1])' />
+      </column>
+      <column caption='UTDallas Publication Title' datatype='boolean' name='[Calculation_1189513269507411970]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='NOT ISNULL([JOURNAL_ID (utdallas_journals)])' />
+      </column>
       <column caption='Number of Publications' datatype='integer' name='[Calculation_333266388239568897]' role='measure' type='ordinal'>
         <calculation class='tableau' formula='MAX({FIXED [AUTHOR_ID]:&#13;&#10;    COUNTD(&#13;&#10;        IF ([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])&#13;&#10;            AND (&#13;&#10;                NOT ISNULL([PUBLICATION_ID (Custom SQL Query) #1]) &#13;&#10;                OR NOT ISNULL([JOURNAL_ID (utdallas_journals)]) &#13;&#10;                OR NOT ISNULL([JOURNAL_ID (financial_times_top_50_journals)]))&#13;&#10;        THEN [PUBLICATION_ID]&#13;&#10;        ELSE null&#13;&#10;        END&#13;&#10;    )&#13;&#10;})' />
-      </column>
-      <column caption='Publication by Year Rank' datatype='integer' name='[Calculation_333266388273369090]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='RANK([Calculation_333266388239568897], &apos;desc&apos;)'>
-          <table-calc ordering-type='Rows' />
-        </calculation>
-      </column>
-      <column caption='ProfessorScore' datatype='real' name='[Calculation_605171212172570633]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='AVG([ROVERALL])*attr([TNUMRATINGS])/AVG([TNUMRATINGS]) + 5*COUNTD([TITLE (Custom SQL Query)])/AVG({FIXED [AUTHOR_ID] : COUNTD([TITLE (Custom SQL Query)])})' />
-      </column>
-      <column caption='Overall Rank' datatype='integer' name='[Calculation_605171212239351823]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='RANK(ATTR([total_score]),&apos;desc&apos;)'>
-          <table-calc ordering-type='Rows' />
-        </calculation>
       </column>
       <column caption='Placeholder' datatype='integer' name='[Calculation_605171214657359891]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='min(0)' />
@@ -1496,11 +1497,13 @@
       <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
         <calculation class='tableau' formula='1' />
       </column>
+      <column caption='Number of Other Publications' datatype='integer' name='[Number of UTDallas Publications (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{FIXED [Calculation_605171214667993110]: COUNTD(&#13;&#10;IF ISNULL([JOURNAL_ID (utdallas_journals)]) &#13;&#10;AND ISNULL([JOURNAL_ID (financial_times_top_50_journals)])&#13;&#10;AND NOT ISNULL([PUBLICATION_ID (Custom SQL Query) #1])&#13;&#10;AND [YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;=[Parameters].[Parameter 2]&#13;&#10;THEN [PUBLICATION_ID (publications)]&#13;&#10;ELSE NULL&#13;&#10;END&#13;&#10;)}' />
+      </column>
       <column caption='Onlineclass' datatype='string' name='[ONLINECLASS]' role='dimension' type='nominal' />
       <column caption='Overall Rating' datatype='string' name='[OVERALL_RATING]' role='dimension' type='nominal' />
       <column datatype='integer' name='[PUBLICATION_ID (Custom SQL Query) #1]' role='measure' type='quantitative' />
       <column aggregation='Sum' caption='PUBLICATION ID (publications)' datatype='integer' name='[PUBLICATION_ID (publications)]' role='dimension' type='ordinal' />
-      <column aggregation='Sum' caption='PUBLICATION ID (utdallas publications)' datatype='integer' name='[PUBLICATION_ID (utdallas_publications)]' role='dimension' type='ordinal' />
       <column aggregation='Sum' caption='Publication Id' datatype='integer' name='[PUBLICATION_ID]' role='dimension' type='ordinal' />
       <column caption='Quality' datatype='string' name='[QUALITY]' role='dimension' type='nominal' />
       <column aggregation='Sum' caption='RATE MY PROFESSORS PROFESSOR ID (rate my professors student ratings)' datatype='integer' name='[RATE_MY_PROFESSORS_PROFESSOR_ID (rate_my_professors_student_ratings)]' role='dimension' type='ordinal' />
@@ -1528,7 +1531,7 @@
       <column caption='Teachergrade' datatype='string' name='[TEACHERGRADE]' role='dimension' type='nominal' />
       <column caption='Teacher' datatype='string' name='[TEACHER]' role='dimension' type='nominal' />
       <column caption='Tfname' datatype='string' name='[TFNAME]' role='dimension' type='nominal' />
-      <column datatype='string' name='[TITLE (Custom SQL Query)]' role='dimension' type='nominal' />
+      <column datatype='string' name='[TITLE (publications)]' role='dimension' type='nominal' />
       <column caption='Title' datatype='string' name='[TITLE]' role='dimension' type='nominal' />
       <column caption='Tlname' datatype='string' name='[TLNAME]' role='dimension' type='nominal' />
       <column caption='Tmiddlename' datatype='string' name='[TMIDDLENAME]' role='dimension' type='nominal' />
@@ -1543,7 +1546,6 @@
       <column-instance column='[Forecast Indicator]' derivation='None' forecast-column-base='[Forecast Indicator]' forecast-column-type='forecast-indicator' name='[none:Forecast Indicator:nk]' pivot='key' type='nominal' />
       <column-instance column='[LAST_NAME]' derivation='None' name='[none:LAST_NAME:nk]' pivot='key' type='nominal' />
       <column-instance column='[PUBLICATION_ID (Custom SQL Query) #1]' derivation='None' name='[none:PUBLICATION_ID (Custom SQL Query) #1:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[YEAR]' derivation='None' name='[none:YEAR:ok]' pivot='key' type='ordinal' />
       <column-instance column='[YEAR]' derivation='None' name='[none:YEAR:qk]' pivot='key' type='quantitative' />
       <group caption='Action (First Name,Last Name)' hidden='true' name='[Action (First Name,Last Name)]' name-style='unqualified' user:auto-column='sheet_link'>
         <groupfilter function='crossjoin'>
@@ -1568,15 +1570,18 @@
           <groupfilter function='level-members' level='[TITLE (Custom SQL Query)]' />
         </groupfilter>
       </group>
+      <group caption='Action (Last &amp; First,TITLE (publications))' hidden='true' name='[Action (Last &amp; First,TITLE (publications))]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+          <groupfilter function='level-members' level='[TITLE (publications)]' />
+        </groupfilter>
+      </group>
       <group hidden='true' name='[Exclusions (Date Range,PUBLICATION_ID (Custom SQL Query) #1,YEAR)]' name-style='unqualified' user:auto-column='exclude'>
         <groupfilter function='crossjoin'>
           <groupfilter function='level-members' level='[none:Calculation_605171214661550101:nk]' />
           <groupfilter function='level-members' level='[none:PUBLICATION_ID (Custom SQL Query) #1:qk]' />
           <groupfilter function='level-members' level='[none:YEAR:qk]' />
         </groupfilter>
-      </group>
-      <group caption='Set 1' name='[Set 1]' name-style='unqualified' user:ui-builder='filter-group'>
-        <groupfilter from='1970' function='range' level='[none:YEAR:ok]' to='2019' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
       </group>
       <extract count='-1' enabled='true' units='records'>
         <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='C:/Users/Tcai/Desktop/webOfScienceScrape/ProfessorScoreOverview.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='' username='tableau_internal_user'>
@@ -2643,7 +2648,7 @@
           </metadata-records>
         </connection>
       </extract>
-      <layout dim-ordering='alphabetic' dim-percentage='0.457652' group-percentage='0.0341753' measure-ordering='alphabetic' measure-percentage='0.454681' parameter-percentage='0.0534918' show-structure='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.55' measure-ordering='alphabetic' measure-percentage='0.36' parameter-percentage='0.09' show-structure='true' />
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[none:FIRST_NAME:nk]' type='palette'>
@@ -2931,68 +2936,100 @@
       </default-sorts>
       <field-sort-info field-sort-order='descending' field-sort-order-type='alphabetical-order' />
       <datasource-dependencies datasource='Parameters'>
-        <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1995'>
-          <calculation class='tableau' formula='1995' />
+        <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1970'>
+          <calculation class='tableau' formula='1970' />
           <range max='2019' min='1960' />
         </column>
-        <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2010'>
-          <calculation class='tableau' formula='2010' />
+        <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
+          <calculation class='tableau' formula='2019' />
           <range max='2019' min='1960' />
         </column>
       </datasource-dependencies>
     </datasource>
   </datasources>
   <actions>
+    <action caption='Filter 6 (generated)' name='[Action10]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Publication Breakdown' type='sheet' worksheet='FinancialTimes Publications' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Publication Breakdown' />
+      </command>
+    </action>
+    <action caption='Filter 7 (generated)' name='[Action11]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Publication Breakdown' type='sheet' worksheet='Other Publication Count' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Publication Breakdown' />
+      </command>
+    </action>
+    <action caption='Filter 8 (generated)' name='[Action14]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Publication Breakdown' type='sheet' worksheet='All Professor Publication Count' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Publication Breakdown' />
+      </command>
+    </action>
+    <action caption='Filter 9 (generated)' name='[Action15]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Publication Breakdown' type='sheet' worksheet='All Publications' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Publication Breakdown' />
+      </command>
+    </action>
     <action caption='Filter 1 (generated)' name='[Action1]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='RateMyProfessors Score Breakdown' type='sheet' />
+      <source dashboard='RateMyProfessors Data' type='sheet' />
       <command command='tsc:tsl-filter'>
         <param name='special-fields' value='all' />
-        <param name='target' value='RateMyProfessors Score Breakdown' />
-      </command>
-    </action>
-    <action caption='Filter 7 (generated)' name='[Action21]'>
-      <activation auto-clear='true' type='on-select' />
-      <source dashboard='Publication Score Breakdown' type='sheet' worksheet='Number of Publications on FinancialTimes Top 50' />
-      <command command='tsc:tsl-filter'>
-        <param name='special-fields' value='all' />
-        <param name='target' value='Publication Score Breakdown' />
-      </command>
-    </action>
-    <action caption='Filter 8 (generated)' name='[Action22]'>
-      <activation auto-clear='true' type='on-select' />
-      <source dashboard='Publication Score Breakdown' type='sheet' worksheet='Number of Publications on UTDallas' />
-      <command command='tsc:tsl-filter'>
-        <param name='special-fields' value='all' />
-        <param name='target' value='Publication Score Breakdown' />
-      </command>
-    </action>
-    <action caption='Filter 9 (generated)' name='[Action23]'>
-      <activation auto-clear='true' type='on-select' />
-      <source dashboard='Publication Score Breakdown' type='sheet' worksheet='Professor and Publication Names' />
-      <command command='tsc:tsl-filter'>
-        <param name='special-fields' value='all' />
-        <param name='target' value='Publication Score Breakdown' />
+        <param name='target' value='RateMyProfessors Data' />
       </command>
     </action>
     <action caption='Filter 10 (generated)' name='[Action25]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='RateMyProfessors Score Breakdown' type='sheet' worksheet='RateMyProfessors Professor Comments' />
+      <source dashboard='RateMyProfessors Data' type='sheet' worksheet='RateMyProfessors Professor Comments' />
       <command command='tsc:tsl-filter'>
         <param name='special-fields' value='all' />
-        <param name='target' value='RateMyProfessors Score Breakdown' />
+        <param name='target' value='RateMyProfessors Data' />
       </command>
     </action>
     <action caption='Filter 3 (generated)' name='[Action3]'>
       <activation auto-clear='true' type='on-select' />
-      <source dashboard='RateMyProfessors Score Breakdown' type='sheet' worksheet='Top Teachers by Average RateMyProfessors Rating' />
+      <source dashboard='RateMyProfessors Data' type='sheet' worksheet='Top Teachers by Average RateMyProfessors Rating' />
       <command command='tsc:tsl-filter'>
         <param name='special-fields' value='all' />
-        <param name='target' value='RateMyProfessors Score Breakdown' />
+        <param name='target' value='RateMyProfessors Data' />
+      </command>
+    </action>
+    <action caption='Filter 2 (generated)' name='[Action5]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Publication Breakdown' type='sheet' worksheet='FinancialTimes Top 50 Publication Count' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Publication Breakdown' />
+      </command>
+    </action>
+    <action caption='Filter 4 (generated)' name='[Action6]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Publication Breakdown' type='sheet' worksheet='UTDallas Publication Count' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Publication Breakdown' />
+      </command>
+    </action>
+    <action caption='Filter 5 (generated)' name='[Action7]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Publication Breakdown' type='sheet' worksheet='UTDallas Publications' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Publication Breakdown' />
       </command>
     </action>
     <nav-action caption='Go to Categorical Scores' name='[Action20]'>
-      <source dashboard='Publication Score Breakdown' type='sheet' />
+      <source dashboard='Publication Breakdown' type='sheet' />
       <params>
         <param name='sheet' value='Categorical Scores' />
       </params>
@@ -3004,7 +3041,7 @@
       </params>
     </nav-action>
     <nav-action caption='Go To Categorical Scores' name='[Action27]'>
-      <source dashboard='RateMyProfessors Score Breakdown' type='sheet'>
+      <source dashboard='RateMyProfessors Data' type='sheet'>
         <exclude-sheet name='RateMyProfessors Professor Comments' />
       </source>
       <params>
@@ -3031,7 +3068,7 @@
     </edit-parameter-action>
     <edit-parameter-action caption='Parameter1' name='[Action2]'>
       <activation type='on-select' />
-      <source dashboard='Publication Score Breakdown' type='sheet' worksheet='Timeline' />
+      <source dashboard='Publication Breakdown' type='sheet' worksheet='Timeline' />
       <agg-type type='max' />
       <params>
         <param name='source-field' value='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:YEAR (publications):qk]' />
@@ -3040,7 +3077,7 @@
     </edit-parameter-action>
     <edit-parameter-action caption='Parameter2' name='[Action4]'>
       <activation type='on-select' />
-      <source dashboard='Publication Score Breakdown' type='sheet' worksheet='Timeline' />
+      <source dashboard='Publication Breakdown' type='sheet' worksheet='Timeline' />
       <agg-type type='min' />
       <params>
         <param name='source-field' value='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:YEAR (publications):qk]' />
@@ -3065,7 +3102,7 @@
     </edit-parameter-action>
   </actions>
   <worksheets>
-    <worksheet name='Number of Publications on FinancialTimes Top 50'>
+    <worksheet name='All Professor Publication Count'>
       <table>
         <view>
           <datasources>
@@ -3073,12 +3110,330 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1995'>
-              <calculation class='tableau' formula='1995' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1970'>
+              <calculation class='tableau' formula='1970' />
               <range max='2019' min='1960' />
             </column>
-            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2010'>
-              <calculation class='tableau' formula='2010' />
+            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
+              <calculation class='tableau' formula='2019' />
+              <range max='2019' min='1960' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
+            <column caption='Number of Publications' datatype='integer' name='[Calculation_333266388239568897]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='MAX({FIXED [AUTHOR_ID]:&#13;&#10;    COUNTD(&#13;&#10;        IF ([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])&#13;&#10;            AND (&#13;&#10;                NOT ISNULL([PUBLICATION_ID (Custom SQL Query) #1]) &#13;&#10;                OR NOT ISNULL([JOURNAL_ID (utdallas_journals)]) &#13;&#10;                OR NOT ISNULL([JOURNAL_ID (financial_times_top_50_journals)]))&#13;&#10;        THEN [PUBLICATION_ID]&#13;&#10;        ELSE null&#13;&#10;        END&#13;&#10;    )&#13;&#10;})' />
+            </column>
+            <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
+            </column>
+            <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='JOURNAL ID (financial times top 50 journals)' datatype='integer' name='[JOURNAL_ID (financial_times_top_50_journals)]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' caption='JOURNAL ID (utdallas journals)' datatype='integer' name='[JOURNAL_ID (utdallas_journals)]' role='dimension' type='ordinal' />
+            <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[PUBLICATION_ID (Custom SQL Query) #1]' role='measure' type='quantitative' />
+            <column aggregation='Sum' caption='Publication Id' datatype='integer' name='[PUBLICATION_ID]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[YEAR (publications)]' role='dimension' type='quantitative' />
+            <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_333266388239568897]' derivation='User' name='[usr:Calculation_333266388239568897:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_333266388239568897]' derivation='User' name='[usr:Calculation_333266388239568897:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
+            <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action6]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <computed-sort column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' direction='DESC' using='[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_333266388239568897:ok]' />
+          <slices>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_333266388239568897:qk]' palette='orange_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <size column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_333266388239568897:qk]' />
+              <color column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_333266388239568897:qk]' />
+              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' />
+              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_333266388239568897:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{C801DE64-49C1-4831-AE14-BC0A239D40E6}' />
+    </worksheet>
+    <worksheet name='All Publications'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1970'>
+              <calculation class='tableau' formula='1970' />
+              <range max='2019' min='1960' />
+            </column>
+            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
+              <calculation class='tableau' formula='2019' />
+              <range max='2019' min='1960' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='All Publication Titles' datatype='boolean' name='[Calculation_1189513269498634241]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='NOT ISNULL([PUBLICATION_ID (Custom SQL Query) #1]) &#13;&#10;OR [Calculation_1189513269507411970 1]&#13;&#10;OR [Calculation_1189513269507411970]' />
+            </column>
+            <column caption='FinancialTimes Publication Titles' datatype='boolean' name='[Calculation_1189513269507411970 1]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='NOT ISNULL([JOURNAL_ID (financial_times_top_50_journals)])' />
+            </column>
+            <column caption='UTDallas Publication Title' datatype='boolean' name='[Calculation_1189513269507411970]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='NOT ISNULL([JOURNAL_ID (utdallas_journals)])' />
+            </column>
+            <column caption='Date Range' datatype='boolean' name='[Calculation_605171214661550101]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])' />
+            </column>
+            <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
+            </column>
+            <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='JOURNAL ID (financial times top 50 journals)' datatype='integer' name='[JOURNAL_ID (financial_times_top_50_journals)]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' caption='JOURNAL ID (utdallas journals)' datatype='integer' name='[JOURNAL_ID (utdallas_journals)]' role='dimension' type='ordinal' />
+            <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[PUBLICATION_ID (Custom SQL Query) #1]' role='measure' type='quantitative' />
+            <column datatype='string' name='[TITLE (publications)]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[YEAR (publications)]' role='dimension' type='quantitative' />
+            <column-instance column='[Calculation_1189513269498634241]' derivation='None' name='[none:Calculation_1189513269498634241:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_605171214661550101]' derivation='None' name='[none:Calculation_605171214661550101:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
+            <column-instance column='[TITLE (publications)]' derivation='None' name='[none:TITLE (publications):nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
+            <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action14]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_1189513269498634241:nk]'>
+            <groupfilter function='member' level='[none:Calculation_1189513269498634241:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]'>
+            <groupfilter function='member' level='[none:Calculation_605171214661550101:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]'>
+            <groupfilter function='level-members' level='[none:Calculation_605171214667993110:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_1189513269498634241:nk]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='1108' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' data-class='subtotal' scope='cols' value='none' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (publications):nk]' value='false' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' data-class='subtotal' scope='cols' value='none' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-level' scope='rows' value='0' />
+            <format attr='band-size' scope='rows' value='1' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='div-level' scope='rows' value='3' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (publications):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='cell'>
+                <format attr='wrap' value='on' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='size' value='1' />
+                <format attr='mark-transparency' value='255' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk] / [federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (publications):nk])</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{256ABF8B-60C7-46A8-8E7C-40974F1CBB8F}' />
+    </worksheet>
+    <worksheet name='FinancialTimes Publications'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1970'>
+              <calculation class='tableau' formula='1970' />
+              <range max='2019' min='1960' />
+            </column>
+            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
+              <calculation class='tableau' formula='2019' />
+              <range max='2019' min='1960' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='FinancialTimes Publication Titles' datatype='boolean' name='[Calculation_1189513269507411970 1]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='NOT ISNULL([JOURNAL_ID (financial_times_top_50_journals)])' />
+            </column>
+            <column caption='Date Range' datatype='boolean' name='[Calculation_605171214661550101]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])' />
+            </column>
+            <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
+            </column>
+            <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='JOURNAL ID (financial times top 50 journals)' datatype='integer' name='[JOURNAL_ID (financial_times_top_50_journals)]' role='dimension' type='ordinal' />
+            <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
+            <column datatype='string' name='[TITLE (publications)]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[YEAR (publications)]' role='dimension' type='quantitative' />
+            <column-instance column='[Calculation_1189513269507411970 1]' derivation='None' name='[none:Calculation_1189513269507411970 1:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_605171214661550101]' derivation='None' name='[none:Calculation_605171214661550101:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
+            <column-instance column='[TITLE (publications)]' derivation='None' name='[none:TITLE (publications):nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
+            <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action14]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_1189513269507411970 1:nk]'>
+            <groupfilter function='member' level='[none:Calculation_1189513269507411970 1:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]'>
+            <groupfilter function='member' level='[none:Calculation_605171214661550101:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]'>
+            <groupfilter function='level-members' level='[none:Calculation_605171214667993110:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_1189513269507411970 1:nk]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='1108' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' data-class='subtotal' scope='cols' value='none' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (publications):nk]' value='false' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' data-class='subtotal' scope='cols' value='none' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-level' scope='rows' value='0' />
+            <format attr='band-size' scope='rows' value='1' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='div-level' scope='rows' value='3' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (publications):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='cell'>
+                <format attr='wrap' value='on' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='size' value='1' />
+                <format attr='mark-transparency' value='255' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk] / [federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (publications):nk])</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{B97B9468-E086-42CC-BB7A-8B2ADAC81D67}' />
+    </worksheet>
+    <worksheet name='FinancialTimes Top 50 Publication Count'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1970'>
+              <calculation class='tableau' formula='1970' />
+              <range max='2019' min='1960' />
+            </column>
+            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
+              <calculation class='tableau' formula='2019' />
               <range max='2019' min='1960' />
             </column>
           </datasource-dependencies>
@@ -3145,7 +3500,7 @@
       </table>
       <simple-id uuid='{69DD97FF-8914-48BD-ADAC-CB9275402103}' />
     </worksheet>
-    <worksheet name='Number of Publications on UTDallas'>
+    <worksheet name='Other Publication Count'>
       <table>
         <view>
           <datasources>
@@ -3153,78 +3508,64 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1995'>
-              <calculation class='tableau' formula='1995' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1970'>
+              <calculation class='tableau' formula='1970' />
               <range max='2019' min='1960' />
             </column>
-            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2010'>
-              <calculation class='tableau' formula='2010' />
+            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
+              <calculation class='tableau' formula='2019' />
               <range max='2019' min='1960' />
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
-            <column caption='Date Range' datatype='boolean' name='[Calculation_605171214661550101]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])' />
-            </column>
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
             </column>
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='JOURNAL ID (financial times top 50 journals)' datatype='integer' name='[JOURNAL_ID (financial_times_top_50_journals)]' role='dimension' type='ordinal' />
+            <column aggregation='Sum' caption='JOURNAL ID (utdallas journals)' datatype='integer' name='[JOURNAL_ID (utdallas_journals)]' role='dimension' type='ordinal' />
             <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
-            <column aggregation='Sum' caption='PUBLICATION ID (utdallas publications)' datatype='integer' name='[PUBLICATION_ID (utdallas_publications)]' role='dimension' type='ordinal' />
-            <column datatype='string' name='[TITLE (Custom SQL Query)]' role='dimension' type='nominal' />
+            <column caption='Number of Other Publications' datatype='integer' name='[Number of UTDallas Publications (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{FIXED [Calculation_605171214667993110]: COUNTD(&#13;&#10;IF ISNULL([JOURNAL_ID (utdallas_journals)]) &#13;&#10;AND ISNULL([JOURNAL_ID (financial_times_top_50_journals)])&#13;&#10;AND NOT ISNULL([PUBLICATION_ID (Custom SQL Query) #1])&#13;&#10;AND [YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;=[Parameters].[Parameter 2]&#13;&#10;THEN [PUBLICATION_ID (publications)]&#13;&#10;ELSE NULL&#13;&#10;END&#13;&#10;)}' />
+            </column>
+            <column datatype='integer' name='[PUBLICATION_ID (Custom SQL Query) #1]' role='measure' type='quantitative' />
+            <column aggregation='Sum' caption='PUBLICATION ID (publications)' datatype='integer' name='[PUBLICATION_ID (publications)]' role='dimension' type='ordinal' />
             <column datatype='integer' name='[YEAR (publications)]' role='dimension' type='quantitative' />
-            <column-instance column='[PUBLICATION_ID (utdallas_publications)]' derivation='CountD' name='[ctd:PUBLICATION_ID (utdallas_publications):qk]' pivot='key' type='quantitative' />
-            <column-instance column='[Calculation_605171214661550101]' derivation='None' name='[none:Calculation_605171214661550101:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of UTDallas Publications (copy)]' derivation='Attribute' name='[attr:Number of UTDallas Publications (copy):qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Number of UTDallas Publications (copy)]' derivation='Sum' name='[sum:Number of UTDallas Publications (copy):qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
-            <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action19]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+            <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action14]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
-          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,TITLE (Custom SQL Query))]'>
-            <groupfilter function='crossjoin' user:ui-action-filter='[Action23]' user:ui-enumeration='all' user:ui-marker='enumerate'>
-              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
-              <groupfilter function='level-members' level='[TITLE (Custom SQL Query)]' />
-            </groupfilter>
-          </filter>
-          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]'>
-            <groupfilter function='member' level='[none:Calculation_605171214661550101:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
+          <computed-sort column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' direction='DESC' using='[federated.0boy2ug1szy2q116xw0dv02nzveb].[sum:Number of UTDallas Publications (copy):qk]' />
           <slices>
-            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
-            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,TITLE (Custom SQL Query))]</column>
           </slices>
           <aggregation value='true' />
         </view>
         <style>
           <style-rule element='mark'>
-            <encoding attr='color' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[ctd:PUBLICATION_ID (utdallas_publications):qk]' palette='green_10_0' type='interpolated' />
+            <encoding attr='color' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Number of UTDallas Publications (copy):qk]' palette='orange_10_0' type='interpolated' />
           </style-rule>
         </style>
         <panes>
           <pane selection-relaxation-option='selection-relaxation-allow'>
             <view>
-              <breakdown value='on' />
+              <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
             <encodings>
-              <size column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[ctd:PUBLICATION_ID (utdallas_publications):qk]' />
-              <color column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[ctd:PUBLICATION_ID (utdallas_publications):qk]' />
               <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' />
-              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[ctd:PUBLICATION_ID (utdallas_publications):qk]' />
+              <size column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Number of UTDallas Publications (copy):qk]' />
+              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Number of UTDallas Publications (copy):qk]' />
+              <color column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Number of UTDallas Publications (copy):qk]' />
             </encodings>
             <style>
               <style-rule element='mark'>
+                <format attr='mark-color' value='#f28f2d' />
                 <format attr='mark-labels-show' value='true' />
                 <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-line-first' value='true' />
-                <format attr='mark-labels-line-last' value='true' />
-                <format attr='mark-labels-range-min' value='true' />
-                <format attr='mark-labels-range-max' value='true' />
-                <format attr='mark-labels-mode' value='all' />
-                <format attr='mark-labels-range-scope' value='pane' />
-                <format attr='mark-labels-range-field' value='' />
               </style-rule>
             </style>
           </pane>
@@ -3232,9 +3573,9 @@
         <rows />
         <cols />
       </table>
-      <simple-id uuid='{CE514CDF-D83E-41AE-A619-DABD62248F63}' />
+      <simple-id uuid='{0C336835-FB62-4EA6-B300-83A337A21084}' />
     </worksheet>
-    <worksheet name='Professor Publication Count'>
+    <worksheet name='Other Publications'>
       <table>
         <view>
           <datasources>
@@ -3242,19 +3583,21 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1995'>
-              <calculation class='tableau' formula='1995' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1970'>
+              <calculation class='tableau' formula='1970' />
               <range max='2019' min='1960' />
             </column>
-            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2010'>
-              <calculation class='tableau' formula='2010' />
+            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
+              <calculation class='tableau' formula='2019' />
               <range max='2019' min='1960' />
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
-            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
-            <column caption='Number of Publications' datatype='integer' name='[Calculation_333266388239568897]' role='measure' type='ordinal'>
-              <calculation class='tableau' formula='MAX({FIXED [AUTHOR_ID]:&#13;&#10;    COUNTD(&#13;&#10;        IF ([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])&#13;&#10;            AND (&#13;&#10;                NOT ISNULL([PUBLICATION_ID (Custom SQL Query) #1]) &#13;&#10;                OR NOT ISNULL([JOURNAL_ID (utdallas_journals)]) &#13;&#10;                OR NOT ISNULL([JOURNAL_ID (financial_times_top_50_journals)]))&#13;&#10;        THEN [PUBLICATION_ID]&#13;&#10;        ELSE null&#13;&#10;        END&#13;&#10;    )&#13;&#10;})' />
+            <column caption='Other Publications' datatype='boolean' name='[Calculation_1189513269507411970 2]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='ISNULL([JOURNAL_ID (utdallas_journals)]) &#13;&#10;AND ISNULL([JOURNAL_ID (financial_times_top_50_journals)])&#13;&#10;AND NOT ISNULL([PUBLICATION_ID (Custom SQL Query) #1])' />
+            </column>
+            <column caption='Date Range' datatype='boolean' name='[Calculation_605171214661550101]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])' />
             </column>
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
@@ -3264,95 +3607,42 @@
             <column aggregation='Sum' caption='JOURNAL ID (utdallas journals)' datatype='integer' name='[JOURNAL_ID (utdallas_journals)]' role='dimension' type='ordinal' />
             <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
             <column datatype='integer' name='[PUBLICATION_ID (Custom SQL Query) #1]' role='measure' type='quantitative' />
-            <column aggregation='Sum' caption='Publication Id' datatype='integer' name='[PUBLICATION_ID]' role='dimension' type='ordinal' />
+            <column datatype='string' name='[TITLE (publications)]' role='dimension' type='nominal' />
             <column datatype='integer' name='[YEAR (publications)]' role='dimension' type='quantitative' />
-            <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
-            <column-instance column='[Calculation_333266388239568897]' derivation='User' name='[usr:Calculation_333266388239568897:ok]' pivot='key' type='ordinal' />
-            <column-instance column='[Calculation_333266388239568897]' derivation='User' name='[usr:Calculation_333266388239568897:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
-            <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action6]' user:ui-enumeration='all' user:ui-marker='enumerate' />
-          </filter>
-          <computed-sort column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' direction='DESC' using='[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_333266388239568897:ok]' />
-          <slices>
-            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane id='5' selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Automatic' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-color' value='#59a14f' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]</rows>
-        <cols>[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_333266388239568897:qk]</cols>
-      </table>
-      <simple-id uuid='{C801DE64-49C1-4831-AE14-BC0A239D40E6}' />
-    </worksheet>
-    <worksheet name='Professor and Publication Names'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
-            <datasource name='Parameters' />
-          </datasources>
-          <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1995'>
-              <calculation class='tableau' formula='1995' />
-              <range max='2019' min='1960' />
-            </column>
-            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2010'>
-              <calculation class='tableau' formula='2010' />
-              <range max='2019' min='1960' />
-            </column>
-          </datasource-dependencies>
-          <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
-            <column caption='Date Range' datatype='boolean' name='[Calculation_605171214661550101]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])' />
-            </column>
-            <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
-            </column>
-            <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
-            <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
-            <column datatype='string' name='[TITLE (Custom SQL Query)]' role='dimension' type='nominal' />
-            <column datatype='integer' name='[YEAR (publications)]' role='dimension' type='quantitative' />
+            <column-instance column='[Calculation_1189513269507411970 2]' derivation='None' name='[none:Calculation_1189513269507411970 2:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_605171214661550101]' derivation='None' name='[none:Calculation_605171214661550101:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
-            <column-instance column='[TITLE (Custom SQL Query)]' derivation='None' name='[none:TITLE (Custom SQL Query):nk]' pivot='key' type='nominal' />
+            <column-instance column='[TITLE (publications)]' derivation='None' name='[none:TITLE (publications):nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
+            <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action14]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_1189513269507411970 2:nk]'>
+            <groupfilter function='member' level='[none:Calculation_1189513269507411970 2:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]'>
             <groupfilter function='member' level='[none:Calculation_605171214661550101:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]'>
             <groupfilter function='level-members' level='[none:Calculation_605171214667993110:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
-          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (Custom SQL Query):nk]'>
-            <groupfilter from='&quot;14-Week quarters&quot;' function='range' level='[none:TITLE (Custom SQL Query):nk]' to='&quot;Your use of the JSTOR archive indicates your acceptance of the Terms &amp; Conditions of Use, available at http://about. jstor. org/terms&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
           <slices>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]</column>
-            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (Custom SQL Query):nk]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_1189513269507411970 2:nk]</column>
           </slices>
           <aggregation value='true' />
         </view>
         <style>
           <style-rule element='cell'>
-            <format attr='width' value='5' />
+            <format attr='width' value='1108' />
           </style-rule>
           <style-rule element='header'>
             <format attr='border-style' data-class='subtotal' scope='cols' value='none' />
-            <format attr='width' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (Custom SQL Query):nk]' value='1148' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (publications):nk]' value='false' />
           </style-rule>
           <style-rule element='pane'>
             <format attr='border-style' data-class='subtotal' scope='cols' value='none' />
@@ -3372,6 +3662,9 @@
             </view>
             <mark class='Automatic' />
             <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (publications):nk]' />
+            </encodings>
             <style>
               <style-rule element='cell'>
                 <format attr='wrap' value='on' />
@@ -3379,6 +3672,8 @@
               <style-rule element='mark'>
                 <format attr='size' value='1' />
                 <format attr='mark-transparency' value='255' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
               </style-rule>
               <style-rule element='pane'>
                 <format attr='minwidth' value='-1' />
@@ -3391,10 +3686,10 @@
             </style>
           </pane>
         </panes>
-        <rows>([federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk] / [federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (Custom SQL Query):nk])</rows>
+        <rows>([federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk] / [federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (publications):nk])</rows>
         <cols />
       </table>
-      <simple-id uuid='{256ABF8B-60C7-46A8-8E7C-40974F1CBB8F}' />
+      <simple-id uuid='{FC4EF4C2-DF99-43C2-9F4F-DE03192DD97E}' />
     </worksheet>
     <worksheet name='RateMyProfessors Professor Comments'>
       <table>
@@ -3473,12 +3768,12 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1995'>
-              <calculation class='tableau' formula='1995' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1970'>
+              <calculation class='tableau' formula='1970' />
               <range max='2019' min='1960' />
             </column>
-            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2010'>
-              <calculation class='tableau' formula='2010' />
+            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
+              <calculation class='tableau' formula='2019' />
               <range max='2019' min='1960' />
             </column>
           </datasource-dependencies>
@@ -3532,7 +3827,7 @@
             <encoding attr='space' class='0' domain-expand='false' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_605171214657359891:qk]' field-type='quantitative' scope='rows' type='space' />
             <format attr='title' class='0' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_605171214657359891:qk]' scope='rows' value='' />
             <format attr='title' class='0' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:YEAR (publications):qk]' scope='cols' value='' />
-            <format attr='height' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:YEAR (publications):qk]' value='37' />
+            <format attr='height' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:YEAR (publications):qk]' value='24' />
             <encoding attr='space' class='0' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:YEAR (publications):qk]' field-type='quantitative' min='1969' range-type='fixedmin' scope='cols' type='space' />
           </style-rule>
           <style-rule element='mark'>
@@ -3595,65 +3890,6 @@
       </table>
       <simple-id uuid='{BF597CD9-C1B0-4134-B0C5-E8AED6A8060D}' />
     </worksheet>
-    <worksheet name='Top Professors By Number of Quality Publications'>
-      <layout-options>
-        <title>
-          <formatted-text>
-            <run>&lt;Sheet Name&gt; (Found in UTDallas and Financial Times)</run>
-          </formatted-text>
-        </title>
-      </layout-options>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
-          </datasources>
-          <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
-            <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
-            </column>
-            <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
-            <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
-            <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
-          </datasource-dependencies>
-          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
-            <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action5]' user:ui-enumeration='all' user:ui-marker='enumerate' />
-          </filter>
-          <slices>
-            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='on' />
-            </view>
-            <mark class='Automatic' />
-            <encodings>
-              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-line-first' value='true' />
-                <format attr='mark-labels-line-last' value='true' />
-                <format attr='mark-labels-range-min' value='true' />
-                <format attr='mark-labels-range-max' value='true' />
-                <format attr='mark-labels-mode' value='all' />
-                <format attr='mark-labels-range-scope' value='pane' />
-                <format attr='mark-labels-range-field' value='' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows />
-        <cols />
-      </table>
-      <simple-id uuid='{F7E2731C-5771-4550-ACE8-10422AA9267D}' />
-    </worksheet>
     <worksheet name='Top Teachers by Average RateMyProfessors Rating'>
       <table>
         <view>
@@ -3666,6 +3902,7 @@
             </column>
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
+            <column caption='Rcomments' datatype='string' name='[RCOMMENTS]' role='dimension' type='nominal' />
             <column caption='Roverall' datatype='real' name='[ROVERALL]' role='measure' type='quantitative' />
             <column-instance column='[ROVERALL]' derivation='Avg' name='[avg:ROVERALL:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
@@ -3673,9 +3910,16 @@
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
             <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action2]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,Rcomments)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action1]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[RCOMMENTS]' />
+            </groupfilter>
+          </filter>
           <computed-sort column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' direction='DESC' using='[federated.0boy2ug1szy2q116xw0dv02nzveb].[avg:ROVERALL:qk]' />
           <slices>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,Rcomments)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -3703,37 +3947,236 @@
       </table>
       <simple-id uuid='{30191174-C011-4E32-8885-52E4E96001CB}' />
     </worksheet>
+    <worksheet name='UTDallas Publication Count'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1970'>
+              <calculation class='tableau' formula='1970' />
+              <range max='2019' min='1960' />
+            </column>
+            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
+              <calculation class='tableau' formula='2019' />
+              <range max='2019' min='1960' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Number of UTDallas Publications' datatype='integer' name='[Calculation_1189513269497040896]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{FIXED [Calculation_605171214667993110]: COUNTD(&#13;&#10;IF NOT ISNULL([JOURNAL_ID (utdallas_journals)]) AND &#13;&#10;[YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;=[Parameters].[Parameter 2]&#13;&#10;THEN [PUBLICATION_ID (publications)]&#13;&#10;ELSE NULL&#13;&#10;END&#13;&#10;)}' />
+            </column>
+            <column caption='Date Range' datatype='boolean' name='[Calculation_605171214661550101]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])' />
+            </column>
+            <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
+            </column>
+            <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='JOURNAL ID (utdallas journals)' datatype='integer' name='[JOURNAL_ID (utdallas_journals)]' role='dimension' type='ordinal' />
+            <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='PUBLICATION ID (publications)' datatype='integer' name='[PUBLICATION_ID (publications)]' role='dimension' type='ordinal' />
+            <column datatype='integer' name='[YEAR (publications)]' role='dimension' type='quantitative' />
+            <column-instance column='[Calculation_1189513269497040896]' derivation='Attribute' name='[attr:Calculation_1189513269497040896:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_605171214661550101]' derivation='None' name='[none:Calculation_605171214661550101:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
+            <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action19]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]'>
+            <groupfilter function='member' level='[none:Calculation_605171214661550101:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Calculation_1189513269497040896:qk]' palette='green_10_0' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <size column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Calculation_1189513269497040896:qk]' />
+              <color column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Calculation_1189513269497040896:qk]' />
+              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' />
+              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Calculation_1189513269497040896:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{CE514CDF-D83E-41AE-A619-DABD62248F63}' />
+    </worksheet>
+    <worksheet name='UTDallas Publications'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1970'>
+              <calculation class='tableau' formula='1970' />
+              <range max='2019' min='1960' />
+            </column>
+            <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
+              <calculation class='tableau' formula='2019' />
+              <range max='2019' min='1960' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='UTDallas Publication Title' datatype='boolean' name='[Calculation_1189513269507411970]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='NOT ISNULL([JOURNAL_ID (utdallas_journals)])' />
+            </column>
+            <column caption='Date Range' datatype='boolean' name='[Calculation_605171214661550101]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])' />
+            </column>
+            <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
+            </column>
+            <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='JOURNAL ID (utdallas journals)' datatype='integer' name='[JOURNAL_ID (utdallas_journals)]' role='dimension' type='ordinal' />
+            <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
+            <column datatype='string' name='[TITLE (publications)]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[YEAR (publications)]' role='dimension' type='quantitative' />
+            <column-instance column='[Calculation_1189513269507411970]' derivation='None' name='[none:Calculation_1189513269507411970:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_605171214661550101]' derivation='None' name='[none:Calculation_605171214661550101:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
+            <column-instance column='[TITLE (publications)]' derivation='None' name='[none:TITLE (publications):nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
+            <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action14]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_1189513269507411970:nk]'>
+            <groupfilter function='member' level='[none:Calculation_1189513269507411970:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]'>
+            <groupfilter function='member' level='[none:Calculation_605171214661550101:nk]' member='true' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]'>
+            <groupfilter function='level-members' level='[none:Calculation_605171214667993110:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_1189513269507411970:nk]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='1108' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-style' data-class='subtotal' scope='cols' value='none' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='display' field='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (publications):nk]' value='false' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-style' data-class='subtotal' scope='cols' value='none' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-level' scope='rows' value='0' />
+            <format attr='band-size' scope='rows' value='1' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='div-level' scope='rows' value='3' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (publications):nk]' />
+            </encodings>
+            <style>
+              <style-rule element='cell'>
+                <format attr='wrap' value='on' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='size' value='1' />
+                <format attr='mark-transparency' value='255' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk] / [federated.0boy2ug1szy2q116xw0dv02nzveb].[none:TITLE (publications):nk])</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{03ABF745-05B3-4B77-BEBB-2244BBCB160E}' />
+    </worksheet>
   </worksheets>
   <dashboards>
     <dashboard name='Professor Overview' type='storyboard'>
       <style />
-      <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' />
+      <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98340' id='1' param='vert' removable='false' type='layout-flow' w='98426' x='787' y='830'>
-            <zone h='3423' id='3' type='title' w='98426' x='787' y='830' />
-            <zone h='10477' id='4' is-fixed='true' paired-zone-id='5' removable='false' type='flipboard-nav' w='98426' x='787' y='4253' />
-            <zone h='84440' id='5' paired-zone-id='4' removable='false' type='flipboard' w='98426' x='787' y='14730'>
+          <zone h='98088' id='1' param='vert' removable='false' type='layout-flow' w='99064' x='468' y='956'>
+            <zone h='3943' id='3' type='title' w='99064' x='468' y='956' />
+            <zone h='12067' id='4' is-fixed='true' paired-zone-id='5' removable='false' type='flipboard-nav' w='99064' x='468' y='4899' />
+            <zone h='82078' id='5' paired-zone-id='4' removable='false' type='flipboard' w='99064' x='468' y='16966'>
               <flipboard active-id='5' nav-type='caption' show-nav-arrows='true'>
                 <story-points>
-                  <story-point caption='Publication Score Breakdown' captured-sheet='Publication Score Breakdown' id='6'>
+                  <story-point caption='Publication Breakdown' captured-sheet='Publication Breakdown' id='6'>
                     <capturedDeltas>
-                      <worksheet name='Number of Publications on FinancialTimes Top 50'>
-                        <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
-                          <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action19]' user:ui-enumeration='all' user:ui-marker='enumerate' />
-                        </filter>
-                      </worksheet>
-                      <worksheet name='Number of Publications on UTDallas'>
-                        <selection-collection />
-                      </worksheet>
-                      <worksheet name='Professor and Publication Names'>
+                      <worksheet name='All Publications'>
                         <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
                           <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action22]' user:ui-enumeration='all' user:ui-marker='enumerate' />
                         </filter>
                       </worksheet>
+                      <worksheet name='FinancialTimes Top 50 Publication Count'>
+                        <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
+                          <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action19]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+                        </filter>
+                      </worksheet>
+                      <worksheet name='UTDallas Publication Count'>
+                        <selection-collection />
+                      </worksheet>
                     </capturedDeltas>
                   </story-point>
-                  <story-point caption='RateMyProfessor Score Breakdown' captured-sheet='RateMyProfessors Score Breakdown' id='5'>
+                  <story-point caption='RateMyProfessor Breakdown' captured-sheet='RateMyProfessors Data' id='5'>
                     <capturedDeltas>
                       <worksheet name='Top Teachers by Average RateMyProfessors Rating'>
                         <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,Rcomments)]'>
@@ -3759,7 +4202,7 @@
       </zones>
       <simple-id uuid='{86E6A8B9-436B-4682-B9C6-52D80E00B79A}' />
     </dashboard>
-    <dashboard name='Publication Score Breakdown'>
+    <dashboard name='Publication Breakdown'>
       <layout-options>
         <title>
           <formatted-text>
@@ -3779,131 +4222,99 @@
           <format attr='text-align' value='left' />
         </style-rule>
       </style>
-      <size sizing-mode='automatic' />
-      <datasources>
-        <datasource name='Parameters' />
-        <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
-      </datasources>
-      <datasource-dependencies datasource='Parameters'>
-        <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1995'>
-          <calculation class='tableau' formula='1995' />
-          <range max='2019' min='1960' />
-        </column>
-        <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2010'>
-          <calculation class='tableau' formula='2010' />
-          <range max='2019' min='1960' />
-        </column>
-      </datasource-dependencies>
-      <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
-        <column caption='Date Range' datatype='boolean' name='[Calculation_605171214661550101]' role='dimension' type='nominal'>
-          <calculation class='tableau' formula='([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])' />
-        </column>
-        <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
-          <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
-        </column>
-        <column-instance column='[Calculation_605171214661550101]' derivation='None' name='[none:Calculation_605171214661550101:nk]' pivot='key' type='nominal' />
-        <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
-      </datasource-dependencies>
+      <size minheight='1977' minwidth='769' sizing-mode='range' />
       <zones>
         <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98088' id='16' param='horz' type='layout-flow' w='99064' x='468' y='956'>
-            <zone h='98088' id='13' param='vert' type='layout-flow' w='89702' x='468' y='956'>
-              <zone h='4899' id='14' type='title' w='89702' x='468' y='956'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='21505' id='20' name='Timeline' w='89702' x='468' y='5855'>
-                <layout-cache minheight='180' minwidth='130' type-h='scalable' type-w='scalable' />
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='71684' id='11' param='horz' type='layout-flow' w='89702' x='468' y='27360'>
-                <zone h='71684' id='7' param='horz' type='layout-flow' w='89702' x='468' y='27360'>
-                  <zone h='71684' id='5' type='layout-basic' w='89702' x='468' y='27360'>
-                    <zone h='35828' id='3' name='Number of Publications on UTDallas' w='44851' x='468' y='27360'>
-                      <zone-style>
-                        <format attr='border-color' value='#000000' />
-                        <format attr='border-style' value='none' />
-                        <format attr='border-width' value='0' />
-                        <format attr='margin' value='4' />
-                      </zone-style>
-                    </zone>
-                    <zone h='71684' id='8' name='Professor and Publication Names' w='44851' x='45319' y='27360'>
-                      <zone-style>
-                        <format attr='border-color' value='#000000' />
-                        <format attr='border-style' value='none' />
-                        <format attr='border-width' value='0' />
-                        <format attr='margin' value='4' />
-                      </zone-style>
-                    </zone>
-                    <zone h='35856' id='9' name='Number of Publications on FinancialTimes Top 50' w='44851' x='468' y='63188'>
-                      <zone-style>
-                        <format attr='border-color' value='#000000' />
-                        <format attr='border-style' value='none' />
-                        <format attr='border-width' value='0' />
-                        <format attr='margin' value='4' />
-                      </zone-style>
+          <zone h='99190' id='31' param='horz' type='layout-flow' w='98596' x='702' y='405'>
+            <zone h='99190' id='16' param='horz' type='layout-flow' w='98596' x='702' y='405'>
+              <zone h='99190' id='13' param='vert' type='layout-flow' w='98596' x='702' y='405'>
+                <zone h='2074' id='14' type='title' w='98596' x='702' y='405'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='124' h='6677' id='20' is-fixed='true' name='Timeline' show-title='false' w='98596' x='702' y='2479'>
+                  <layout-cache minheight='124' minwidth='130' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+                <zone h='90439' id='11' param='horz' type='layout-flow' w='98596' x='702' y='9156'>
+                  <zone h='90439' id='7' param='horz' type='layout-flow' w='98596' x='702' y='9156'>
+                    <zone h='90439' id='5' type='layout-basic' w='98596' x='702' y='9156'>
+                      <zone h='25103' id='3' name='UTDallas Publication Count' w='49286' x='702' y='9156'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                      <zone h='21415' id='8' name='All Publications' w='49310' x='49988' y='78180'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                      <zone h='22507' id='9' name='FinancialTimes Top 50 Publication Count' w='49286' x='702' y='34259'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                      <zone h='21414' id='26' name='All Professor Publication Count' w='49286' x='702' y='78181'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                      <zone h='25103' id='27' name='UTDallas Publications' w='49310' x='49988' y='9156'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                      <zone h='22507' id='28' name='FinancialTimes Publications' w='49310' x='49988' y='34259'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                      <zone h='21415' id='29' name='Other Publication Count' w='49286' x='702' y='56766'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
+                      <zone h='21414' id='32' name='Other Publications' w='49310' x='49988' y='56766'>
+                        <zone-style>
+                          <format attr='border-color' value='#000000' />
+                          <format attr='border-style' value='none' />
+                          <format attr='border-width' value='0' />
+                          <format attr='margin' value='4' />
+                        </zone-style>
+                      </zone>
                     </zone>
                   </zone>
                 </zone>
-              </zone>
-            </zone>
-            <zone fixed-size='160' h='98088' id='15' is-fixed='true' param='vert' type='layout-flow' w='9362' x='90170' y='956'>
-              <zone h='8722' id='17' name='Professor and Publication Names' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' type='filter' values='database' w='9362' x='90170' y='956'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='12903' id='21' name='Timeline' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]' type='filter' w='9362' x='90170' y='9678'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='5496' id='22' name='Timeline' pane-specification-id='9' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]' type='color' w='9362' x='90170' y='22581'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='15054' id='23' name='Timeline' pane-specification-id='9' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Calculation_1186417042285547521:qk]' type='size' w='9362' x='90170' y='28077'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='8961' id='24' mode='slider' param='[Parameters].[Parameter 2]' type='paramctrl' w='9362' x='90170' y='43131'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='8961' id='25' mode='slider' param='[Parameters].[Parameter 1]' type='paramctrl' w='9362' x='90170' y='52092'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
               </zone>
             </zone>
           </zone>
@@ -3937,7 +4348,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='46436' id='3' is-fixed='true' name='Number of Publications on UTDallas' w='41200' x='800' y='6125'>
+                <zone fixed-size='280' h='46436' id='3' is-fixed='true' name='UTDallas Publication Count' w='41200' x='800' y='6125'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -3946,7 +4357,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='98000' id='17' mode='checkdropdown' name='Professor and Publication Names' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' type='filter' values='database' w='16000' x='83200' y='1000'>
+                <zone fixed-size='280' h='92875' id='8' is-fixed='true' name='All Publications' w='41200' x='42000' y='6125'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -3955,16 +4366,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='92875' id='8' is-fixed='true' name='Professor and Publication Names' w='41200' x='42000' y='6125'>
-                  <zone-style>
-                    <format attr='border-color' value='#000000' />
-                    <format attr='border-style' value='none' />
-                    <format attr='border-width' value='0' />
-                    <format attr='margin' value='4' />
-                    <format attr='padding' value='0' />
-                  </zone-style>
-                </zone>
-                <zone fixed-size='280' h='46439' id='9' is-fixed='true' name='Number of Publications on FinancialTimes Top 50' w='41200' x='800' y='52561'>
+                <zone fixed-size='280' h='46439' id='9' is-fixed='true' name='FinancialTimes Top 50 Publication Count' w='41200' x='800' y='52561'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -3986,7 +4388,7 @@
       </devicelayouts>
       <simple-id uuid='{D83546C3-4C00-492D-BA5C-1F5030B33B6B}' />
     </dashboard>
-    <dashboard name='RateMyProfessors Score Breakdown'>
+    <dashboard name='RateMyProfessors Data'>
       <layout-options>
         <title>
           <formatted-text>
@@ -4000,12 +4402,12 @@
           <format attr='background-color' value='#f28f2d' />
         </style-rule>
       </style>
-      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' preset-index='1' sizing-mode='fixed' />
+      <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98000' id='40' param='horz' type='layout-flow' w='98400' x='800' y='1000'>
-            <zone h='98000' id='27' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
-              <zone h='5125' id='28' type='title' w='98400' x='800' y='1000'>
+          <zone h='98088' id='40' param='horz' type='layout-flow' w='99064' x='468' y='956'>
+            <zone h='98088' id='27' param='vert' type='layout-flow' w='99064' x='468' y='956'>
+              <zone h='4899' id='28' type='title' w='99064' x='468' y='956'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4013,13 +4415,13 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='92875' id='25' param='horz' type='layout-flow' w='98400' x='800' y='6125'>
-                <zone h='92875' id='23' param='horz' type='layout-flow' w='98400' x='800' y='6125'>
-                  <zone h='92875' id='21' param='horz' type='layout-flow' w='98400' x='800' y='6125'>
-                    <zone h='92875' id='19' param='horz' type='layout-flow' w='98400' x='800' y='6125'>
-                      <zone h='92875' id='17' param='horz' type='layout-flow' w='98400' x='800' y='6125'>
-                        <zone h='92875' id='15' type='layout-basic' w='98400' x='800' y='6125'>
-                          <zone h='46438' id='5' name='Top Teachers by Average RateMyProfessors Rating' w='98400' x='800' y='52562'>
+              <zone h='93189' id='25' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
+                <zone h='93189' id='23' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
+                  <zone h='93189' id='21' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
+                    <zone h='93189' id='19' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
+                      <zone h='93189' id='17' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
+                        <zone h='93189' id='15' type='layout-basic' w='99064' x='468' y='5855'>
+                          <zone h='46594' id='5' name='Top Teachers by Average RateMyProfessors Rating' w='99064' x='468' y='52450'>
                             <zone-style>
                               <format attr='border-color' value='#000000' />
                               <format attr='border-style' value='none' />
@@ -4027,7 +4429,7 @@
                               <format attr='margin' value='4' />
                             </zone-style>
                           </zone>
-                          <zone h='46437' id='37' name='RateMyProfessors Professor Comments' show-title='false' w='98400' x='800' y='6125'>
+                          <zone h='46595' id='37' name='RateMyProfessors Professor Comments' show-title='false' w='99064' x='468' y='5855'>
                             <zone-style>
                               <format attr='border-color' value='#000000' />
                               <format attr='border-style' value='none' />
@@ -4111,24 +4513,219 @@
       <active id='-1' />
       <simple-id uuid='{116570CF-DA53-425D-B136-077270BCB06E}' />
     </window>
-    <window class='dashboard' name='Publication Score Breakdown'>
+    <window class='dashboard' name='Publication Breakdown'>
       <viewpoints>
-        <viewpoint name='Number of Publications on FinancialTimes Top 50'>
+        <viewpoint name='All Professor Publication Count'>
           <zoom type='entire-view' />
         </viewpoint>
-        <viewpoint name='Number of Publications on UTDallas'>
+        <viewpoint name='All Publications' />
+        <viewpoint name='FinancialTimes Publications' />
+        <viewpoint name='FinancialTimes Top 50 Publication Count'>
           <zoom type='entire-view' />
         </viewpoint>
-        <viewpoint name='Professor and Publication Names' />
+        <viewpoint name='Other Publication Count'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Other Publications' />
         <viewpoint name='Timeline'>
           <zoom type='entire-view' />
           <floating-toolbar-visibility value='2' />
         </viewpoint>
+        <viewpoint name='UTDallas Publication Count'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='UTDallas Publications' />
       </viewpoints>
-      <active id='9' />
+      <active id='-1' />
       <simple-id uuid='{AAB7AAEE-F92C-4B2D-9863-1FC0FA1A2AE2}' />
     </window>
-    <window class='worksheet' maximized='true' name='Timeline'>
+    <window class='dashboard' maximized='true' name='RateMyProfessors Data'>
+      <viewpoints>
+        <viewpoint name='RateMyProfessors Professor Comments' />
+        <viewpoint name='Top Teachers by Average RateMyProfessors Rating'>
+          <zoom type='fit-width' />
+        </viewpoint>
+      </viewpoints>
+      <active id='5' />
+      <simple-id uuid='{F6C5615A-4C22-489C-93DE-8DEBDC47235F}' />
+    </window>
+    <window class='worksheet' hidden='true' name='All Professor Publication Count'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+          <strip size='160'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_333266388239568897:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{4110A72B-121B-4EE8-938D-9D05929107C6}' />
+    </window>
+    <window class='worksheet' hidden='true' name='All Publications'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F2B7EDC2-0650-4538-B236-58ADBA3BBF6B}' />
+    </window>
+    <window class='worksheet' hidden='true' name='FinancialTimes Publications'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{EA5514E5-E90C-4318-8C40-BB7C46A62F97}' />
+    </window>
+    <window class='worksheet' hidden='true' name='FinancialTimes Top 50 Publication Count'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Calculation_674414061119975425:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{35B13DBF-630E-41C6-B417-616ECDD2091C}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Other Publication Count'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Number of UTDallas Publications (copy):qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{FCBC8686-A449-4F4E-A532-6A517DB4C9A9}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Other Publications'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B7C8713E-D938-463E-81AB-DE8646271E0F}' />
+    </window>
+    <window class='worksheet' hidden='true' name='RateMyProfessors Professor Comments'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{063354A8-1C60-4D06-A50E-07BB85E44CF7}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Timeline'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -4164,169 +4761,6 @@
       </viewpoint>
       <simple-id uuid='{616885EF-D00D-4C40-8BE0-E711AC128C0A}' />
     </window>
-    <window class='worksheet' name='Top Professors By Number of Quality Publications'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[usr:Calculation_333266388276514820:qk]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{7898015B-5490-40FC-B364-8828559B413D}' />
-    </window>
-    <window class='worksheet' name='Professor Publication Count'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-          <strip size='160'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{4110A72B-121B-4EE8-938D-9D05929107C6}' />
-    </window>
-    <window class='dashboard' name='RateMyProfessors Score Breakdown'>
-      <viewpoints>
-        <viewpoint name='RateMyProfessors Professor Comments' />
-        <viewpoint name='Top Teachers by Average RateMyProfessors Rating'>
-          <zoom type='fit-width' />
-        </viewpoint>
-      </viewpoints>
-      <active id='-1' />
-      <simple-id uuid='{F6C5615A-4C22-489C-93DE-8DEBDC47235F}' />
-    </window>
-    <window class='worksheet' hidden='true' name='Number of Publications on FinancialTimes Top 50'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Calculation_674414061119975425:qk]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{35B13DBF-630E-41C6-B417-616ECDD2091C}' />
-    </window>
-    <window class='worksheet' hidden='true' name='Number of Publications on UTDallas'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[ctd:PUBLICATION_ID (utdallas_publications):qk]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{98931C45-928A-427C-A83A-B90846B8202B}' />
-    </window>
-    <window class='worksheet' hidden='true' name='Professor and Publication Names'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{F2B7EDC2-0650-4538-B236-58ADBA3BBF6B}' />
-    </window>
-    <window class='worksheet' hidden='true' name='RateMyProfessors Professor Comments'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{063354A8-1C60-4D06-A50E-07BB85E44CF7}' />
-    </window>
     <window class='worksheet' hidden='true' name='Top Teachers by Average RateMyProfessors Rating'>
       <cards>
         <edge name='left'>
@@ -4349,6 +4783,57 @@
         </edge>
       </cards>
       <simple-id uuid='{44D80429-3EE2-4168-B456-94A87709AF29}' />
+    </window>
+    <window class='worksheet' hidden='true' name='UTDallas Publication Count'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Calculation_1189513269497040896:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{98931C45-928A-427C-A83A-B90846B8202B}' />
+    </window>
+    <window class='worksheet' hidden='true' name='UTDallas Publications'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{18D14513-7255-4EB5-82CB-DB1E8043B85F}' />
     </window>
   </windows>
 </workbook>
