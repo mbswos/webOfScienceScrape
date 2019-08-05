@@ -14,7 +14,7 @@ for row in csv_reader:
 	if not row['ORCID'] == 'N/A':
 		orcid = row['ORCID']
 		professor_name = row['First Name'] + ' ' + row['Last Name']
-		orcid_data = gow.getorcidinfo(orcid)
+		orcid_data = gow.get_orcid_info(orcid)
 		professor_db_id = querier.get_professor_db_id_by_name(professor_name)
 		
 		if professor_db_id:

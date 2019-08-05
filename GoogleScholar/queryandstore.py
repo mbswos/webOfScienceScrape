@@ -1,4 +1,3 @@
-import signal
 import dbconnection
 import scholarly
 from func_timeout import func_timeout, FunctionTimedOut

@@ -3,7 +3,7 @@ import ast
 import json
 import pprint
 
-def getorcidinfo(orcid):
+def get_orcid_info(orcid):
 	pp = pprint.PrettyPrinter(indent=4)
 
 	base_url = 'https://pub.orcid.org/v3.0/'

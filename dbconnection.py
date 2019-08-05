@@ -28,6 +28,3 @@ class DBConnection:
 	# Save function - has to be executed to actually save what was "stored"
 	def commit(self):
 		self.connection.commit()
-
-	def getdbstorer(self):
-		return self.storer
