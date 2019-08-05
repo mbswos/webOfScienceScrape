@@ -35,13 +35,15 @@ def name_is_in_names_list(names_list, first_name, middle_name, last_name):
 			return True, name
 	return matches, None
 
-f = open('CSVOfAllBusinessProfessors/Professors.txt', 'r')
 connection = dbconnection.DBConnection()
 storer = connection.storer
 querier = connection.querier
+professors = querier.get_professor_list()
 professor_name_list = []
-for professor_name in f:
-	corrected_professor_name = professor_name.strip().replace('"', '')
+for professor_name in professors:
+	last_name = professor_name[3]
+	first_name = professor_name[1]
+	corrected_professor_name = last_name+','+first_name
 	professor_name_list.append(HumanName(corrected_professor_name))
 
 files = []

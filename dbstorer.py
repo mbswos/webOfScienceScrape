@@ -92,6 +92,19 @@ class DBStorer:
 		columns['raw_google_scholar_id'] = raw_google_db_id
 		self.__store_into_db('GOOGLE_SCHOLAR_RAWS_AND_PUBLICATIONS', columns)
 
+	def store_author_and_department(self, author_id, department_id):
+		columns = {}
+		columns['author_id'] = author_id
+		columns['department_id'] = department_id
+
+		author_and_departments_db_id = self.__store_into_db('AUTHORS_AND_DEPARTMENTS', columns)
+	
+	def store_department(self, department_name):
+		columns = {}
+		columns['department_name'] = department_name
+		department_db_id = self.__store_into_db('DEPARTMENTS', columns)
+		return department_db_id
+
 	def store_author_and_publication(self, author_id, publication_id):
 		columns = {}
 		columns['author_id'] = author_id

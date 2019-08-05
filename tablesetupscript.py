@@ -19,8 +19,21 @@ authors_table_sql = """CREATE TABLE AUTHORS (
 
 departments_table_sql = """CREATE TABLE DEPARTMENTS (
 	DEPARTMENT_ID INT NOT NULL AUTO_INCREMENT,
-	DEPARTMENT_NAME  VARCHAR(200) NOT NULL,
-	PRIMARY KEY (DEPARTMENT_ID)"""
+	DEPARTMENT_NAME  VARCHAR(126) NOT NULL,
+	PRIMARY KEY (DEPARTMENT_ID))"""
+
+authors_and_departments_table_sql = """CREATE TABLE AUTHORS_AND_DEPARTMENTS (
+	AUTHOR_ID INT NOT NULL,
+	DEPARTMENT_ID INT NOT NULL,
+	PRIMARY KEY (AUTHOR_ID),
+	FOREIGN KEY (AUTHOR_ID)
+	REFERENCES authors(AUTHOR_ID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE,
+	FOREIGN KEY (DEPARTMENT_ID)
+	REFERENCES departments(DEPARTMENT_ID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE)"""
 
 authors_orcid_table_sql = """CREATE TABLE AUTHOR_ORCIDS (
 	AUTHOR_ID INT NOT NULL,
@@ -283,11 +296,13 @@ web_of_science_raw_authors_table_sql = """CREATE TABLE WEB_OF_SCIENCE_RAW_AUTHOR
 # Order is important
 cursor.execute(authors_table_sql)
 cursor.execute(publications_table_sql)
+cursor.execute(departments_table_sql)
 cursor.execute(journals_table_sql)
 cursor.execute(other_authors_table_sql)
 cursor.execute(authors_orcid_table_sql)
 cursor.execute(authors_html_cvs_table_sql)
 cursor.execute(authors_and_publications_table_sql)
+cursor.execute(authors_and_departments_table_sql)
 cursor.execute(google_scholar_author_info_table_sql)
 cursor.execute(google_scholar_cites_per_year_table_sql)
 cursor.execute(google_scholar_publication_info_table_sql)
