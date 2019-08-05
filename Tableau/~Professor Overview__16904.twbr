@@ -4153,13 +4153,25 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='2' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98088' id='1' param='vert' removable='false' type='layout-flow' w='99064' x='468' y='956'>
-            <zone h='3943' id='3' type='title' w='99064' x='468' y='956' />
-            <zone h='12067' id='4' is-fixed='true' paired-zone-id='5' removable='false' type='flipboard-nav' w='99064' x='468' y='4899' />
-            <zone h='82078' id='5' paired-zone-id='4' removable='false' type='flipboard' w='99064' x='468' y='16966'>
-              <flipboard active-id='5' nav-type='caption' show-nav-arrows='true'>
+          <zone h='96952' id='1' param='vert' removable='false' type='layout-flow' w='98614' x='693' y='1524'>
+            <zone h='6286' id='3' type='title' w='98614' x='693' y='1524' />
+            <zone h='19238' id='4' is-fixed='true' paired-zone-id='5' removable='false' type='flipboard-nav' w='98614' x='693' y='7810' />
+            <zone h='71428' id='5' paired-zone-id='4' removable='false' type='flipboard' w='98614' x='693' y='27048'>
+              <flipboard active-id='6' nav-type='caption' show-nav-arrows='true'>
                 <story-points>
                   <story-point caption='Publication Breakdown' captured-sheet='Publication Breakdown' id='6'>
+                    <currentDeltas>
+                      <worksheet name='All Publications'>
+                        <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
+                          <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action22]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+                        </filter>
+                      </worksheet>
+                      <worksheet name='FinancialTimes Top 50 Publication Count'>
+                        <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
+                          <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action19]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+                        </filter>
+                      </worksheet>
+                    </currentDeltas>
                     <capturedDeltas>
                       <worksheet name='All Publications'>
                         <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
@@ -4225,10 +4237,10 @@
       <size minheight='1977' minwidth='769' sizing-mode='range' />
       <zones>
         <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='99190' id='31' param='horz' type='layout-flow' w='98596' x='702' y='405'>
-            <zone h='99190' id='16' param='horz' type='layout-flow' w='98596' x='702' y='405'>
-              <zone h='99190' id='13' param='vert' type='layout-flow' w='98596' x='702' y='405'>
-                <zone h='2074' id='14' type='title' w='98596' x='702' y='405'>
+          <zone h='99190' id='31' param='horz' type='layout-flow' w='99054' x='473' y='405'>
+            <zone h='99190' id='16' param='horz' type='layout-flow' w='99054' x='473' y='405'>
+              <zone h='99190' id='13' param='vert' type='layout-flow' w='99054' x='473' y='405'>
+                <zone h='2074' id='14' type='title' w='99054' x='473' y='405'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -4236,7 +4248,7 @@
                     <format attr='margin' value='4' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='124' h='6677' id='20' is-fixed='true' name='Timeline' show-title='false' w='98596' x='702' y='2479'>
+                <zone fixed-size='124' h='6677' id='20' is-fixed='true' name='Timeline' show-title='false' w='99054' x='473' y='2479'>
                   <layout-cache minheight='124' minwidth='130' type-h='scalable' type-w='scalable' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -4245,10 +4257,10 @@
                     <format attr='margin' value='4' />
                   </zone-style>
                 </zone>
-                <zone h='90439' id='11' param='horz' type='layout-flow' w='98596' x='702' y='9156'>
-                  <zone h='90439' id='7' param='horz' type='layout-flow' w='98596' x='702' y='9156'>
-                    <zone h='90439' id='5' type='layout-basic' w='98596' x='702' y='9156'>
-                      <zone h='25103' id='3' name='UTDallas Publication Count' w='49286' x='702' y='9156'>
+                <zone h='90439' id='11' param='horz' type='layout-flow' w='99054' x='473' y='9156'>
+                  <zone h='90439' id='7' param='horz' type='layout-flow' w='99054' x='473' y='9156'>
+                    <zone h='90439' id='5' type='layout-basic' w='99054' x='473' y='9156'>
+                      <zone h='25103' id='3' name='UTDallas Publication Count' w='49514' x='473' y='9156'>
                         <zone-style>
                           <format attr='border-color' value='#000000' />
                           <format attr='border-style' value='none' />
@@ -4256,7 +4268,7 @@
                           <format attr='margin' value='4' />
                         </zone-style>
                       </zone>
-                      <zone h='21415' id='8' name='All Publications' w='49310' x='49988' y='78180'>
+                      <zone h='21415' id='8' name='All Publications' w='49540' x='49987' y='78180'>
                         <zone-style>
                           <format attr='border-color' value='#000000' />
                           <format attr='border-style' value='none' />
@@ -4264,7 +4276,7 @@
                           <format attr='margin' value='4' />
                         </zone-style>
                       </zone>
-                      <zone h='22507' id='9' name='FinancialTimes Top 50 Publication Count' w='49286' x='702' y='34259'>
+                      <zone h='22507' id='9' name='FinancialTimes Top 50 Publication Count' w='49514' x='473' y='34259'>
                         <zone-style>
                           <format attr='border-color' value='#000000' />
                           <format attr='border-style' value='none' />
@@ -4272,7 +4284,7 @@
                           <format attr='margin' value='4' />
                         </zone-style>
                       </zone>
-                      <zone h='21414' id='26' name='All Professor Publication Count' w='49286' x='702' y='78181'>
+                      <zone h='21414' id='26' name='All Professor Publication Count' w='49514' x='473' y='78181'>
                         <zone-style>
                           <format attr='border-color' value='#000000' />
                           <format attr='border-style' value='none' />
@@ -4280,7 +4292,7 @@
                           <format attr='margin' value='4' />
                         </zone-style>
                       </zone>
-                      <zone h='25103' id='27' name='UTDallas Publications' w='49310' x='49988' y='9156'>
+                      <zone h='25103' id='27' name='UTDallas Publications' w='49540' x='49987' y='9156'>
                         <zone-style>
                           <format attr='border-color' value='#000000' />
                           <format attr='border-style' value='none' />
@@ -4288,7 +4300,7 @@
                           <format attr='margin' value='4' />
                         </zone-style>
                       </zone>
-                      <zone h='22507' id='28' name='FinancialTimes Publications' w='49310' x='49988' y='34259'>
+                      <zone h='22507' id='28' name='FinancialTimes Publications' w='49540' x='49987' y='34259'>
                         <zone-style>
                           <format attr='border-color' value='#000000' />
                           <format attr='border-style' value='none' />
@@ -4296,7 +4308,7 @@
                           <format attr='margin' value='4' />
                         </zone-style>
                       </zone>
-                      <zone h='21415' id='29' name='Other Publication Count' w='49286' x='702' y='56766'>
+                      <zone h='21415' id='29' name='Other Publication Count' w='49514' x='473' y='56766'>
                         <zone-style>
                           <format attr='border-color' value='#000000' />
                           <format attr='border-style' value='none' />
@@ -4304,7 +4316,7 @@
                           <format attr='margin' value='4' />
                         </zone-style>
                       </zone>
-                      <zone h='21414' id='32' name='Other Publications' w='49310' x='49988' y='56766'>
+                      <zone h='21414' id='32' name='Other Publications' w='49540' x='49987' y='56766'>
                         <zone-style>
                           <format attr='border-color' value='#000000' />
                           <format attr='border-style' value='none' />
@@ -4405,9 +4417,9 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98088' id='40' param='horz' type='layout-flow' w='99064' x='468' y='956'>
-            <zone h='98088' id='27' param='vert' type='layout-flow' w='99064' x='468' y='956'>
-              <zone h='4899' id='28' type='title' w='99064' x='468' y='956'>
+          <zone h='96952' id='40' param='horz' type='layout-flow' w='98614' x='693' y='1524'>
+            <zone h='96952' id='27' param='vert' type='layout-flow' w='98614' x='693' y='1524'>
+              <zone h='7810' id='28' type='title' w='98614' x='693' y='1524'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -4415,13 +4427,13 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='93189' id='25' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
-                <zone h='93189' id='23' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
-                  <zone h='93189' id='21' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
-                    <zone h='93189' id='19' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
-                      <zone h='93189' id='17' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
-                        <zone h='93189' id='15' type='layout-basic' w='99064' x='468' y='5855'>
-                          <zone h='46594' id='5' name='Top Teachers by Average RateMyProfessors Rating' w='99064' x='468' y='52450'>
+              <zone h='89142' id='25' param='horz' type='layout-flow' w='98614' x='693' y='9334'>
+                <zone h='89142' id='23' param='horz' type='layout-flow' w='98614' x='693' y='9334'>
+                  <zone h='89142' id='21' param='horz' type='layout-flow' w='98614' x='693' y='9334'>
+                    <zone h='89142' id='19' param='horz' type='layout-flow' w='98614' x='693' y='9334'>
+                      <zone h='89142' id='17' param='horz' type='layout-flow' w='98614' x='693' y='9334'>
+                        <zone h='89142' id='15' type='layout-basic' w='98614' x='693' y='9334'>
+                          <zone h='44571' id='5' name='Top Teachers by Average RateMyProfessors Rating' w='98614' x='693' y='53905'>
                             <zone-style>
                               <format attr='border-color' value='#000000' />
                               <format attr='border-style' value='none' />
@@ -4429,7 +4441,7 @@
                               <format attr='margin' value='4' />
                             </zone-style>
                           </zone>
-                          <zone h='46595' id='37' name='RateMyProfessors Professor Comments' show-title='false' w='99064' x='468' y='5855'>
+                          <zone h='44571' id='37' name='RateMyProfessors Professor Comments' show-title='false' w='98614' x='693' y='9334'>
                             <zone-style>
                               <format attr='border-color' value='#000000' />
                               <format attr='border-style' value='none' />
@@ -4510,13 +4522,13 @@
   <windows film-mode='true' source-height='30'>
     <window class='dashboard' name='Professor Overview'>
       <viewpoints />
-      <active id='-1' />
+      <active id='4' />
       <simple-id uuid='{116570CF-DA53-425D-B136-077270BCB06E}' />
     </window>
-    <window class='dashboard' name='Publication Breakdown'>
+    <window class='dashboard' maximized='true' name='Publication Breakdown'>
       <viewpoints>
         <viewpoint name='All Professor Publication Count'>
-          <zoom type='entire-view' />
+          <zoom type='fit-width' />
         </viewpoint>
         <viewpoint name='All Publications' />
         <viewpoint name='FinancialTimes Publications' />
@@ -4536,10 +4548,10 @@
         </viewpoint>
         <viewpoint name='UTDallas Publications' />
       </viewpoints>
-      <active id='-1' />
+      <active id='26' />
       <simple-id uuid='{AAB7AAEE-F92C-4B2D-9863-1FC0FA1A2AE2}' />
     </window>
-    <window class='dashboard' maximized='true' name='RateMyProfessors Data'>
+    <window class='dashboard' name='RateMyProfessors Data'>
       <viewpoints>
         <viewpoint name='RateMyProfessors Professor Comments' />
         <viewpoint name='Top Teachers by Average RateMyProfessors Rating'>
