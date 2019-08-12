@@ -1,0 +1,46 @@
+/* Set width to fill the extension */
+div.slider.slider-horizontal {
+	width:100%;
+}
+
+/* Set height to show slider tooltip */
+#parameters {
+	padding-top: 35px;
+	padding-bottom: 5px;
+}
+
+/* Set color of selected ticks */
+div.slider-tick.round.in-selection {
+	background: #58a04e;
+}
+
+/* Set color of the unselected ticks */
+div.slider-tick.round{
+	background: #f28f2d;
+	opacity: 1;
+}
+
+/* Set color of the max and min handles */
+div.slider-handle.round {
+	background: #24693d;
+}
+
+/* Set color of selected section */
+.slider-selection{
+	background: #58a04e;
+}
+
+/* Remove original coloring */
+div.slider-selection.tick-slider-selection{
+	background-image: none;	
+}
+
+/* Set color of the high end unselected */
+div.slider-track-high{
+	background: #f28f2d;
+}
+
+/* Set color of the low end unselected */
+div.slider-track-low{
+	background: #f28f2d;
+}

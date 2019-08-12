@@ -1,0 +1,254 @@
+Acoustics - No
+Electrochemistry - No
+Literature - No
+Physics, Fluids & Plasmas - No
+Agricultural Economics & Policy - Verify
+Emergency Medicine - No
+Literature, African, Australian, Canadian - No
+Physics, Mathematical - Verify
+Agricultural Engineering - No
+Endocrinology & Metabolism - No
+Literature, American - No
+Physics, Multidisciplinary - No
+Agriculture, Dairy & Animal Science - No
+Energy & Fuels - No
+Literature, British Isles - No
+Physics, Nuclear - No
+Agriculture, Multidisciplinary - No
+Engineering, Aerospace - No
+Literature, German, Dutch, Scandinavian - No
+Physics, Particles & Fields - No
+Agronomy - No
+Engineering, Biomedical - No
+Literature, Romance - No
+Physiology - Verify
+Allergy - No
+Engineering, Chemical - No
+Literature, Slavic - No
+Plant Sciences - No
+Anatomy & Morphology - No
+Engineering, Civil - No
+Logic - No
+Poetry - No
+Andrology - No
+Engineering, Electrical & Electronic - No
+Management - Yes
+Political Science - Verify
+Anesthesiology - No
+Engineering, Environmental - No
+Marine & Freshwater Biology - No
+Polymer Science - No
+Anthropology - Verify
+Engineering, Geological - No
+Materials Science, Biomaterials - No
+Primary Health Care - No
+Archaeology - No
+Engineering, Industrial - No
+Materials Science, Ceramics - No
+Psychiatry - Verify
+Architecture - No
+Engineering, Manufacturing - No
+Materials Science, Characterization & Testing - No
+Psychology - Verify
+Area Studies - No
+Engineering, Marine - No
+Materials Science, Coatings & Films - No
+Psychology, Applied - Verify
+Art - No
+Engineering, Mechanical - No
+Materials Science, Composites - No
+Psychology, Biological - Verify
+Asian Studies - No
+Engineering, Multidisciplinary - No
+Materials Science, Multidisciplinary - No
+Psychology, Clinical - Verify
+Astronomy & Astrophysics - No
+Engineering, Ocean - No
+Materials Science, Paper & Wood - No
+Psychology, Developmental - Verify
+Audiology & Speech-Language Pathology - No
+Engineering, Petroleum - No
+Materials Science, Textiles - No
+Psychology, Educational - Verify
+Automation & Control Systems - No
+Entomology - No
+Mathematical & Computational Biology - No
+Psychology, Experimental - Verify
+Behavioral Sciences - Verify
+Environmental Sciences - No
+Mathematics - No
+Psychology, Mathematical - Verify
+Biochemical Research Methods - No
+Environmental Studies - No
+Mathematics, Applied - Verify
+Psychology, Multidisciplinary - Verify
+Biochemistry & Molecular Biology - No
+Ergonomics - Verify
+Mathematics, Interdisciplinary Applications - Verify
+Psychology, Psychoanalysis - Verify
+Biodiversity Conservation - No
+Ethics - Verify
+Mechanics - No
+Psychology, Social - Verify
+Biology - No
+Ethnic Studies - No
+Medical Ethics - No
+Public Administration - Verify
+Biophysics - No
+Evolutionary Biology - No
+Medical Informatics - No
+Public, Environmental & Occupational Health - Verify
+Biotechnology & Applied Microbiology - No
+Family Studies - No
+Medical Laboratory Technology - No
+Quantum Science & Technology - No
+Business - Yes
+Film, Radio, Television - No
+Medicine, General & Internal - No
+Radiology, Nuclear Medicine & Medical Imaging - No
+Business, Finance - Yes
+Fisheries - No
+Medicine, Legal - No
+Regional & Urban Planning - No
+Cardiac & Cardiovascular Systems - No
+Folklore - No
+Medicine, Research & Experimental - No
+Rehabilitation - No
+Cell & Tissue Engineering - No
+Food Science & Technology - No
+Medieval & Renaissance Studies - No
+Religion - No
+Cell Biology - No
+Forestry - No
+Metallurgy & Metallurgical Engineering - No
+Remote Sensing - No
+Chemistry, Analytical - No
+Gastroenterology & Hepatology - No
+Meteorology & Atmospheric Sciences - No
+Reproductive Biology - No
+Chemistry, Applied - No
+Genetics & Heredity - No
+Microbiology - No
+Respiratory System - No
+Chemistry, Inorganic & Nuclear - No
+Geochemistry & Geophysics - No
+Microscopy - No
+Rheumatology - No
+Chemistry, Medicinal - No
+Geography - No
+Mineralogy - No
+Robotics - No
+Chemistry, Multidisciplinary - No
+Geography, Physical - No
+Mining & Mineral Processing - No
+Social Issues - Verify
+Chemistry, Organic - No
+Geology - No
+Multidisciplinary Sciences - Verify
+Social Sciences, Biomedical - Verify
+Chemistry, Physical - No
+Geosciences, Multidisciplinary - No
+Music - No
+Social Sciences, Interdisciplinary - Verify
+Classics - No
+Geriatrics & Gerontology - No
+Mycology - No
+Social Sciences, Mathematical Methods - Verify
+Clinical Neurology - No
+Gerontology - No
+Nanoscience & Nanotechnology - No
+Social Work - Verify
+Communication - Verify
+Green & Sustainable Science & Technology - No
+Neuroimaging - No
+Sociology - Verify
+Computer Science, Artificial Intelligence - Verify
+Health Care Sciences & Services - Verify
+Neurosciences - No
+Soil Science - No
+Computer Science, Cybernetics - Verify
+Health Policy & Services - Verify
+Nuclear Science & Technology - No
+Spectroscopy - No
+Computer Science, Hardware & Architecture - Verify
+Hematology - No
+Nursing - No
+Sport Sciences - No
+Computer Science, Information Systems - Verify
+History - No
+Nutrition & Dietetics - No
+Statistics & Probability - No
+Computer Science, Interdisciplinary Applications - Verify
+History & Philosophy of Science - No
+Obstetrics & Gynecology - No
+Substance Abuse - No
+Computer Science, Software Engineering - Verify
+History of Social Sciences - No
+Oceanography - No
+Surgery - No
+Computer Science, Theory & Methods - Verify
+Horticulture - No
+Oncology - No
+Telecommunications - No
+Construction & Building Technology - No
+Hospitality, Leisure, Sport & Tourism - Verify
+Operations Research & Management Science - Verify
+Theater - No
+Criminology & Penology - No
+Humanities, Multidisciplinary - Verify
+Ophthalmology - No
+Thermodynamics - No
+Critical Care Medicine - No
+Imaging Science & Photographic Technology - No
+Optics - No
+Toxicology - No
+Crystallography - No
+Immunology - No
+Ornithology - No
+Transplantation - No
+Cultural Studies - No
+Industrial Relations & Labor - No
+Orthopedics - No
+Transportation - No
+Dance - No
+Infectious Diseases - No
+Otorhinolaryngology - No
+Transportation Science & Technology - No
+Demography - Verify
+Information Science & Library Science - No
+Paleontology - No
+Tropical Medicine - No
+Dentistry, Oral Surgery & Medicine - No
+Instruments & Instrumentation - No
+Parasitology - No
+Urban Studies - No
+Dermatology - No
+Integrative & Complementary Medicine - No
+Pathology - No
+Urology & Nephrology - No
+Development Studies - No
+International Relations - No
+Pediatrics - No
+Veterinary Sciences - No
+Developmental Biology - No
+Language & Linguistics - No
+Peripheral Vascular Disease - No
+Virology - No
+Ecology - No
+Law - Verify
+Pharmacology & Pharmacy - No
+Water Resources - No
+Economics - No
+Limnology - No
+Philosophy - No
+Women's Studies - No
+Education & Educational Research - No
+Linguistics - Verify
+Physics, Applied - No
+Zoology - No
+Education, Scientific Disciplines - No
+Literary Reviews - No
+Physics, Atomic, Molecular & Chemical - No
+Education, Special - No
+Literary Theory & Criticism - No
+Physics, Condensed Matter - No
