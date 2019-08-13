@@ -19,8 +19,8 @@
   <datasources>
     <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
       <aliases enabled='yes' />
-      <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2003'>
-        <calculation class='tableau' formula='2003' />
+      <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
+        <calculation class='tableau' formula='2018' />
         <range max='2019' min='1960' />
       </column>
       <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -1885,6 +1885,13 @@
       <column-instance column='[Number of FinancialTimes Publications (copy)]' derivation='Sum' name='[sum:Number of FinancialTimes Publications (copy):qk]' pivot='key' type='quantitative' />
       <column-instance column='[Number of Other Publications (copy)]' derivation='Sum' name='[sum:Number of Other Publications (copy):qk]' pivot='key' type='quantitative' />
       <column-instance column='[Number of UTDallas Publications (copy 2)]' derivation='Sum' name='[sum:Number of UTDallas Publications (copy 2):qk]' pivot='key' type='quantitative' />
+      <group caption='Action (Author Id,Last &amp; First,Department Id)' hidden='true' name='[Action (Author Id,Last &amp; First,Department Id)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[AUTHOR_ID]' />
+          <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+          <groupfilter function='level-members' level='[DEPARTMENT_ID]' />
+        </groupfilter>
+      </group>
       <group caption='Action (Department Name)' hidden='true' name='[Action (Department Name)]' name-style='unqualified' user:auto-column='sheet_link'>
         <groupfilter function='crossjoin'>
           <groupfilter function='level-members' level='[DEPARTMENT_NAME]' />
@@ -3541,8 +3548,8 @@
       </default-sorts>
       <field-sort-info field-sort-order='descending' field-sort-order-type='alphabetical-order' />
       <datasource-dependencies datasource='Parameters'>
-        <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2003'>
-          <calculation class='tableau' formula='2003' />
+        <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
+          <calculation class='tableau' formula='2018' />
           <range max='2019' min='1960' />
         </column>
         <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -3840,8 +3847,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2003'>
-              <calculation class='tableau' formula='2003' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
+              <calculation class='tableau' formula='2018' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -3857,6 +3864,7 @@
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
             </column>
+            <column aggregation='Sum' caption='Department Id' datatype='integer' name='[DEPARTMENT_ID]' role='dimension' type='ordinal' />
             <column caption='Department Name' datatype='string' name='[DEPARTMENT_NAME]' role='dimension' type='nominal' />
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column aggregation='Sum' caption='JOURNAL ID (financial times top 50 journals)' datatype='integer' name='[JOURNAL_ID (financial_times_top_50_journals)]' role='dimension' type='ordinal' />
@@ -3870,6 +3878,13 @@
             <column-instance column='[Calculation_333266388239568897]' derivation='User' name='[usr:Calculation_333266388239568897:ok]' pivot='key' type='ordinal' />
             <column-instance column='[Calculation_333266388239568897]' derivation='User' name='[usr:Calculation_333266388239568897:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[AUTHOR_ID]' />
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[DEPARTMENT_ID]' />
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
             <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
@@ -3887,6 +3902,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,TITLE (publications))]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -3935,8 +3951,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2003'>
-              <calculation class='tableau' formula='2003' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
+              <calculation class='tableau' formula='2018' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -3945,6 +3961,7 @@
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
             <column caption='All Publication Titles' datatype='boolean' name='[Calculation_1189513269498634241]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='NOT ISNULL([PUBLICATION_ID (Custom SQL Query) #1]) &#13;&#10;OR [Calculation_1189513269507411970 1]&#13;&#10;OR [Calculation_1189513269507411970]' />
             </column>
@@ -3960,6 +3977,7 @@
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
             </column>
+            <column aggregation='Sum' caption='Department Id' datatype='integer' name='[DEPARTMENT_ID]' role='dimension' type='ordinal' />
             <column caption='Department Name' datatype='string' name='[DEPARTMENT_NAME]' role='dimension' type='nominal' />
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column aggregation='Sum' caption='JOURNAL ID (financial times top 50 journals)' datatype='integer' name='[JOURNAL_ID (financial_times_top_50_journals)]' role='dimension' type='ordinal' />
@@ -3973,6 +3991,13 @@
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
             <column-instance column='[TITLE (publications)]' derivation='None' name='[none:TITLE (publications):nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[AUTHOR_ID]' />
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[DEPARTMENT_ID]' />
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
             <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
@@ -3994,6 +4019,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_1189513269498634241:nk]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -4102,8 +4128,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2003'>
-              <calculation class='tableau' formula='2003' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
+              <calculation class='tableau' formula='2018' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4200,8 +4226,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2003'>
-              <calculation class='tableau' formula='2003' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
+              <calculation class='tableau' formula='2018' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4210,6 +4236,7 @@
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
             <column caption='FinancialTimes Publication Titles' datatype='boolean' name='[Calculation_1189513269507411970 1]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='NOT ISNULL([JOURNAL_ID (financial_times_top_50_journals)])' />
             </column>
@@ -4219,6 +4246,7 @@
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
             </column>
+            <column aggregation='Sum' caption='Department Id' datatype='integer' name='[DEPARTMENT_ID]' role='dimension' type='ordinal' />
             <column caption='Department Name' datatype='string' name='[DEPARTMENT_NAME]' role='dimension' type='nominal' />
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column aggregation='Sum' caption='JOURNAL ID (financial times top 50 journals)' datatype='integer' name='[JOURNAL_ID (financial_times_top_50_journals)]' role='dimension' type='ordinal' />
@@ -4230,6 +4258,13 @@
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
             <column-instance column='[TITLE (publications)]' derivation='None' name='[none:TITLE (publications):nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[AUTHOR_ID]' />
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[DEPARTMENT_ID]' />
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
             <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
@@ -4258,6 +4293,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,TITLE (publications))]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -4326,8 +4362,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2003'>
-              <calculation class='tableau' formula='2003' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
+              <calculation class='tableau' formula='2018' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4336,6 +4372,7 @@
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
             <column caption='Date Range' datatype='boolean' name='[Calculation_605171214661550101]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='([YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;= [Parameters].[Parameter 2])' />
             </column>
@@ -4345,6 +4382,7 @@
             <column caption='Number of FinancialTimes Publications' datatype='integer' name='[Calculation_674414061119975425]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='{FIXED [Calculation_605171214667993110]: COUNTD(&#13;&#10;IF NOT ISNULL([JOURNAL_ID (financial_times_top_50_journals)]) AND &#13;&#10;[YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;=[Parameters].[Parameter 2]&#13;&#10;THEN [PUBLICATION_ID (publications)]&#13;&#10;ELSE NULL&#13;&#10;END&#13;&#10;)}' />
             </column>
+            <column aggregation='Sum' caption='Department Id' datatype='integer' name='[DEPARTMENT_ID]' role='dimension' type='ordinal' />
             <column caption='Department Name' datatype='string' name='[DEPARTMENT_NAME]' role='dimension' type='nominal' />
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column aggregation='Sum' caption='JOURNAL ID (financial times top 50 journals)' datatype='integer' name='[JOURNAL_ID (financial_times_top_50_journals)]' role='dimension' type='ordinal' />
@@ -4357,6 +4395,13 @@
             <column-instance column='[Calculation_605171214661550101]' derivation='None' name='[none:Calculation_605171214661550101:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[AUTHOR_ID]' />
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[DEPARTMENT_ID]' />
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
             <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
@@ -4378,6 +4423,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,TITLE (publications))]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -4419,8 +4465,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2003'>
-              <calculation class='tableau' formula='2003' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
+              <calculation class='tableau' formula='2018' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4429,9 +4475,11 @@
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
             </column>
+            <column aggregation='Sum' caption='Department Id' datatype='integer' name='[DEPARTMENT_ID]' role='dimension' type='ordinal' />
             <column caption='Department Name' datatype='string' name='[DEPARTMENT_NAME]' role='dimension' type='nominal' />
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column aggregation='Sum' caption='JOURNAL ID (financial times top 50 journals)' datatype='integer' name='[JOURNAL_ID (financial_times_top_50_journals)]' role='dimension' type='ordinal' />
@@ -4448,6 +4496,13 @@
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
             <column-instance column='[Number of UTDallas Publications (copy)]' derivation='Sum' name='[sum:Number of UTDallas Publications (copy):qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[AUTHOR_ID]' />
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[DEPARTMENT_ID]' />
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
             <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
@@ -4465,6 +4520,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,TITLE (publications))]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -4507,8 +4563,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2003'>
-              <calculation class='tableau' formula='2003' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
+              <calculation class='tableau' formula='2018' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4517,6 +4573,7 @@
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
             <column caption='Other Publications' datatype='boolean' name='[Calculation_1189513269507411970 2]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='ISNULL([JOURNAL_ID (utdallas_journals)]) &#13;&#10;AND ISNULL([JOURNAL_ID (financial_times_top_50_journals)])&#13;&#10;AND NOT ISNULL([PUBLICATION_ID (Custom SQL Query) #1])' />
             </column>
@@ -4526,6 +4583,7 @@
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
             </column>
+            <column aggregation='Sum' caption='Department Id' datatype='integer' name='[DEPARTMENT_ID]' role='dimension' type='ordinal' />
             <column caption='Department Name' datatype='string' name='[DEPARTMENT_NAME]' role='dimension' type='nominal' />
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column aggregation='Sum' caption='JOURNAL ID (financial times top 50 journals)' datatype='integer' name='[JOURNAL_ID (financial_times_top_50_journals)]' role='dimension' type='ordinal' />
@@ -4539,6 +4597,13 @@
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
             <column-instance column='[TITLE (publications)]' derivation='None' name='[none:TITLE (publications):nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[AUTHOR_ID]' />
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[DEPARTMENT_ID]' />
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
             <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
@@ -4567,6 +4632,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_1189513269507411970 2:nk]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,TITLE (publications))]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -4634,9 +4700,11 @@
             <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
           </datasources>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
             </column>
+            <column aggregation='Sum' caption='Department Id' datatype='integer' name='[DEPARTMENT_ID]' role='dimension' type='ordinal' />
             <column caption='Department Name' datatype='string' name='[DEPARTMENT_NAME]' role='dimension' type='nominal' />
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
@@ -4644,6 +4712,13 @@
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
             <column-instance column='[RCOMMENTS]' derivation='None' name='[none:RCOMMENTS:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action19]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[AUTHOR_ID]' />
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[DEPARTMENT_ID]' />
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
             <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action1]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
@@ -4661,6 +4736,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -4701,6 +4777,49 @@
       </table>
       <simple-id uuid='{54436C4B-C927-441A-9BC8-C7F391F5C553}' />
     </worksheet>
+    <worksheet name='Sheet 17'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
+            <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
+            </column>
+            <column aggregation='Sum' caption='Department Id' datatype='integer' name='[DEPARTMENT_ID]' role='dimension' type='ordinal' />
+            <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
+            <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
+            <column-instance column='[DEPARTMENT_ID]' derivation='Attribute' name='[attr:DEPARTMENT_ID:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[AUTHOR_ID]' derivation='None' name='[none:AUTHOR_ID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:DEPARTMENT_ID:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0boy2ug1szy2q116xw0dv02nzveb].[none:AUTHOR_ID:ok] / [federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk])</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{C863A5D9-77D5-4A37-81F4-ABC2F88CB0F8}' />
+    </worksheet>
     <worksheet name='Timeline'>
       <table>
         <view>
@@ -4709,8 +4828,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2003'>
-              <calculation class='tableau' formula='2003' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
+              <calculation class='tableau' formula='2018' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4719,6 +4838,7 @@
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
             <column caption='PublicationsByYear' datatype='integer' name='[Calculation_1186417042285547521]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='{FIXED [YEAR (publications)]: &#13;&#10;COUNTD(&#13;&#10;    IF NOT ISNULL([JOURNAL_ID]) OR NOT ISNULL([TITLE (Custom SQL Query) #1])&#13;&#10;    THEN [PUBLICATION_ID (publications)]&#13;&#10;    ELSE NULL&#13;&#10;    END&#13;&#10;)}' />
             </column>
@@ -4731,6 +4851,7 @@
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
             </column>
+            <column aggregation='Sum' caption='Department Id' datatype='integer' name='[DEPARTMENT_ID]' role='dimension' type='ordinal' />
             <column caption='Department Name' datatype='string' name='[DEPARTMENT_NAME]' role='dimension' type='nominal' />
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column caption='Journal Id' datatype='integer' name='[JOURNAL_ID]' role='dimension' type='ordinal' />
@@ -4743,6 +4864,13 @@
             <column-instance column='[YEAR (publications)]' derivation='None' name='[none:YEAR (publications):qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_605171214657359891]' derivation='User' name='[usr:Calculation_605171214657359891:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[AUTHOR_ID]' />
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[DEPARTMENT_ID]' />
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
             <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
@@ -4765,6 +4893,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Calculation_1186417042285547521:qk]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:YEAR (publications):qk]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -4843,9 +4972,11 @@
             <datasource caption='authors (webofsciencescraper)' name='federated.0boy2ug1szy2q116xw0dv02nzveb' />
           </datasources>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
             </column>
+            <column aggregation='Sum' caption='Department Id' datatype='integer' name='[DEPARTMENT_ID]' role='dimension' type='ordinal' />
             <column caption='Department Name' datatype='string' name='[DEPARTMENT_NAME]' role='dimension' type='nominal' />
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
@@ -4854,6 +4985,13 @@
             <column-instance column='[ROVERALL]' derivation='Avg' name='[avg:ROVERALL:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action19]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[AUTHOR_ID]' />
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[DEPARTMENT_ID]' />
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
             <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action1]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
@@ -4871,6 +5009,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,Rcomments)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -4906,8 +5045,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2003'>
-              <calculation class='tableau' formula='2003' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
+              <calculation class='tableau' formula='2018' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4916,6 +5055,7 @@
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
             <column caption='Number of UTDallas Publications' datatype='integer' name='[Calculation_1189513269497040896]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='{FIXED [Calculation_605171214667993110]: COUNTD(&#13;&#10;IF NOT ISNULL([JOURNAL_ID (utdallas_journals)]) AND &#13;&#10;[YEAR (publications)] &gt;= [Parameters].[Parameter 1] AND [YEAR (publications)] &lt;=[Parameters].[Parameter 2]&#13;&#10;THEN [PUBLICATION_ID (publications)]&#13;&#10;ELSE NULL&#13;&#10;END&#13;&#10;)}' />
             </column>
@@ -4925,6 +5065,7 @@
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
             </column>
+            <column aggregation='Sum' caption='Department Id' datatype='integer' name='[DEPARTMENT_ID]' role='dimension' type='ordinal' />
             <column caption='Department Name' datatype='string' name='[DEPARTMENT_NAME]' role='dimension' type='nominal' />
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column aggregation='Sum' caption='JOURNAL ID (utdallas journals)' datatype='integer' name='[JOURNAL_ID (utdallas_journals)]' role='dimension' type='ordinal' />
@@ -4936,6 +5077,13 @@
             <column-instance column='[Calculation_605171214661550101]' derivation='None' name='[none:Calculation_605171214661550101:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[AUTHOR_ID]' />
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[DEPARTMENT_ID]' />
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
             <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
@@ -4956,6 +5104,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,TITLE (publications))]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -5004,8 +5153,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2003'>
-              <calculation class='tableau' formula='2003' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
+              <calculation class='tableau' formula='2018' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -5014,6 +5163,7 @@
             </column>
           </datasource-dependencies>
           <datasource-dependencies datasource='federated.0boy2ug1szy2q116xw0dv02nzveb'>
+            <column caption='Author Id' datatype='integer' name='[AUTHOR_ID]' role='dimension' type='ordinal' />
             <column caption='UTDallas Publication Title' datatype='boolean' name='[Calculation_1189513269507411970]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='NOT ISNULL([JOURNAL_ID (utdallas_journals)])' />
             </column>
@@ -5023,6 +5173,7 @@
             <column caption='Last &amp; First' datatype='string' name='[Calculation_605171214667993110]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='[LAST_NAME] + &quot;, &quot; + [FIRST_NAME]' />
             </column>
+            <column aggregation='Sum' caption='Department Id' datatype='integer' name='[DEPARTMENT_ID]' role='dimension' type='ordinal' />
             <column caption='Department Name' datatype='string' name='[DEPARTMENT_NAME]' role='dimension' type='nominal' />
             <column caption='First Name' datatype='string' name='[FIRST_NAME]' role='dimension' type='nominal' />
             <column aggregation='Sum' caption='JOURNAL ID (utdallas journals)' datatype='integer' name='[JOURNAL_ID (utdallas_journals)]' role='dimension' type='ordinal' />
@@ -5034,6 +5185,13 @@
             <column-instance column='[Calculation_605171214667993110]' derivation='None' name='[none:Calculation_605171214667993110:nk]' pivot='key' type='nominal' />
             <column-instance column='[TITLE (publications)]' derivation='None' name='[none:TITLE (publications):nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[AUTHOR_ID]' />
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[DEPARTMENT_ID]' />
+            </groupfilter>
+          </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
             <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action17]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
@@ -5062,6 +5220,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,TITLE (publications))]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -5663,9 +5822,9 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='98088' id='40' param='horz' type='layout-flow' w='99064' x='468' y='956'>
-            <zone h='98088' id='27' param='vert' type='layout-flow' w='99064' x='468' y='956'>
-              <zone h='4899' id='28' type='title' w='99064' x='468' y='956'>
+          <zone h='96952' id='40' param='horz' type='layout-flow' w='98614' x='693' y='1524'>
+            <zone h='96952' id='27' param='vert' type='layout-flow' w='98614' x='693' y='1524'>
+              <zone h='7810' id='28' type='title' w='98614' x='693' y='1524'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -5673,13 +5832,13 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='93189' id='25' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
-                <zone h='93189' id='23' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
-                  <zone h='93189' id='21' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
-                    <zone h='93189' id='19' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
-                      <zone h='93189' id='17' param='horz' type='layout-flow' w='99064' x='468' y='5855'>
-                        <zone h='93189' id='15' type='layout-basic' w='99064' x='468' y='5855'>
-                          <zone h='46595' id='5' name='Top Teachers by Average RateMyProfessors Rating' w='99064' x='468' y='5855'>
+              <zone h='89142' id='25' param='horz' type='layout-flow' w='98614' x='693' y='9334'>
+                <zone h='89142' id='23' param='horz' type='layout-flow' w='98614' x='693' y='9334'>
+                  <zone h='89142' id='21' param='horz' type='layout-flow' w='98614' x='693' y='9334'>
+                    <zone h='89142' id='19' param='horz' type='layout-flow' w='98614' x='693' y='9334'>
+                      <zone h='89142' id='17' param='horz' type='layout-flow' w='98614' x='693' y='9334'>
+                        <zone h='89142' id='15' type='layout-basic' w='98614' x='693' y='9334'>
+                          <zone h='44570' id='5' name='Top Teachers by Average RateMyProfessors Rating' w='98614' x='693' y='9334'>
                             <zone-style>
                               <format attr='border-color' value='#000000' />
                               <format attr='border-style' value='none' />
@@ -5687,7 +5846,7 @@
                               <format attr='margin' value='4' />
                             </zone-style>
                           </zone>
-                          <zone h='46594' id='37' name='RateMyProfessors Professor Comments' show-title='false' w='99064' x='468' y='52450'>
+                          <zone h='44572' id='37' name='RateMyProfessors Professor Comments' show-title='false' w='98614' x='693' y='53904'>
                             <zone-style>
                               <format attr='border-color' value='#000000' />
                               <format attr='border-style' value='none' />
@@ -6233,6 +6392,29 @@
       </viewpoints>
       <active id='3' />
       <simple-id uuid='{C4574272-6D34-4451-B31D-C9B7E29739A9}' />
+    </window>
+    <window class='worksheet' name='Sheet 17'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{4048C101-8058-4E9E-B489-EB64492A10A0}' />
     </window>
     <window class='worksheet' hidden='true' name='All Professor Publication Count'>
       <cards>
