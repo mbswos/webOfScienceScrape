@@ -1,0 +1,27 @@
+Naming Conventions:
+	- The following conventions must be followed to avoid miss used of then code
+
+	Main Naming Patterns:
+	- Folder Names: PascalCase
+	- File Names: alllowercase
+	- Classes: PascalCase
+	- Methods: under_score
+	- Functions: under_score
+	- Variables: under_score
+	- SQL queries: UPPERCASE_UNDER_SCORE
+	- Table Names: UPPERCASE_UNDER_SCORE
+
+	Class Naming Patterns:
+	- dbconnection.DBConnection() variables should be stored as connection
+	- connection.storer variables should be stored as storer
+	- connection.querier variables should be stored as querier
+
+	File Naming Patterns:
+	- tablesetupscript.py has variable names follow the under_score naming convention
+		- Variable name = lowercase(table name) + _table_sql
+
+	Unnamed Conventions:
+	- If there isn't a naming convention mentioned above, just follow what is currently being done. Pay attention to file names, capitalization, and spacing.
+
+	Exceptions:
+	- RMPClass in RateMyProfessorsScrape does not follow any naming conventions layed out in this file as it was an imported class from github.

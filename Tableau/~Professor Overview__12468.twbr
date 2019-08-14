@@ -19,8 +19,8 @@
   <datasources>
     <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
       <aliases enabled='yes' />
-      <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
-        <calculation class='tableau' formula='2018' />
+      <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
+        <calculation class='tableau' formula='1975' />
         <range max='2019' min='1960' />
       </column>
       <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -3213,7 +3213,7 @@
           </metadata-records>
         </connection>
       </extract>
-      <layout dim-ordering='alphabetic' dim-percentage='0.335664' measure-ordering='alphabetic' measure-percentage='0.41958' parameter-percentage='0.244755' show-structure='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.440722' measure-ordering='alphabetic' measure-percentage='0.469072' parameter-percentage='0.0902062' show-structure='true' />
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[none:FIRST_NAME:nk]' type='palette'>
@@ -3548,8 +3548,8 @@
       </default-sorts>
       <field-sort-info field-sort-order='descending' field-sort-order-type='alphabetical-order' />
       <datasource-dependencies datasource='Parameters'>
-        <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
-          <calculation class='tableau' formula='2018' />
+        <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
+          <calculation class='tableau' formula='1975' />
           <range max='2019' min='1960' />
         </column>
         <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -3847,8 +3847,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
-              <calculation class='tableau' formula='2018' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
+              <calculation class='tableau' formula='1975' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -3951,8 +3951,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
-              <calculation class='tableau' formula='2018' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
+              <calculation class='tableau' formula='1975' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4128,8 +4128,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
-              <calculation class='tableau' formula='2018' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
+              <calculation class='tableau' formula='1975' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4226,8 +4226,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
-              <calculation class='tableau' formula='2018' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
+              <calculation class='tableau' formula='1975' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4362,8 +4362,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
-              <calculation class='tableau' formula='2018' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
+              <calculation class='tableau' formula='1975' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4465,8 +4465,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
-              <calculation class='tableau' formula='2018' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
+              <calculation class='tableau' formula='1975' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4563,8 +4563,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
-              <calculation class='tableau' formula='2018' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
+              <calculation class='tableau' formula='1975' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4828,8 +4828,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
-              <calculation class='tableau' formula='2018' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
+              <calculation class='tableau' formula='1975' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4858,6 +4858,7 @@
             <column caption='Last Name' datatype='string' name='[LAST_NAME]' role='dimension' type='nominal' />
             <column aggregation='Sum' caption='PUBLICATION ID (publications)' datatype='integer' name='[PUBLICATION_ID (publications)]' role='dimension' type='ordinal' />
             <column datatype='string' name='[TITLE (Custom SQL Query) #1]' role='dimension' type='nominal' />
+            <column datatype='string' name='[TITLE (publications)]' role='dimension' type='nominal' />
             <column datatype='integer' name='[YEAR (publications)]' role='dimension' type='quantitative' />
             <column-instance column='[Calculation_1186417042285547521]' derivation='Attribute' name='[attr:Calculation_1186417042285547521:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_605171214661550101]' derivation='None' name='[none:Calculation_605171214661550101:nk]' pivot='key' type='nominal' />
@@ -4877,6 +4878,12 @@
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
             <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action5]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
+          <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,TITLE (publications))]'>
+            <groupfilter function='crossjoin' user:ui-action-filter='[Action15]' user:ui-enumeration='all' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[Calculation_605171214667993110]' />
+              <groupfilter function='level-members' level='[TITLE (publications)]' />
+            </groupfilter>
+          </filter>
           <filter class='quantitative' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[attr:Calculation_1186417042285547521:qk]' included-values='in-range'>
             <min>1</min>
           </filter>
@@ -4894,6 +4901,7 @@
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:YEAR (publications):qk]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Author Id,Last &amp; First,Department Id)]</column>
+            <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First,TITLE (publications))]</column>
           </slices>
           <aggregation value='true' />
         </view>
@@ -5045,8 +5053,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
-              <calculation class='tableau' formula='2018' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
+              <calculation class='tableau' formula='1975' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -5153,8 +5161,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2018'>
-              <calculation class='tableau' formula='2018' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
+              <calculation class='tableau' formula='1975' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -5946,8 +5954,8 @@
       <size minheight='1977' minwidth='769' sizing-mode='range' />
       <zones>
         <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='99190' id='45' param='vert' type='layout-flow' w='98596' x='702' y='405'>
-            <zone h='2074' id='46' type='title' w='98596' x='702' y='405'>
+          <zone h='99190' id='45' param='vert' type='layout-flow' w='99054' x='473' y='405'>
+            <zone h='2074' id='46' type='title' w='99054' x='473' y='405'>
               <zone-style>
                 <format attr='border-color' value='#000000' />
                 <format attr='border-style' value='none' />
@@ -5955,10 +5963,10 @@
                 <format attr='margin' value='4' />
               </zone-style>
             </zone>
-            <zone h='97116' id='31' param='horz' type='layout-flow' w='98596' x='702' y='2479'>
-              <zone h='97116' id='16' param='horz' type='layout-flow' w='98596' x='702' y='2479'>
-                <zone h='97116' id='13' param='vert' type='layout-flow' w='98596' x='702' y='2479'>
-                  <zone fixed-size='90' forceUpdate='true' h='4957' id='41' is-fixed='true' param='[edu.miami.extensions.year-range-slider].[0.6.0].[http://localhost:8765/Samples/YearRangeSelect/yearrangeslider.html]' type='dashboard-object' w='98596' x='702' y='2479'>
+            <zone h='97116' id='31' param='horz' type='layout-flow' w='99054' x='473' y='2479'>
+              <zone h='97116' id='16' param='horz' type='layout-flow' w='99054' x='473' y='2479'>
+                <zone h='97116' id='13' param='vert' type='layout-flow' w='99054' x='473' y='2479'>
+                  <zone fixed-size='90' forceUpdate='true' h='4957' id='41' is-fixed='true' param='[edu.miami.extensions.year-range-slider].[0.6.0].[http://localhost:8765/Samples/YearRangeSelect/yearrangeslider.html]' type='dashboard-object' w='99054' x='473' y='2479'>
                     <add-in add-in-id='edu.miami.extensions.year-range-slider' extension-url='http://localhost:8765/Samples/YearRangeSelect/yearrangeslider.html' extension-version='0.6.0' instance-id='5AE42927F46349218D11B2ECE6576195'>
                       <instance-settings />
                       <type-settings>
@@ -5972,10 +5980,10 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone h='90540' id='11' param='horz' type='layout-flow' w='98596' x='702' y='7436'>
-                    <zone h='90540' id='7' param='horz' type='layout-flow' w='98596' x='702' y='7436'>
-                      <zone h='90540' id='5' type='layout-basic' w='98596' x='702' y='7436'>
-                        <zone h='23447' id='3' name='UTDallas Publication Count' w='49280' x='702' y='30003'>
+                  <zone h='90540' id='11' param='horz' type='layout-flow' w='99054' x='473' y='7436'>
+                    <zone h='90540' id='7' param='horz' type='layout-flow' w='99054' x='473' y='7436'>
+                      <zone h='90540' id='5' type='layout-basic' w='99054' x='473' y='7436'>
+                        <zone h='23447' id='3' name='UTDallas Publication Count' w='49508' x='473' y='30003'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -5983,7 +5991,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='22567' id='8' name='All Publications' w='49316' x='49982' y='7436'>
+                        <zone h='22567' id='8' name='All Publications' w='49546' x='49981' y='7436'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -5991,7 +5999,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='23068' id='9' name='FinancialTimes Top 50 Publication Count' w='49280' x='702' y='53450'>
+                        <zone h='23068' id='9' name='FinancialTimes Top 50 Publication Count' w='49508' x='473' y='53450'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -5999,7 +6007,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='22567' id='26' name='All Professor Publication Count' w='49280' x='702' y='7436'>
+                        <zone h='22567' id='26' name='All Professor Publication Count' w='49508' x='473' y='7436'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -6007,7 +6015,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='23447' id='27' name='UTDallas Publications' w='49316' x='49982' y='30003'>
+                        <zone h='23447' id='27' name='UTDallas Publications' w='49546' x='49981' y='30003'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -6015,7 +6023,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='23071' id='28' name='FinancialTimes Publications' w='49316' x='49982' y='53450'>
+                        <zone h='23071' id='28' name='FinancialTimes Publications' w='49546' x='49981' y='53450'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -6023,7 +6031,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='21458' id='29' name='Other Publication Count' w='49280' x='702' y='76518'>
+                        <zone h='21458' id='29' name='Other Publication Count' w='49508' x='473' y='76518'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -6031,7 +6039,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='21455' id='32' name='Other Publications' w='49316' x='49982' y='76521'>
+                        <zone h='21455' id='32' name='Other Publications' w='49546' x='49981' y='76521'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -6042,7 +6050,7 @@
                       </zone>
                     </zone>
                   </zone>
-                  <zone h='1619' id='38' type='dashboard-object' w='98596' x='702' y='97976'>
+                  <zone h='1619' id='38' type='dashboard-object' w='99054' x='473' y='97976'>
                     <add-in add-in-id='' extension-url='' extension-version='' instance-id='4F4E95045E9D45D8875C493E47AAC820'>
                       <instance-settings />
                       <type-settings>
@@ -6203,7 +6211,7 @@
       <active id='-1' />
       <simple-id uuid='{116570CF-DA53-425D-B136-077270BCB06E}' />
     </window>
-    <window class='dashboard' maximized='true' name='Publication Breakdown'>
+    <window class='dashboard' name='Publication Breakdown'>
       <viewpoints>
         <viewpoint name='All Professor Publication Count'>
           <zoom type='entire-view' />
@@ -6226,10 +6234,10 @@
         </viewpoint>
         <viewpoint name='UTDallas Publications' />
       </viewpoints>
-      <active id='-1' />
+      <active id='26' />
       <simple-id uuid='{AAB7AAEE-F92C-4B2D-9863-1FC0FA1A2AE2}' />
     </window>
-    <window class='dashboard' name='Timeline Test'>
+    <window class='dashboard' maximized='true' name='Timeline Test'>
       <viewpoints>
         <viewpoint name='All Professor Publication Count'>
           <zoom type='entire-view' />

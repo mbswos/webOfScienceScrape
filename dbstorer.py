@@ -277,8 +277,3 @@ class DBStorer:
 			return publication_db_id
 		except Exception as e:
 			print('Got error {!r}, errno is {}'.format(e, e.args[0]))
-
-	def store_test(self):
-		columns = {}
-		columns['test_id'] = 1
-		self.__store_into_db('TEST', columns)
