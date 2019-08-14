@@ -19,8 +19,8 @@
   <datasources>
     <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
       <aliases enabled='yes' />
-      <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
-        <calculation class='tableau' formula='1975' />
+      <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2016'>
+        <calculation class='tableau' formula='2016' />
         <range max='2019' min='1960' />
       </column>
       <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -3213,7 +3213,7 @@
           </metadata-records>
         </connection>
       </extract>
-      <layout dim-ordering='alphabetic' dim-percentage='0.440722' measure-ordering='alphabetic' measure-percentage='0.469072' parameter-percentage='0.0902062' show-structure='true' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.448571' measure-ordering='alphabetic' measure-percentage='0.461429' parameter-percentage='0.09' show-structure='true' />
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[none:FIRST_NAME:nk]' type='palette'>
@@ -3548,8 +3548,8 @@
       </default-sorts>
       <field-sort-info field-sort-order='descending' field-sort-order-type='alphabetical-order' />
       <datasource-dependencies datasource='Parameters'>
-        <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
-          <calculation class='tableau' formula='1975' />
+        <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2016'>
+          <calculation class='tableau' formula='2016' />
           <range max='2019' min='1960' />
         </column>
         <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -3847,8 +3847,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
-              <calculation class='tableau' formula='1975' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2016'>
+              <calculation class='tableau' formula='2016' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -3951,8 +3951,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
-              <calculation class='tableau' formula='1975' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2016'>
+              <calculation class='tableau' formula='2016' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4128,8 +4128,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
-              <calculation class='tableau' formula='1975' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2016'>
+              <calculation class='tableau' formula='2016' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4226,8 +4226,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
-              <calculation class='tableau' formula='1975' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2016'>
+              <calculation class='tableau' formula='2016' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4362,8 +4362,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
-              <calculation class='tableau' formula='1975' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2016'>
+              <calculation class='tableau' formula='2016' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4465,8 +4465,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
-              <calculation class='tableau' formula='1975' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2016'>
+              <calculation class='tableau' formula='2016' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4563,8 +4563,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
-              <calculation class='tableau' formula='1975' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2016'>
+              <calculation class='tableau' formula='2016' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -4720,7 +4720,7 @@
             </groupfilter>
           </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
-            <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action1]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+            <groupfilter function='member' level='[DEPARTMENT_NAME]' member='&quot;Business Technology&quot;' user:ui-action-filter='[Action1]' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
             <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action16]' user:ui-enumeration='all' user:ui-marker='enumerate' />
@@ -4828,8 +4828,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
-              <calculation class='tableau' formula='1975' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2016'>
+              <calculation class='tableau' formula='2016' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -5001,7 +5001,7 @@
             </groupfilter>
           </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Department Name)]'>
-            <groupfilter function='level-members' level='[DEPARTMENT_NAME]' user:ui-action-filter='[Action1]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+            <groupfilter function='member' level='[DEPARTMENT_NAME]' member='&quot;Business Technology&quot;' user:ui-action-filter='[Action1]' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[Action (Last &amp; First)]'>
             <groupfilter function='level-members' level='[Calculation_605171214667993110]' user:ui-action-filter='[Action2]' user:ui-enumeration='all' user:ui-marker='enumerate' />
@@ -5053,8 +5053,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
-              <calculation class='tableau' formula='1975' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2016'>
+              <calculation class='tableau' formula='2016' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -5161,8 +5161,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='1975'>
-              <calculation class='tableau' formula='1975' />
+            <column caption='Start Year' datatype='integer' default-format='*0' name='[Parameter 1]' param-domain-type='range' role='measure' type='quantitative' value='2016'>
+              <calculation class='tableau' formula='2016' />
               <range max='2019' min='1960' />
             </column>
             <column caption='End Year' datatype='integer' default-format='*0' name='[Parameter 2]' param-domain-type='range' role='measure' type='quantitative' value='2019'>
@@ -5221,6 +5221,58 @@
           <filter class='categorical' column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]'>
             <groupfilter function='level-members' level='[none:Calculation_605171214667993110:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
+          <manual-sort column='[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Andrade, Sandro&quot;</bucket>
+              <bucket>&quot;Aboudi, Ronny&quot;</bucket>
+              <bucket>&quot;Bernile, Gennaro&quot;</bucket>
+              <bucket>&quot;Bochkay, Khrystyna&quot;</bucket>
+              <bucket>&quot;Burch, Timothy&quot;</bucket>
+              <bucket>&quot;Chakraborty, Indraneel&quot;</bucket>
+              <bucket>&quot;Chen, Zoey&quot;</bucket>
+              <bucket>&quot;Chhaochharia, Vidhi&quot;</bucket>
+              <bucket>&quot;Chychyla, Roman&quot;</bucket>
+              <bucket>&quot;Cooper, Cecily&quot;</bucket>
+              <bucket>&quot;Cronqvist, Henrik&quot;</bucket>
+              <bucket>&quot;Dasborough, Marie&quot;</bucket>
+              <bucket>&quot;Delikouras, Stefanos&quot;</bucket>
+              <bucket>&quot;Falsetta, Diana&quot;</bucket>
+              <bucket>&quot;Ferri, Fabrizio&quot;</bucket>
+              <bucket>&quot;Fuerst, Michael&quot;</bucket>
+              <bucket>&quot;Geng, Xin&quot;</bucket>
+              <bucket>&quot;Heuson, Andrea&quot;</bucket>
+              <bucket>&quot;Irmak, Caglar&quot;</bucket>
+              <bucket>&quot;Jayaraman, Vaidyanathan&quot;</bucket>
+              <bucket>&quot;Johnson, Joseph&quot;</bucket>
+              <bucket>&quot;Khan, Uzma&quot;</bucket>
+              <bucket>&quot;Korniotis, George&quot;</bucket>
+              <bucket>&quot;Kumar, Alok&quot;</bucket>
+              <bucket>&quot;Laran, Juliano&quot;</bucket>
+              <bucket>&quot;Luo, Yadong&quot;</bucket>
+              <bucket>&quot;Makri, Marianna&quot;</bucket>
+              <bucket>&quot;Marmorstein, Howard&quot;</bucket>
+              <bucket>&quot;Mezias, John&quot;</bucket>
+              <bucket>&quot;Minutti-Meza, Miguel&quot;</bucket>
+              <bucket>&quot;Nanda, Dhananjay&quot;</bucket>
+              <bucket>&quot;Natarajan, Harihara&quot;</bucket>
+              <bucket>&quot;Neider, Linda&quot;</bucket>
+              <bucket>&quot;Parmeter, Christopher&quot;</bucket>
+              <bucket>&quot;Ramnath, Sundaresh&quot;</bucket>
+              <bucket>&quot;Schriesheim, Chester&quot;</bucket>
+              <bucket>&quot;Sharma, Arun&quot;</bucket>
+              <bucket>&quot;Shenkar, Oded&quot;</bucket>
+              <bucket>&quot;Shi, Wei&quot;</bucket>
+              <bucket>&quot;Su, Tie&quot;</bucket>
+              <bucket>&quot;Tang, Sammi&quot;</bucket>
+              <bucket>&quot;Townsend, Claudia&quot;</bucket>
+              <bucket>&quot;Tsiros, Michael&quot;</bucket>
+              <bucket>&quot;Weisbrod, Eric&quot;</bucket>
+              <bucket>&quot;Yang, Nan&quot;</bucket>
+              <bucket>&quot;Yunes, Tallys&quot;</bucket>
+              <bucket>&quot;Zacharias, Christos&quot;</bucket>
+              <bucket>&quot;Zane, Daniel&quot;</bucket>
+            </dictionary>
+          </manual-sort>
           <slices>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214661550101:nk]</column>
             <column>[federated.0boy2ug1szy2q116xw0dv02nzveb].[none:Calculation_605171214667993110:nk]</column>
@@ -5426,7 +5478,7 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='48475' id='5' name='h-index' w='49307' x='693' y='1524'>
+          <zone h='24523' id='5' name='h-index' w='99064' x='468' y='74521'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5434,7 +5486,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='48477' id='3' name='google citations' w='98614' x='693' y='49999'>
+          <zone h='24523' id='3' name='google citations' w='99064' x='468' y='49998'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5442,7 +5494,7 @@
               <format attr='margin' value='4' />
             </zone-style>
           </zone>
-          <zone h='48475' id='6' name='i10-index' w='49307' x='50000' y='1524'>
+          <zone h='49042' id='6' name='i10-index' w='99064' x='468' y='956'>
             <zone-style>
               <format attr='border-color' value='#000000' />
               <format attr='border-style' value='none' />
@@ -5846,7 +5898,7 @@
                     <zone h='89142' id='19' param='horz' type='layout-flow' w='98614' x='693' y='9334'>
                       <zone h='89142' id='17' param='horz' type='layout-flow' w='98614' x='693' y='9334'>
                         <zone h='89142' id='15' type='layout-basic' w='98614' x='693' y='9334'>
-                          <zone h='44570' id='5' name='Top Teachers by Average RateMyProfessors Rating' w='98614' x='693' y='9334'>
+                          <zone h='29715' id='5' name='Top Teachers by Average RateMyProfessors Rating' w='98614' x='693' y='36952'>
                             <zone-style>
                               <format attr='border-color' value='#000000' />
                               <format attr='border-style' value='none' />
@@ -5854,7 +5906,15 @@
                               <format attr='margin' value='4' />
                             </zone-style>
                           </zone>
-                          <zone h='44572' id='37' name='RateMyProfessors Professor Comments' show-title='false' w='98614' x='693' y='53904'>
+                          <zone h='31809' id='37' name='RateMyProfessors Professor Comments' show-title='false' w='98614' x='693' y='66667'>
+                            <zone-style>
+                              <format attr='border-color' value='#000000' />
+                              <format attr='border-style' value='none' />
+                              <format attr='border-width' value='0' />
+                              <format attr='margin' value='4' />
+                            </zone-style>
+                          </zone>
+                          <zone h='27618' id='50' name='Department RateMyProfessors Rating' w='98614' x='693' y='9334'>
                             <zone-style>
                               <format attr='border-color' value='#000000' />
                               <format attr='border-style' value='none' />
@@ -5954,8 +6014,8 @@
       <size minheight='1977' minwidth='769' sizing-mode='range' />
       <zones>
         <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
-          <zone h='99190' id='45' param='vert' type='layout-flow' w='99054' x='473' y='405'>
-            <zone h='2074' id='46' type='title' w='99054' x='473' y='405'>
+          <zone h='99190' id='45' param='vert' type='layout-flow' w='98596' x='702' y='405'>
+            <zone h='2074' id='46' type='title' w='98596' x='702' y='405'>
               <zone-style>
                 <format attr='border-color' value='#000000' />
                 <format attr='border-style' value='none' />
@@ -5963,10 +6023,10 @@
                 <format attr='margin' value='4' />
               </zone-style>
             </zone>
-            <zone h='97116' id='31' param='horz' type='layout-flow' w='99054' x='473' y='2479'>
-              <zone h='97116' id='16' param='horz' type='layout-flow' w='99054' x='473' y='2479'>
-                <zone h='97116' id='13' param='vert' type='layout-flow' w='99054' x='473' y='2479'>
-                  <zone fixed-size='90' forceUpdate='true' h='4957' id='41' is-fixed='true' param='[edu.miami.extensions.year-range-slider].[0.6.0].[http://localhost:8765/Samples/YearRangeSelect/yearrangeslider.html]' type='dashboard-object' w='99054' x='473' y='2479'>
+            <zone h='97116' id='31' param='horz' type='layout-flow' w='98596' x='702' y='2479'>
+              <zone h='97116' id='16' param='horz' type='layout-flow' w='98596' x='702' y='2479'>
+                <zone h='97116' id='13' param='vert' type='layout-flow' w='98596' x='702' y='2479'>
+                  <zone fixed-size='90' forceUpdate='true' h='4957' id='41' is-fixed='true' param='[edu.miami.extensions.year-range-slider].[0.6.0].[http://localhost:8765/Samples/YearRangeSelect/yearrangeslider.html]' type='dashboard-object' w='98596' x='702' y='2479'>
                     <add-in add-in-id='edu.miami.extensions.year-range-slider' extension-url='http://localhost:8765/Samples/YearRangeSelect/yearrangeslider.html' extension-version='0.6.0' instance-id='5AE42927F46349218D11B2ECE6576195'>
                       <instance-settings />
                       <type-settings>
@@ -5980,10 +6040,10 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone h='90540' id='11' param='horz' type='layout-flow' w='99054' x='473' y='7436'>
-                    <zone h='90540' id='7' param='horz' type='layout-flow' w='99054' x='473' y='7436'>
-                      <zone h='90540' id='5' type='layout-basic' w='99054' x='473' y='7436'>
-                        <zone h='23447' id='3' name='UTDallas Publication Count' w='49508' x='473' y='30003'>
+                  <zone h='90540' id='11' param='horz' type='layout-flow' w='98596' x='702' y='7436'>
+                    <zone h='90540' id='7' param='horz' type='layout-flow' w='98596' x='702' y='7436'>
+                      <zone h='90540' id='5' type='layout-basic' w='98596' x='702' y='7436'>
+                        <zone h='23447' id='3' name='UTDallas Publication Count' w='49279' x='702' y='30003'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -5991,7 +6051,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='22567' id='8' name='All Publications' w='49546' x='49981' y='7436'>
+                        <zone h='22567' id='8' name='All Publications' w='49317' x='49981' y='7436'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -5999,7 +6059,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='23068' id='9' name='FinancialTimes Top 50 Publication Count' w='49508' x='473' y='53450'>
+                        <zone h='23068' id='9' name='FinancialTimes Top 50 Publication Count' w='49279' x='702' y='53450'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -6007,7 +6067,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='22567' id='26' name='All Professor Publication Count' w='49508' x='473' y='7436'>
+                        <zone h='22567' id='26' name='All Professor Publication Count' w='49279' x='702' y='7436'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -6015,7 +6075,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='23447' id='27' name='UTDallas Publications' w='49546' x='49981' y='30003'>
+                        <zone h='23447' id='27' name='UTDallas Publications' w='49317' x='49981' y='30003'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -6023,7 +6083,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='23071' id='28' name='FinancialTimes Publications' w='49546' x='49981' y='53450'>
+                        <zone h='23071' id='28' name='FinancialTimes Publications' w='49317' x='49981' y='53450'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -6031,7 +6091,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='21458' id='29' name='Other Publication Count' w='49508' x='473' y='76518'>
+                        <zone h='21458' id='29' name='Other Publication Count' w='49279' x='702' y='76518'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -6039,7 +6099,7 @@
                             <format attr='margin' value='4' />
                           </zone-style>
                         </zone>
-                        <zone h='21455' id='32' name='Other Publications' w='49546' x='49981' y='76521'>
+                        <zone h='21455' id='32' name='Other Publications' w='49317' x='49981' y='76521'>
                           <zone-style>
                             <format attr='border-color' value='#000000' />
                             <format attr='border-style' value='none' />
@@ -6050,7 +6110,7 @@
                       </zone>
                     </zone>
                   </zone>
-                  <zone h='1619' id='38' type='dashboard-object' w='99054' x='473' y='97976'>
+                  <zone h='1619' id='38' type='dashboard-object' w='98596' x='702' y='97976'>
                     <add-in add-in-id='' extension-url='' extension-version='' instance-id='4F4E95045E9D45D8875C493E47AAC820'>
                       <instance-settings />
                       <type-settings>
@@ -6237,7 +6297,7 @@
       <active id='26' />
       <simple-id uuid='{AAB7AAEE-F92C-4B2D-9863-1FC0FA1A2AE2}' />
     </window>
-    <window class='dashboard' maximized='true' name='Timeline Test'>
+    <window class='dashboard' name='Timeline Test'>
       <viewpoints>
         <viewpoint name='All Professor Publication Count'>
           <zoom type='entire-view' />
@@ -6256,11 +6316,12 @@
         </viewpoint>
         <viewpoint name='UTDallas Publications' />
       </viewpoints>
-      <active id='41' />
+      <active id='26' />
       <simple-id uuid='{3C053A48-632A-44B5-B910-87F149EB143A}' />
     </window>
     <window class='dashboard' name='RateMyProfessors Data'>
       <viewpoints>
+        <viewpoint name='Department RateMyProfessors Rating' />
         <viewpoint name='RateMyProfessors Professor Comments'>
           <zoom type='fit-width' />
         </viewpoint>
@@ -6268,7 +6329,7 @@
           <zoom type='fit-width' />
         </viewpoint>
       </viewpoints>
-      <active id='-1' />
+      <active id='50' />
       <simple-id uuid='{F6C5615A-4C22-489C-93DE-8DEBDC47235F}' />
     </window>
     <window class='worksheet' name='Departments'>
@@ -6392,13 +6453,13 @@
       </cards>
       <simple-id uuid='{64CA8419-05E1-4209-A119-20AA7F671D7E}' />
     </window>
-    <window class='dashboard' name='Google Statistics'>
+    <window class='dashboard' maximized='true' name='Google Statistics'>
       <viewpoints>
         <viewpoint name='google citations' />
         <viewpoint name='h-index' />
         <viewpoint name='i10-index' />
       </viewpoints>
-      <active id='3' />
+      <active id='5' />
       <simple-id uuid='{C4574272-6D34-4451-B31D-C9B7E29739A9}' />
     </window>
     <window class='worksheet' name='Sheet 17'>
