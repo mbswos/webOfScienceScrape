@@ -27,7 +27,7 @@ con.connect(function(err){
 });
 
 //setup sql
-var data = fs.readFileSync('TableauSQLQuery.sql', 'utf8');
+var data = fs.readFileSync('DatabaseScripts/TableauSQLQuery.sql', 'utf8');
 
 //setup excel worksheet
 var filename = 'temp.csv';
@@ -35,6 +35,7 @@ var filename = 'temp.csv';
 var workbook = new excel.Workbook(); //creating workbook
 var sheet = workbook.addWorksheet('Raw Values'); //creating worksheet
 
+//Grab raw data
 con.query(data, function(err, result, fields){
   if(err) console.log(err);
   sheet.addRow().values = Object.keys(result[0]);

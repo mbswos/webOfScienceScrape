@@ -16,12 +16,16 @@ Requirements:
 	- npm install fs
 	- npm install exceljs
 	- npm install path
+	- npm install -g concurrently
 
 	Other Applications
 	- Tableau Desktop 2019.2 or newer
 
 	Database Requirements
 	- MySQL Server 8.0.0 or newer
+
+	Note:
+	- There may be other packages to be installed. Make sure the package is installed in the right file. There is a difference between installing at the WebOfScience, WebOfScience/ExportServer, WebOfScience/Website, WebOfScience/Website/client, WebOfScience/Website/server
 
 Setup:
 	MySQL
@@ -65,6 +69,8 @@ Folders in webOfScienceScrape:
 		- Contains the code for querying and storing data from UTDallas.
 	WebOfScience
 		- Contains the code for querying and storing data from WebOfScienceLite.
+	Website
+		- The new way of presenting data to Dean Cronqvist since he wants some functionality Tableau does not provide. The plan is to make a full stack website that will have the full functionality to display bar graphs, treemaps, and tables of data.
 
 Files in webOfScienceScrape:
 	authorinitialization.py (deletable)
