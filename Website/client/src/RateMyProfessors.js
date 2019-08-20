@@ -121,6 +121,7 @@ function RateMyProfessors(){
   return (
     <div className="container">
       <h1 className="center-text">RateMyProfessors</h1>
+      <h2 className="center-text">Department Averages</h2>
       <div className="row">
         <div className="col-md-12">
           <FlexibleWidthXYPlot yType="ordinal" width={window.innerWidth-250} height={400} margin={{left:200}}>
@@ -132,6 +133,7 @@ function RateMyProfessors(){
           </FlexibleWidthXYPlot>
         </div>
       </div>
+      <h2 className="center-text">Professor Averages</h2>
       <div className="row">
         <div className="col-md-12">
           <div className="scroll-div">
@@ -145,6 +147,7 @@ function RateMyProfessors(){
           </div>
         </div>
       </div>
+      <h2 className="center-text">Student Comments</h2>
       <div className="row">
         <div className="col-md-12">
           <div className="scroll-div">

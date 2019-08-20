@@ -10,6 +10,7 @@ import {FlexibleWidthXYPlot,
   Treemap
 } from 'react-vis';
 import PublicationTable from './components/PublicationTable';
+import Slider from '@material-ui/core/Slider';
 
 function useFetch(url){
   const defaultData = []
@@ -146,6 +147,17 @@ function Publications(){
   return (
     <div className="container">
       <div className="row"><h1 className="center-text">Publications</h1></div>
+      <div className="row">
+        <Slider
+          defaultValue={[1990, 2019]}
+          aria-labelledby="discrete-slider-always"
+          step={1}
+          marks={[1990, 1995, 2000, 2005, 2010, 2015]}
+          valueLabelDisplay="on"
+          min={1990}
+          max={2019}
+        />
+      </div>
       <div className="row">
         <div className="col-md-12 nopadding">
           <FlexibleWidthXYPlot yType="ordinal" width={window.innerWidth-250} height={400} margin={{left:200}}>
