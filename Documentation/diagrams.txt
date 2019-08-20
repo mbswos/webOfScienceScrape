@@ -1,0 +1,4 @@
+The Database_Diagram file is probably the most important file (open in mysql workbench)
+This outlays the Database design.
+
+The Architecture.drawio should give an accurate layout of how the program should be built and structured.

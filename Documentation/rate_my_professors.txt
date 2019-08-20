@@ -1,0 +1,7 @@
+RateMyProfessors
+
+ratemyprofessors.py - goes to rate my professors and stores data from it.
+ProfessorListDump.txt - created when ratemyprofessors.py is run. Contains basic professor information (does not contain comments)
+RMPClass.py - created by a person who scraped from ratemyprofessors. Keep this file.
+
+Other files are not needed including the professors folder. These folders are backups within the code.

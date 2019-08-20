@@ -1,0 +1,37 @@
+Website
+
+cd to Website folder
+You can run it with npm start
+
+Client: React
+	Main JavaScript files:
+	- App.js 
+		- Holds the tabs object
+		- Eventually bring all the loading of data here so that shifting through pages becomes easy
+	- GoogleScholar.js
+		- Responsible for grabbing and displaying GoogleScholar faculty data
+	- Publication.js
+		- Responsible for grabbing and displaying Publication faculty data
+	- RateMyProfessors.js
+		- Responsible for grabbing and displaying RateMyProfessors faculty data
+	- components/PublicationTable.js
+		- Responsible for rendering a table segregated into faculty members and rows.
+
+	Main CSS Files:
+	- App.css
+		- Styling is done here
+
+Server: NodeJS
+	Main JavaScript files:
+	- routes/departments.js
+		-Responsible for grabbing and sending data from mysql
+
+	Main SQL files:
+	- database_scripts/Departments.sql
+		- Grabs data by department (Might want to delete this file and update the way we format data in Departments and Publications)
+	- database_scripts/DepartmentsAndGoogleScholar.sql
+		- Grabs (citations, hindex, i10index) by faculty member from GoogleScholar 
+	- database_scripts/DepartmentsAndPublications.sql
+		- Grabs (publication title, year) by faculty member 
+	- database_scripts/DepartmentsAndRateMyProfessors.sql
+		- Grabs (comments, average_score) by faculty member

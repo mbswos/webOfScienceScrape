@@ -1,0 +1,3 @@
+ORCID
+
+This folder can almost be ignored. The python files being run in the setup.py can be deleted. It is no longer necessary to this project.

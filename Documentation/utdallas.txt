@@ -1,0 +1,5 @@
+UTDallas
+
+webcrawlerutdallas.py - grabs and stores publication data by professor from the University of Miami that is in their list of journals. (This does not include publications UM professors published from other universities)
+
+webcrawlerutdallasjournals.py - grabs and stores journals that UTDallas defines as prestigious. 

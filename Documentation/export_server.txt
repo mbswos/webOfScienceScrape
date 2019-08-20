@@ -1,0 +1,5 @@
+Export Server
+This is reference code and will soon be phased out by Website. 
+Index.ejs - basically the html page.
+app.js - the js responsible for grabbing and sending the export data from the database
+temp.csv - the csv file created to be downloaded by a user.

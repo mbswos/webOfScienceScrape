@@ -1,0 +1,3 @@
+GoogleScholar
+query and store - goes to google scholar and grabs relevant data.
+Currently this function also grabs the publications. If we don't grab the publications and just grab the professor profiles, we can save a lot of time when we run our query.

@@ -1,0 +1,5 @@
+Financial Times Top 50 Journals
+
+FinancialTimesTop50Journals.txt - a txt file of the top 50 journals Financial Times uses to rank publications and Universities.
+
+financialtimestop50journals.py - the python file that stores data from the financial times txt file.

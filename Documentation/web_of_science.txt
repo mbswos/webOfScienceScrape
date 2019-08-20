@@ -1,0 +1,8 @@
+WebOfScience
+
+This folder will be updated to grab information more accurately from web of science more accurately.
+
+webofsciencequerier.py is the python file that is responsible for this. 
+Robert Plant DAIS return.txt is the reference file of what we can get if we look by DAIS.
+
+Other files can be ignored.
